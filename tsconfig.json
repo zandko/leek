@@ -1,0 +1,39 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2021",
+    "sourceMap": true,
+    "outDir": "./dist",
+    "baseUrl": "./",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strictNullChecks": false,
+    "noImplicitAny": false,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@leek/common": ["src/common"],
+      "@leek/common/*": ["src/common/*"],
+      "@leek/configure": ["src/configure"],
+      "@leek/constants": ["src/constants"],
+      "@leek/assistants": ["src/assistants"],
+      "@leek/assistants/*": ["src/assistants/*"],
+      "@leek/datasets": ["src/datasets"],
+      "@leek/datasets/*": ["src/datasets/*"],
+      "@leek/files": ["src/files"],
+      "@leek/files/*": ["src/files/*"],
+      "@leek/interfaces": ["src/interfaces"],
+      "@leek/langchain": ["src/langchain"],
+      "@leek/prisma": ["src/prisma"],
+      "@leek/utils": ["src/utils"],
+      "@leek/validators": ["src/validators"],
+      "@leek/providers": ["src/providers"]
+		}
+  }
+}

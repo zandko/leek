@@ -1,0 +1,7 @@
+{
+  "success": "操作成功",
+  "error": "发生了错误",
+  "not_found": "资源未找到",
+  "unauthorized": "未授权访问",
+  "forbidden": "禁止访问"
+}

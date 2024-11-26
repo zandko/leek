@@ -1,0 +1,6 @@
+{
+  "required": "{field} 字段是必填项",
+  "min_length": "{field} 字段的最小长度为 {length} 个字符",
+  "max_length": "{field} 字段的最大长度不能超过 {length} 个字符",
+  "email": "{field} 字段必须是有效的电子邮件地址"
+}

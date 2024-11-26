@@ -1,0 +1,6 @@
+node_modules
+.yarn-cache
+.git
+logs
+tests
+coverage

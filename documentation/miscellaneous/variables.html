@@ -1,0 +1,3358 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>leek documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">leek documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#b" title="src/datasets/shared/prompts/index.ts" ><b>b</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#browser" title="src/assistants/tools/webbrowser.ts" ><b>browser</b>&nbsp;&nbsp;&nbsp;(src/.../webbrowser.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ChatSseResponse" title="src/assistants/dto/conversation.dto.ts" ><b>ChatSseResponse</b>&nbsp;&nbsp;&nbsp;(src/.../conversation.dto.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CommonApiResponses" title="src/common/decorators/common-api-responses.decorator.ts" ><b>CommonApiResponses</b>&nbsp;&nbsp;&nbsp;(src/.../common-api-responses.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#CONTEXT" title="src/datasets/shared/prompts/index.ts" ><b>CONTEXT</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Cookies" title="src/common/decorators/cookie.decorator.ts" ><b>Cookies</b>&nbsp;&nbsp;&nbsp;(src/.../cookie.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_PRE_PROCESSING_RULES" title="src/constants/datasets.ts" ><b>DEFAULT_PRE_PROCESSING_RULES</b>&nbsp;&nbsp;&nbsp;(src/.../datasets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DEFAULT_SEGMENTATION_RULE" title="src/constants/datasets.ts" ><b>DEFAULT_SEGMENTATION_RULE</b>&nbsp;&nbsp;&nbsp;(src/.../datasets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#DUMMY_ID" title="src/utils/uuid.util.ts" ><b>DUMMY_ID</b>&nbsp;&nbsp;&nbsp;(src/.../uuid.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EMBEDDING_MODEL_NAME" title="src/constants/llm.ts" ><b>EMBEDDING_MODEL_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../llm.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EMBEDDING_PROVIDER_NAME" title="src/constants/llm.ts" ><b>EMBEDDING_PROVIDER_NAME</b>&nbsp;&nbsp;&nbsp;(src/.../llm.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#embeddings" title="src/assistants/tools/webbrowser.ts" ><b>embeddings</b>&nbsp;&nbsp;&nbsp;(src/.../webbrowser.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#encodeAsync" title="src/utils/tokenizer.util.ts" ><b>encodeAsync</b>&nbsp;&nbsp;&nbsp;(src/.../tokenizer.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#END_COMPLETION" title="src/constants/chat.ts" ><b>END_COMPLETION</b>&nbsp;&nbsp;&nbsp;(src/.../chat.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FILE_UPLOAD_ALLOWED_EXTENSIONS" title="src/constants/file.ts" ><b>FILE_UPLOAD_ALLOWED_EXTENSIONS</b>&nbsp;&nbsp;&nbsp;(src/.../file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FILE_UPLOAD_BLACKLIST" title="src/constants/file.ts" ><b>FILE_UPLOAD_BLACKLIST</b>&nbsp;&nbsp;&nbsp;(src/.../file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FILE_UPLOAD_MAX_SIZE" title="src/constants/file.ts" ><b>FILE_UPLOAD_MAX_SIZE</b>&nbsp;&nbsp;&nbsp;(src/.../file.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#fileFilter" title="src/utils/file_upload.util.ts" ><b>fileFilter</b>&nbsp;&nbsp;&nbsp;(src/.../file_upload.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#generateVectorClassPrefixByDatasetId" title="src/datasets/shared/utils/generate-vector-class-prefix-by-dataset-id.util.ts" ><b>generateVectorClassPrefixByDatasetId</b>&nbsp;&nbsp;&nbsp;(src/.../generate-vector-class-prefix-by-dataset-id.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GENERATOR_QA_PROMPT" title="src/datasets/shared/prompts/index.ts" ><b>GENERATOR_QA_PROMPT</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#GeneratorQaPrompt" title="src/datasets/shared/prompts/generator-qa.prompt.ts" ><b>GeneratorQaPrompt</b>&nbsp;&nbsp;&nbsp;(src/.../generator-qa.prompt.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#getMessagesTokenCount" title="src/utils/tokenizer.util.ts" ><b>getMessagesTokenCount</b>&nbsp;&nbsp;&nbsp;(src/.../tokenizer.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Is" title="src/utils/is.util.ts" ><b>Is</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isDate" title="src/utils/is.util.ts" ><b>isDate</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isEmail" title="src/utils/is.util.ts" ><b>isEmail</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isEmpty" title="src/utils/is.util.ts" ><b>isEmpty</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isFloat" title="src/utils/is.util.ts" ><b>isFloat</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isFormData" title="src/utils/is.util.ts" ><b>isFormData</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isFormElement" title="src/utils/is.util.ts" ><b>isFormElement</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isFunction" title="src/utils/is.util.ts" ><b>isFunction</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isGenerator" title="src/utils/is.util.ts" ><b>isGenerator</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isInt" title="src/utils/is.util.ts" ><b>isInt</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isIterable" title="src/utils/is.util.ts" ><b>isIterable</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isJson" title="src/utils/is.util.ts" ><b>isJson</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isObject" title="src/utils/is.util.ts" ><b>isObject</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isPlainObject" title="src/utils/is.util.ts" ><b>isPlainObject</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isPrimitive" title="src/utils/is.util.ts" ><b>isPrimitive</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isPromise" title="src/utils/is.util.ts" ><b>isPromise</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isRegex" title="src/utils/is.util.ts" ><b>isRegex</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isScalar" title="src/utils/is.util.ts" ><b>isScalar</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isUrl" title="src/utils/is.util.ts" ><b>isUrl</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#isValidId" title="src/utils/is.util.ts" ><b>isValidId</b>&nbsp;&nbsp;&nbsp;(src/.../is.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#logger" title="src/main.ts" ><b>logger</b>&nbsp;&nbsp;&nbsp;(src/.../main.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MEAN_INDEXING_LATENCY" title="src/constants/datasets.ts" ><b>MEAN_INDEXING_LATENCY</b>&nbsp;&nbsp;&nbsp;(src/.../datasets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#model" title="src/assistants/tools/webbrowser.ts" ><b>model</b>&nbsp;&nbsp;&nbsp;(src/.../webbrowser.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#QUERY_CONTEXT_PREFIX" title="src/constants/datasets.ts" ><b>QUERY_CONTEXT_PREFIX</b>&nbsp;&nbsp;&nbsp;(src/.../datasets.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#QUESTION_GENERATOR_TEMPLATE" title="src/datasets/shared/prompts/index.ts" ><b>QUESTION_GENERATOR_TEMPLATE</b>&nbsp;&nbsp;&nbsp;(src/.../index.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RAGChatHistoryPrompt" title="src/datasets/shared/prompts/rag-chat-history.prompt.ts" ><b>RAGChatHistoryPrompt</b>&nbsp;&nbsp;&nbsp;(src/.../rag-chat-history.prompt.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RAGPrompt" title="src/datasets/shared/prompts/rag.prompt.ts" ><b>RAGPrompt</b>&nbsp;&nbsp;&nbsp;(src/.../rag.prompt.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#serializeChatHistoryToText" title="src/langchain/utils/serialize_chat_history.ts" ><b>serializeChatHistoryToText</b>&nbsp;&nbsp;&nbsp;(src/.../serialize_chat_history.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#sleep" title="src/utils/sleep.util.ts" ><b>sleep</b>&nbsp;&nbsp;&nbsp;(src/.../sleep.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#Source" title="src/common/decorators/source.decorator.ts" ><b>Source</b>&nbsp;&nbsp;&nbsp;(src/.../source.decorator.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#STOPWORDS" title="src/constants/stopwords.ts" ><b>STOPWORDS</b>&nbsp;&nbsp;&nbsp;(src/.../stopwords.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#supportedLanguageCount" title="src/constants/language.ts" ><b>supportedLanguageCount</b>&nbsp;&nbsp;&nbsp;(src/.../language.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#systemPrompt" title="src/datasets/shared/prompts/rag.prompt.ts" ><b>systemPrompt</b>&nbsp;&nbsp;&nbsp;(src/.../rag.prompt.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#TRANSACTIONAL_TIMEOUT" title="src/prisma/transaction.manager.ts" ><b>TRANSACTIONAL_TIMEOUT</b>&nbsp;&nbsp;&nbsp;(src/.../transaction.manager.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uuid" title="src/utils/uuid.util.ts" ><b>uuid</b>&nbsp;&nbsp;&nbsp;(src/.../uuid.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#uuidValidate" title="src/utils/uuid.util.ts" ><b>uuidValidate</b>&nbsp;&nbsp;&nbsp;(src/.../uuid.util.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#validateRegex" title="src/utils/uuid.util.ts" ><b>validateRegex</b>&nbsp;&nbsp;&nbsp;(src/.../uuid.util.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/datasets/shared/prompts/index.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="b"></a>
+                    <span class="name">
+                        <span ><b>b</b></span>
+                        <a href="#b"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;Here is the chat histories between human and assistant, inside &lt;histories&gt;&lt;/histories&gt; XML tags.
+
+&lt;histories&gt;
+{{#histories#}}
+&lt;/histories&gt;\n\n&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CONTEXT"></a>
+                    <span class="name">
+                        <span ><b>CONTEXT</b></span>
+                        <a href="#CONTEXT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;Use the following context as your learned knowledge, inside &lt;context&gt;&lt;/context&gt; XML tags.
+
+&lt;context&gt;
+{{#context#}}
+&lt;/context&gt;
+
+When answer to user:
+- If you don&#x27;t know, just say that you don&#x27;t know.
+- If you don&#x27;t know when you are not sure, ask for clarification.
+Avoid mentioning that you obtained the information from the context.
+And answer according to the language of the user&#x27;s question.\n\n&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GENERATOR_QA_PROMPT"></a>
+                    <span class="name">
+                        <span ><b>GENERATOR_QA_PROMPT</b></span>
+                        <a href="#GENERATOR_QA_PROMPT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;&lt;Task&gt; The user will send a long text. Generate a Question and Answer pairs only using the knowledge
+in the long text. Please think step by step.
+Step 1: Understand and summarize the main content of this text.
+Step 2: What key information or concepts are mentioned in this text?
+Step 3: Decompose or combine multiple pieces of information and concepts.
+Step 4: Generate questions and answers based on these key information and concepts.
+&lt;Constraints&gt; The questions should be clear and detailed, and the answers should be detailed and complete. 
+You must answer in {language}, in a style that is clear and detailed in {language}.
+No language other than {language} should be used.
+&lt;Format&gt; Use the following format: Q1:\nA1:\nQ2:\nA2:...
+&lt;QA Pairs&gt;&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QUESTION_GENERATOR_TEMPLATE"></a>
+                    <span class="name">
+                        <span ><b>QUESTION_GENERATOR_TEMPLATE</b></span>
+                        <a href="#QUESTION_GENERATOR_TEMPLATE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;Given the following question history and a follow up question, rephrase the follow up question to be a standalone question.
+Your are only permitted to rephrase the question, not to provide an answer.
+Your are only permitted to rephrase the question in Chinese.
+Your need to streamline the question, emphasize the theme, and remove irrelevant or unnecessary details.
+
+If you encounter questions related to finding goods, finding a store or finding a hotel, please rephrase the question in a commanding way.
+If a following question is unrelated to the previous one, ensure to rephrase it as a completely independent new question, avoiding any connection with the previous one. However, if a following question needs to be related to the previous one, then when rephrase the question, make sure to effectively link this independent question with the previous one.
+
+----------------
+QUESTION HISTORY:
+
+{newQuestionHistory}
+----------------
+FOLLOW UP INPUT: {question}
+----------------
+
+Your answer(请用中文简体白话文回答)(Let&#x27;s work this out in a step by step way to be sure we have the right answer):&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/assistants/tools/webbrowser.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="browser"></a>
+                    <span class="name">
+                        <span ><b>browser</b></span>
+                        <a href="#browser"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new WebBrowser({ model, embeddings })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="embeddings"></a>
+                    <span class="name">
+                        <span ><b>embeddings</b></span>
+                        <a href="#embeddings"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new OpenAIEmbeddings(
+  process.env.AZURE_OPENAI_API_KEY ? { azureOpenAIApiDeploymentName: &#x27;Embeddings2&#x27; } : {},
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="model"></a>
+                    <span class="name">
+                        <span ><b>model</b></span>
+                        <a href="#model"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new ChatOpenAI({ temperature: 0 })</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/assistants/dto/conversation.dto.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ChatSseResponse"></a>
+                    <span class="name">
+                        <span ><b>ChatSseResponse</b></span>
+                        <a href="#ChatSseResponse"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ApiResponseOptions</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  description: &#x27;会话启动成功后，服务器将通过 SSE 推送助手的响应。&#x27;,
+  content: {
+    &#x27;text/event-stream&#x27;: {
+      example: &#x27;data: {&quot;message&quot;:{&quot;author&quot;:{&quot;role&quot;:&quot;assistant&quot;},&quot;content&quot;:{&quot;content_type&quot;:&quot;text&quot;,&quot;parts&quot;:[&quot;I&quot;]}}}&#x27;,
+    },
+  },
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/decorators/common-api-responses.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="CommonApiResponses"></a>
+                    <span class="name">
+                        <span ><b>CommonApiResponses</b></span>
+                        <a href="#CommonApiResponses"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt;
+  applyDecorators(
+    ApiBadRequestResponse({ description: &#x27;Invalid request parameters.&#x27; }),
+    ApiUnauthorizedResponse({ description: &#x27;Authentication credentials are missing or invalid.&#x27; }),
+    ApiForbiddenResponse({ description: &#x27;Access to the requested resource is forbidden.&#x27; }),
+    ApiInternalServerErrorResponse({ description: &#x27;An unexpected error occurred on the server.&#x27; }),
+  )</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/decorators/cookie.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Cookies"></a>
+                    <span class="name">
+                        <span ><b>Cookies</b></span>
+                        <a href="#Cookies"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createParamDecorator((data: string, ctx: ExecutionContext) &#x3D;&gt; {
+  const request &#x3D; ctx.switchToHttp().getRequest&lt;Request&gt;();
+  return data ? request.cookies?.[data] : request.cookies;
+})</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/datasets.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_PRE_PROCESSING_RULES"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_PRE_PROCESSING_RULES</b></span>
+                        <a href="#DEFAULT_PRE_PROCESSING_RULES"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/PreProcessingRuleDto.html" target="_self" >PreProcessingRuleDto[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[
+  {
+    id: &#x27;removeExtraSpaces&#x27;,
+    enabled: true,
+  },
+  {
+    id: &#x27;removeUrlsEmails&#x27;,
+    enabled: false,
+  },
+]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DEFAULT_SEGMENTATION_RULE"></a>
+                    <span class="name">
+                        <span ><b>DEFAULT_SEGMENTATION_RULE</b></span>
+                        <a href="#DEFAULT_SEGMENTATION_RULE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../classes/SegmentationRuleDto.html" target="_self" >SegmentationRuleDto</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  separator: &#x27;\n\n, 。, . , ,&#x27;,
+  maxTokens: 500,
+  chunkOverlap: 50,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MEAN_INDEXING_LATENCY"></a>
+                    <span class="name">
+                        <span ><b>MEAN_INDEXING_LATENCY</b></span>
+                        <a href="#MEAN_INDEXING_LATENCY"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#b" target="_self" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1131.9</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="QUERY_CONTEXT_PREFIX"></a>
+                    <span class="name">
+                        <span ><b>QUERY_CONTEXT_PREFIX</b></span>
+                        <a href="#QUERY_CONTEXT_PREFIX"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;useful for when you want to answer queries about the &#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/utils/uuid.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="DUMMY_ID"></a>
+                    <span class="name">
+                        <span ><b>DUMMY_ID</b></span>
+                        <a href="#DUMMY_ID"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>NIL</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Temporary ID to avoid infinite loops. Useful
+when ID must be specified for a schema, but formik is
+set to enableReinitialize</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uuid"></a>
+                    <span class="name">
+                        <span ><b>uuid</b></span>
+                        <a href="#uuid"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>() &#x3D;&gt; uuidv4()</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Generates a v4 UUID</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="uuidValidate"></a>
+                    <span class="name">
+                        <span ><b>uuidValidate</b></span>
+                        <a href="#uuidValidate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(uuid: unknown) &#x3D;&gt; {
+  if (!uuid || typeof uuid !&#x3D;&#x3D; &#x27;string&#x27;) return false;
+  return validateRegex.test(uuid);
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Validates a v4 UUID</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateRegex"></a>
+                    <span class="name">
+                        <span ><b>validateRegex</b></span>
+                        <a href="#validateRegex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>/^(?:[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}|00000000-0000-0000-0000-000000000000)$/i</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/llm.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EMBEDDING_MODEL_NAME"></a>
+                    <span class="name">
+                        <span ><b>EMBEDDING_MODEL_NAME</b></span>
+                        <a href="#EMBEDDING_MODEL_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text-embedding-3-small&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EMBEDDING_PROVIDER_NAME"></a>
+                    <span class="name">
+                        <span ><b>EMBEDDING_PROVIDER_NAME</b></span>
+                        <a href="#EMBEDDING_PROVIDER_NAME"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;openai&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/utils/tokenizer.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="encodeAsync"></a>
+                    <span class="name">
+                        <span ><b>encodeAsync</b></span>
+                        <a href="#encodeAsync"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (str: string) &#x3D;&gt; {
+  const { encode } &#x3D; await import(&#x27;gpt-tokenizer&#x27;);
+
+  return encode(str).length;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getMessagesTokenCount"></a>
+                    <span class="name">
+                        <span ><b>getMessagesTokenCount</b></span>
+                        <a href="#getMessagesTokenCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>async (messages: ChatMessage[]) &#x3D;&gt;
+  encodeAsync(messages.map((m) &#x3D;&gt; m.content).join(&#x27;&#x27;))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/chat.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="END_COMPLETION"></a>
+                    <span class="name">
+                        <span ><b>END_COMPLETION</b></span>
+                        <a href="#END_COMPLETION"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;[DONE]&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/file.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FILE_UPLOAD_ALLOWED_EXTENSIONS"></a>
+                    <span class="name">
+                        <span ><b>FILE_UPLOAD_ALLOWED_EXTENSIONS</b></span>
+                        <a href="#FILE_UPLOAD_ALLOWED_EXTENSIONS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;txt&#x27;, &#x27;md&#x27;, &#x27;pdf&#x27;, &#x27;html&#x27;, &#x27;xlsx&#x27;, &#x27;xls&#x27;, &#x27;docx&#x27;, &#x27;csv&#x27;, &#x27;pptx&#x27;]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FILE_UPLOAD_BLACKLIST"></a>
+                    <span class="name">
+                        <span ><b>FILE_UPLOAD_BLACKLIST</b></span>
+                        <a href="#FILE_UPLOAD_BLACKLIST"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[&#x27;.DS_Store&#x27;]</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FILE_UPLOAD_MAX_SIZE"></a>
+                    <span class="name">
+                        <span ><b>FILE_UPLOAD_MAX_SIZE</b></span>
+                        <a href="#FILE_UPLOAD_MAX_SIZE"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>15 * 1024 * 1024</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/utils/file_upload.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="fileFilter"></a>
+                    <span class="name">
+                        <span ><b>fileFilter</b></span>
+                        <a href="#fileFilter"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(req: Request, file: Express.Multer.File, callback: Function) &#x3D;&gt; {
+  const fileExtension &#x3D; file.originalname.split(&#x27;.&#x27;).pop()?.toLowerCase();
+  if (!FILE_UPLOAD_ALLOWED_EXTENSIONS.includes(fileExtension || &#x27;&#x27;)) {
+    return callback(new Error(&#x27;Unsupported file type&#x27;), false);
+  }
+  callback(null, true);
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/datasets/shared/utils/generate-vector-class-prefix-by-dataset-id.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateVectorClassPrefixByDatasetId"></a>
+                    <span class="name">
+                        <span ><b>generateVectorClassPrefixByDatasetId</b></span>
+                        <a href="#generateVectorClassPrefixByDatasetId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(datasetId: string): string &#x3D;&gt; &#x60;Vector_index_${datasetId}_Node&#x60;</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>生成向量类前缀。</p>
+<p>根据数据集 ID 动态生成向量索引的类前缀，用于唯一标识特定数据集的节点。</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/datasets/shared/prompts/generator-qa.prompt.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="GeneratorQaPrompt"></a>
+                    <span class="name">
+                        <span ><b>GeneratorQaPrompt</b></span>
+                        <a href="#GeneratorQaPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ChatPromptTemplate.fromMessages([
+  [
+    &#x27;system&#x27;,
+    &#x60;&lt;Task&gt; The user will send a long text. Generate a Question and Answer pairs only using the knowledge
+in the long text. Please think step by step.
+Step 1: Understand and summarize the main content of this text.
+Step 2: What key information or concepts are mentioned in this text?
+Step 3: Decompose or combine multiple pieces of information and concepts.
+Step 4: Generate questions and answers based on these key information and concepts.
+&lt;Constraints&gt; The questions should be clear and detailed, and the answers should be detailed and complete. 
+You must answer in {language}, in a style that is clear and detailed in {language}.
+No language other than {language} should be used.
+&lt;Format&gt; Use the following format: Q1:\nA1:\nQ2:\nA2:...
+&lt;QA Pairs&gt;&#x60;,
+  ],
+  [&#x27;user&#x27;, &#x27;{text}&#x27;],
+])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/utils/is.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Is"></a>
+                    <span class="name">
+                        <span ><b>Is</b></span>
+                        <a href="#Is"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../miscellaneous/variables.html#b" target="_self" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  fn: isFunction,
+  numeric: isNumeric,
+  int: isInt,
+  float: isFloat,
+  regex: isRegex,
+  object: isObject,
+  plainObject: isPlainObject,
+  array: Array.isArray,
+  validHtmlId: isValidId,
+  formElement: isFormElement,
+  form: isFormElement,
+  formData: isFormData,
+  iterable: isIterable,
+  scalar: isScalar,
+  primitive: isPrimitive,
+  promise: isPromise,
+  date: isDate,
+  generator: isGenerator,
+  empty: isEmpty,
+  json: isJson,
+  url: isUrl,
+  email: isEmail,
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isDate"></a>
+                    <span class="name">
+                        <span ><b>isDate</b></span>
+                        <a href="#isDate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; value.constructor &#x3D;&#x3D;&#x3D; Date</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEmail"></a>
+                    <span class="name">
+                        <span ><b>isEmail</b></span>
+                        <a href="#isEmail"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt;
+  /^(([^&lt;&gt;()\[\]\\.,;:\s@&quot;]+(\.[^&lt;&gt;()\[\]\\.,;:\s@&quot;]+)*)|(&quot;.+&quot;))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
+    value,
+  )</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isEmpty"></a>
+                    <span class="name">
+                        <span ><b>isEmpty</b></span>
+                        <a href="#isEmpty"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; {
+  if ([0, true, false].includes(value)) return false;
+
+  if (value &#x3D;&#x3D;&#x3D; undefined || value &#x3D;&#x3D;&#x3D; null || value &#x3D;&#x3D;&#x3D; &#x27;&#x27;) return true;
+
+  // check for map and set
+  if (value instanceof Map || value instanceof Set) {
+    return value.size &#x3D;&#x3D;&#x3D; 0;
+  }
+
+  if (isIterable(value)) {
+    return value.length &#x3D;&#x3D;&#x3D; 0;
+  }
+
+  if (isObject(value)) {
+    return Object.keys(value).length &#x3D;&#x3D;&#x3D; 0;
+  }
+
+  // this is used here for zero
+  if (isNumeric(value)) return false;
+
+  return true;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFloat"></a>
+                    <span class="name">
+                        <span ><b>isFloat</b></span>
+                        <a href="#isFloat"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; typeof value &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; /^\d+.(\d+)$/.test(String(value))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFormData"></a>
+                    <span class="name">
+                        <span ><b>isFormData</b></span>
+                        <a href="#isFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value instanceof FormData</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFormElement"></a>
+                    <span class="name">
+                        <span ><b>isFormElement</b></span>
+                        <a href="#isFormElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt;
+  typeof HTMLFormElement &#x3D;&#x3D;&#x3D; &#x27;undefined&#x27; ? false : value instanceof HTMLFormElement</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isFunction"></a>
+                    <span class="name">
+                        <span ><b>isFunction</b></span>
+                        <a href="#isFunction"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; typeof value &#x3D;&#x3D;&#x3D; &#x27;function&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isGenerator"></a>
+                    <span class="name">
+                        <span ><b>isGenerator</b></span>
+                        <a href="#isGenerator"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt;
+  value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27; &amp;&amp; value.constructor.name &#x3D;&#x3D;&#x3D; &#x27;GeneratorFunction&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isInt"></a>
+                    <span class="name">
+                        <span ><b>isInt</b></span>
+                        <a href="#isInt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; typeof value &#x3D;&#x3D;&#x3D; &#x27;number&#x27; &amp;&amp; /^\d+$/.test(String(value))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isIterable"></a>
+                    <span class="name">
+                        <span ><b>isIterable</b></span>
+                        <a href="#isIterable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; typeof value[Symbol.iterator] &#x3D;&#x3D;&#x3D; &#x27;function&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isJson"></a>
+                    <span class="name">
+                        <span ><b>isJson</b></span>
+                        <a href="#isJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; {
+  try {
+    JSON.parse(value);
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    return false;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isObject"></a>
+                    <span class="name">
+                        <span ><b>isObject</b></span>
+                        <a href="#isObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; typeof value &#x3D;&#x3D;&#x3D; &#x27;object&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPlainObject"></a>
+                    <span class="name">
+                        <span ><b>isPlainObject</b></span>
+                        <a href="#isPlainObject"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; value.constructor.name &#x3D;&#x3D;&#x3D; &#x27;Object&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPrimitive"></a>
+                    <span class="name">
+                        <span ><b>isPrimitive</b></span>
+                        <a href="#isPrimitive"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; [&#x27;string&#x27;, &#x27;boolean&#x27;, &#x27;number&#x27;, &#x27;bigint&#x27;].includes(typeof value)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isPromise"></a>
+                    <span class="name">
+                        <span ><b>isPromise</b></span>
+                        <a href="#isPromise"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; value.constructor.name &#x3D;&#x3D;&#x3D; &#x27;Promise&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isRegex"></a>
+                    <span class="name">
+                        <span ><b>isRegex</b></span>
+                        <a href="#isRegex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; value &amp;&amp; value.constructor.name &#x3D;&#x3D;&#x3D; &#x27;RegExp&#x27;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isScalar"></a>
+                    <span class="name">
+                        <span ><b>isScalar</b></span>
+                        <a href="#isScalar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; [&#x27;string&#x27;, &#x27;boolean&#x27;, &#x27;number&#x27;, &#x27;symbol&#x27;, &#x27;bigint&#x27;].includes(typeof value)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isUrl"></a>
+                    <span class="name">
+                        <span ><b>isUrl</b></span>
+                        <a href="#isUrl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; {
+  try {
+    new URL(value);
+    return true;
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (e) {
+    return false;
+  }
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isValidId"></a>
+                    <span class="name">
+                        <span ><b>isValidId</b></span>
+                        <a href="#isValidId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(value: any) &#x3D;&gt; Boolean(value &amp;&amp; /^[A-Za-z]+[\w\-\:\.]*$/.test(String(value)))</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/main.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(&#x27;bootstrap&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/datasets/shared/prompts/rag-chat-history.prompt.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RAGChatHistoryPrompt"></a>
+                    <span class="name">
+                        <span ><b>RAGChatHistoryPrompt</b></span>
+                        <a href="#RAGChatHistoryPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ChatPromptTemplate.fromTemplate(&#x60;You are an AI assistant specializing in Question-Answering (QA) tasks within a Retrieval-Augmented Generation (RAG) system. 
+
+Your primary mission is to answer questions based on provided context or chat history.
+
+Ensure your response is concise and directly addresses the question without any additional narration.
+
+###
+
+You may consider the previous conversation history to answer the question.
+
+# Here&#x27;s the previous conversation history:
+
+{chat_history}
+
+###
+
+Your final answer should be written concisely (but include important numerical values, technical terms, jargon, and names).
+
+# Steps
+
+1. Carefully read and understand the context provided.
+
+2. Identify the key information related to the question within the context.
+
+3. Formulate a concise answer based on the relevant information.
+
+4. Ensure your final answer directly addresses the question.
+
+# Output Format:
+
+[Your final answer here, with numerical values, technical terms, jargon, and names in their original language]
+
+###
+
+Remember:
+
+- It&#x27;s crucial to base your answer solely on the **provided context** or **chat history**. 
+
+- DO NOT use any external knowledge or information not present in the given materials.
+
+- If a user asks based on the previous conversation, but if there&#x27;s no previous conversation or not enough information, you should answer that {fallbackMessage}.
+
+###
+
+# Here is the user&#x27;s question:
+
+{question}
+
+# Here is the context that you should use to answer the question:
+
+{context}
+
+# Your final answer to the user&#x27;s question:&#x60;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/datasets/shared/prompts/rag.prompt.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RAGPrompt"></a>
+                    <span class="name">
+                        <span ><b>RAGPrompt</b></span>
+                        <a href="#RAGPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>ChatPromptTemplate.fromMessages([
+  [&#x27;system&#x27;, systemPrompt],
+  [&#x27;human&#x27;, &#x27;{input}&#x27;],
+])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="systemPrompt"></a>
+                    <span class="name">
+                        <span ><b>systemPrompt</b></span>
+                        <a href="#systemPrompt"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x60;Use the following context as your learned knowledge, inside &lt;context&gt;&lt;/context&gt; XML tags.
+
+&lt;context&gt;
+{context}
+&lt;/context&gt;
+
+Chat History:
+{chat_history}
+
+When answer to user:
+- If you don&#x27;t know, just say that you don&#x27;t know.
+- If you don&#x27;t know when you are not sure, ask for clarification.
+
+Avoid mentioning that you obtained the information from the context.
+And answer according to the language of the user&#x27;s question.\n\n
+
+Current date: ${getCurrentFormattedTime()}&#x60;</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/langchain/utils/serialize_chat_history.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="serializeChatHistoryToText"></a>
+                    <span class="name">
+                        <span ><b>serializeChatHistoryToText</b></span>
+                        <a href="#serializeChatHistoryToText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(history: BaseMessage[]): string &#x3D;&gt; {
+  return history.map((message) &#x3D;&gt; &#x60;${message._getType()}: ${message.content}&#x60;).join(&#x27;\n&#x27;);
+}</code>
+                    </td>
+                </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Serializes the chat history to a single text string, including each message type and content.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/utils/sleep.util.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="sleep"></a>
+                    <span class="name">
+                        <span ><b>sleep</b></span>
+                        <a href="#sleep"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>promisify(setTimeout)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/common/decorators/source.decorator.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="Source"></a>
+                    <span class="name">
+                        <span ><b>Source</b></span>
+                        <a href="#Source"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createParamDecorator(
+  (defaultSource: &#x27;web&#x27; | &#x27;api&#x27; &#x3D; &#x27;api&#x27;, ctx: ExecutionContext): &#x27;web&#x27; | &#x27;api&#x27; &#x3D;&gt; {
+    const request &#x3D; ctx.switchToHttp().getRequest();
+
+    const requestedBy &#x3D; request.headers[&#x27;x-requested-by&#x27;];
+
+    if (requestedBy &#x3D;&#x3D;&#x3D; &#x27;web&#x27; || requestedBy &#x3D;&#x3D;&#x3D; &#x27;api&#x27;) {
+      return requestedBy;
+    }
+
+    const userAgent &#x3D; request.headers[&#x27;user-agent&#x27;] || &#x27;&#x27;;
+    if (/mozilla/i.test(userAgent)) {
+      return &#x27;web&#x27;;
+    }
+
+    return defaultSource;
+  },
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/stopwords.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="STOPWORDS"></a>
+                    <span class="name">
+                        <span ><b>STOPWORDS</b></span>
+                        <a href="#STOPWORDS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Set&lt;string&gt;([
+  &#x27;during&#x27;,
+  &#x27;when&#x27;,
+  &#x27;but&#x27;,
+  &#x27;then&#x27;,
+  &#x27;further&#x27;,
+  &#x27;isn&#x27;,
+  &quot;mustn&#x27;t&quot;,
+  &#x27;until&#x27;,
+  &#x27;own&#x27;,
+  &#x27;i&#x27;,
+  &#x27;couldn&#x27;,
+  &#x27;y&#x27;,
+  &#x27;only&#x27;,
+  &quot;you&#x27;ve&quot;,
+  &#x27;ours&#x27;,
+  &#x27;who&#x27;,
+  &#x27;where&#x27;,
+  &#x27;ourselves&#x27;,
+  &#x27;has&#x27;,
+  &#x27;to&#x27;,
+  &#x27;was&#x27;,
+  &quot;didn&#x27;t&quot;,
+  &#x27;themselves&#x27;,
+  &#x27;if&#x27;,
+  &#x27;against&#x27;,
+  &#x27;through&#x27;,
+  &#x27;her&#x27;,
+  &#x27;an&#x27;,
+  &#x27;your&#x27;,
+  &#x27;can&#x27;,
+  &#x27;those&#x27;,
+  &#x27;didn&#x27;,
+  &#x27;about&#x27;,
+  &quot;aren&#x27;t&quot;,
+  &quot;shan&#x27;t&quot;,
+  &#x27;be&#x27;,
+  &#x27;not&#x27;,
+  &#x27;these&#x27;,
+  &#x27;again&#x27;,
+  &#x27;so&#x27;,
+  &#x27;t&#x27;,
+  &#x27;theirs&#x27;,
+  &#x27;weren&#x27;,
+  &quot;won&#x27;t&quot;,
+  &#x27;won&#x27;,
+  &#x27;itself&#x27;,
+  &#x27;just&#x27;,
+  &#x27;same&#x27;,
+  &#x27;while&#x27;,
+  &#x27;why&#x27;,
+  &#x27;doesn&#x27;,
+  &#x27;aren&#x27;,
+  &#x27;him&#x27;,
+  &#x27;haven&#x27;,
+  &#x27;for&#x27;,
+  &quot;you&#x27;ll&quot;,
+  &#x27;that&#x27;,
+  &#x27;we&#x27;,
+  &#x27;am&#x27;,
+  &#x27;d&#x27;,
+  &#x27;by&#x27;,
+  &#x27;having&#x27;,
+  &quot;wasn&#x27;t&quot;,
+  &#x27;than&#x27;,
+  &quot;weren&#x27;t&quot;,
+  &#x27;out&#x27;,
+  &#x27;from&#x27;,
+  &#x27;now&#x27;,
+  &#x27;their&#x27;,
+  &#x27;too&#x27;,
+  &#x27;hadn&#x27;,
+  &#x27;o&#x27;,
+  &#x27;needn&#x27;,
+  &#x27;most&#x27;,
+  &#x27;it&#x27;,
+  &#x27;under&#x27;,
+  &quot;needn&#x27;t&quot;,
+  &#x27;any&#x27;,
+  &#x27;some&#x27;,
+  &#x27;few&#x27;,
+  &#x27;ll&#x27;,
+  &#x27;hers&#x27;,
+  &#x27;which&#x27;,
+  &#x27;m&#x27;,
+  &quot;you&#x27;re&quot;,
+  &#x27;off&#x27;,
+  &#x27;other&#x27;,
+  &#x27;had&#x27;,
+  &#x27;she&#x27;,
+  &quot;you&#x27;d&quot;,
+  &#x27;do&#x27;,
+  &#x27;you&#x27;,
+  &#x27;does&#x27;,
+  &#x27;s&#x27;,
+  &#x27;will&#x27;,
+  &#x27;each&#x27;,
+  &quot;wouldn&#x27;t&quot;,
+  &quot;hasn&#x27;t&quot;,
+  &#x27;such&#x27;,
+  &#x27;more&#x27;,
+  &#x27;whom&#x27;,
+  &quot;she&#x27;s&quot;,
+  &#x27;my&#x27;,
+  &#x27;yours&#x27;,
+  &#x27;yourself&#x27;,
+  &#x27;of&#x27;,
+  &#x27;on&#x27;,
+  &#x27;very&#x27;,
+  &quot;hadn&#x27;t&quot;,
+  &#x27;with&#x27;,
+  &#x27;yourselves&#x27;,
+  &#x27;been&#x27;,
+  &#x27;ma&#x27;,
+  &#x27;them&#x27;,
+  &quot;mightn&#x27;t&quot;,
+  &#x27;shan&#x27;,
+  &#x27;mustn&#x27;,
+  &#x27;they&#x27;,
+  &#x27;what&#x27;,
+  &#x27;both&#x27;,
+  &quot;that&#x27;ll&quot;,
+  &#x27;how&#x27;,
+  &#x27;is&#x27;,
+  &#x27;he&#x27;,
+  &#x27;because&#x27;,
+  &#x27;down&#x27;,
+  &quot;haven&#x27;t&quot;,
+  &#x27;are&#x27;,
+  &#x27;no&#x27;,
+  &quot;it&#x27;s&quot;,
+  &#x27;our&#x27;,
+  &#x27;being&#x27;,
+  &#x27;the&#x27;,
+  &#x27;or&#x27;,
+  &#x27;above&#x27;,
+  &#x27;myself&#x27;,
+  &#x27;once&#x27;,
+  &quot;don&#x27;t&quot;,
+  &quot;doesn&#x27;t&quot;,
+  &#x27;as&#x27;,
+  &#x27;nor&#x27;,
+  &#x27;here&#x27;,
+  &#x27;herself&#x27;,
+  &#x27;hasn&#x27;,
+  &#x27;mightn&#x27;,
+  &#x27;have&#x27;,
+  &#x27;its&#x27;,
+  &#x27;all&#x27;,
+  &#x27;were&#x27;,
+  &#x27;ain&#x27;,
+  &#x27;this&#x27;,
+  &#x27;at&#x27;,
+  &#x27;after&#x27;,
+  &#x27;over&#x27;,
+  &quot;shouldn&#x27;t&quot;,
+  &#x27;into&#x27;,
+  &#x27;before&#x27;,
+  &#x27;don&#x27;,
+  &#x27;wouldn&#x27;,
+  &#x27;re&#x27;,
+  &quot;couldn&#x27;t&quot;,
+  &#x27;wasn&#x27;,
+  &#x27;in&#x27;,
+  &#x27;should&#x27;,
+  &#x27;there&#x27;,
+  &#x27;himself&#x27;,
+  &quot;isn&#x27;t&quot;,
+  &quot;should&#x27;ve&quot;,
+  &#x27;doing&#x27;,
+  &#x27;ve&#x27;,
+  &#x27;shouldn&#x27;,
+  &#x27;a&#x27;,
+  &#x27;did&#x27;,
+  &#x27;and&#x27;,
+  &#x27;his&#x27;,
+  &#x27;between&#x27;,
+  &#x27;me&#x27;,
+  &#x27;up&#x27;,
+  &#x27;below&#x27;,
+  &#x27;人民&#x27;,
+  &#x27;末##末&#x27;,
+  &#x27;啊&#x27;,
+  &#x27;阿&#x27;,
+  &#x27;哎&#x27;,
+  &#x27;哎呀&#x27;,
+  &#x27;哎哟&#x27;,
+  &#x27;唉&#x27;,
+  &#x27;俺&#x27;,
+  &#x27;俺们&#x27;,
+  &#x27;按&#x27;,
+  &#x27;按照&#x27;,
+  &#x27;吧&#x27;,
+  &#x27;吧哒&#x27;,
+  &#x27;把&#x27;,
+  &#x27;罢了&#x27;,
+  &#x27;被&#x27;,
+  &#x27;本&#x27;,
+  &#x27;本着&#x27;,
+  &#x27;比&#x27;,
+  &#x27;比方&#x27;,
+  &#x27;比如&#x27;,
+  &#x27;鄙人&#x27;,
+  &#x27;彼&#x27;,
+  &#x27;彼此&#x27;,
+  &#x27;边&#x27;,
+  &#x27;别&#x27;,
+  &#x27;别的&#x27;,
+  &#x27;别说&#x27;,
+  &#x27;并&#x27;,
+  &#x27;并且&#x27;,
+  &#x27;不比&#x27;,
+  &#x27;不成&#x27;,
+  &#x27;不单&#x27;,
+  &#x27;不但&#x27;,
+  &#x27;不独&#x27;,
+  &#x27;不管&#x27;,
+  &#x27;不光&#x27;,
+  &#x27;不过&#x27;,
+  &#x27;不仅&#x27;,
+  &#x27;不拘&#x27;,
+  &#x27;不论&#x27;,
+  &#x27;不怕&#x27;,
+  &#x27;不然&#x27;,
+  &#x27;不如&#x27;,
+  &#x27;不特&#x27;,
+  &#x27;不惟&#x27;,
+  &#x27;不问&#x27;,
+  &#x27;不只&#x27;,
+  &#x27;朝&#x27;,
+  &#x27;朝着&#x27;,
+  &#x27;趁&#x27;,
+  &#x27;趁着&#x27;,
+  &#x27;乘&#x27;,
+  &#x27;冲&#x27;,
+  &#x27;除&#x27;,
+  &#x27;除此之外&#x27;,
+  &#x27;除非&#x27;,
+  &#x27;除了&#x27;,
+  &#x27;此&#x27;,
+  &#x27;此间&#x27;,
+  &#x27;此外&#x27;,
+  &#x27;从&#x27;,
+  &#x27;从而&#x27;,
+  &#x27;打&#x27;,
+  &#x27;待&#x27;,
+  &#x27;但&#x27;,
+  &#x27;但是&#x27;,
+  &#x27;当&#x27;,
+  &#x27;当着&#x27;,
+  &#x27;到&#x27;,
+  &#x27;得&#x27;,
+  &#x27;的&#x27;,
+  &#x27;的话&#x27;,
+  &#x27;等&#x27;,
+  &#x27;等等&#x27;,
+  &#x27;地&#x27;,
+  &#x27;第&#x27;,
+  &#x27;叮咚&#x27;,
+  &#x27;对&#x27;,
+  &#x27;对于&#x27;,
+  &#x27;多&#x27;,
+  &#x27;多少&#x27;,
+  &#x27;而&#x27;,
+  &#x27;而况&#x27;,
+  &#x27;而且&#x27;,
+  &#x27;而是&#x27;,
+  &#x27;而外&#x27;,
+  &#x27;而言&#x27;,
+  &#x27;而已&#x27;,
+  &#x27;尔后&#x27;,
+  &#x27;反过来&#x27;,
+  &#x27;反过来说&#x27;,
+  &#x27;反之&#x27;,
+  &#x27;非但&#x27;,
+  &#x27;非徒&#x27;,
+  &#x27;否则&#x27;,
+  &#x27;嘎&#x27;,
+  &#x27;嘎登&#x27;,
+  &#x27;该&#x27;,
+  &#x27;赶&#x27;,
+  &#x27;个&#x27;,
+  &#x27;各&#x27;,
+  &#x27;各个&#x27;,
+  &#x27;各位&#x27;,
+  &#x27;各种&#x27;,
+  &#x27;各自&#x27;,
+  &#x27;给&#x27;,
+  &#x27;根据&#x27;,
+  &#x27;跟&#x27;,
+  &#x27;故&#x27;,
+  &#x27;故此&#x27;,
+  &#x27;固然&#x27;,
+  &#x27;关于&#x27;,
+  &#x27;管&#x27;,
+  &#x27;归&#x27;,
+  &#x27;果然&#x27;,
+  &#x27;果真&#x27;,
+  &#x27;过&#x27;,
+  &#x27;哈&#x27;,
+  &#x27;哈哈&#x27;,
+  &#x27;呵&#x27;,
+  &#x27;和&#x27;,
+  &#x27;何&#x27;,
+  &#x27;何处&#x27;,
+  &#x27;何况&#x27;,
+  &#x27;何时&#x27;,
+  &#x27;嘿&#x27;,
+  &#x27;哼&#x27;,
+  &#x27;哼唷&#x27;,
+  &#x27;呼哧&#x27;,
+  &#x27;乎&#x27;,
+  &#x27;哗&#x27;,
+  &#x27;还是&#x27;,
+  &#x27;还有&#x27;,
+  &#x27;换句话说&#x27;,
+  &#x27;换言之&#x27;,
+  &#x27;或&#x27;,
+  &#x27;或是&#x27;,
+  &#x27;或者&#x27;,
+  &#x27;极了&#x27;,
+  &#x27;及&#x27;,
+  &#x27;及其&#x27;,
+  &#x27;及至&#x27;,
+  &#x27;即&#x27;,
+  &#x27;即便&#x27;,
+  &#x27;即或&#x27;,
+  &#x27;即令&#x27;,
+  &#x27;即若&#x27;,
+  &#x27;即使&#x27;,
+  &#x27;几&#x27;,
+  &#x27;几时&#x27;,
+  &#x27;己&#x27;,
+  &#x27;既&#x27;,
+  &#x27;既然&#x27;,
+  &#x27;既是&#x27;,
+  &#x27;继而&#x27;,
+  &#x27;加之&#x27;,
+  &#x27;假如&#x27;,
+  &#x27;假若&#x27;,
+  &#x27;假使&#x27;,
+  &#x27;鉴于&#x27;,
+  &#x27;将&#x27;,
+  &#x27;较&#x27;,
+  &#x27;较之&#x27;,
+  &#x27;叫&#x27;,
+  &#x27;接着&#x27;,
+  &#x27;结果&#x27;,
+  &#x27;借&#x27;,
+  &#x27;紧接着&#x27;,
+  &#x27;进而&#x27;,
+  &#x27;尽&#x27;,
+  &#x27;尽管&#x27;,
+  &#x27;经&#x27;,
+  &#x27;经过&#x27;,
+  &#x27;就&#x27;,
+  &#x27;就是&#x27;,
+  &#x27;就是说&#x27;,
+  &#x27;据&#x27;,
+  &#x27;具体地说&#x27;,
+  &#x27;具体说来&#x27;,
+  &#x27;开始&#x27;,
+  &#x27;开外&#x27;,
+  &#x27;靠&#x27;,
+  &#x27;咳&#x27;,
+  &#x27;可&#x27;,
+  &#x27;可见&#x27;,
+  &#x27;可是&#x27;,
+  &#x27;可以&#x27;,
+  &#x27;况且&#x27;,
+  &#x27;啦&#x27;,
+  &#x27;来&#x27;,
+  &#x27;来着&#x27;,
+  &#x27;离&#x27;,
+  &#x27;例如&#x27;,
+  &#x27;哩&#x27;,
+  &#x27;连&#x27;,
+  &#x27;连同&#x27;,
+  &#x27;两者&#x27;,
+  &#x27;了&#x27;,
+  &#x27;临&#x27;,
+  &#x27;另&#x27;,
+  &#x27;另外&#x27;,
+  &#x27;另一方面&#x27;,
+  &#x27;论&#x27;,
+  &#x27;嘛&#x27;,
+  &#x27;吗&#x27;,
+  &#x27;慢说&#x27;,
+  &#x27;漫说&#x27;,
+  &#x27;冒&#x27;,
+  &#x27;么&#x27;,
+  &#x27;每&#x27;,
+  &#x27;每当&#x27;,
+  &#x27;们&#x27;,
+  &#x27;莫若&#x27;,
+  &#x27;某&#x27;,
+  &#x27;某个&#x27;,
+  &#x27;某些&#x27;,
+  &#x27;拿&#x27;,
+  &#x27;哪&#x27;,
+  &#x27;哪边&#x27;,
+  &#x27;哪儿&#x27;,
+  &#x27;哪个&#x27;,
+  &#x27;哪里&#x27;,
+  &#x27;哪年&#x27;,
+  &#x27;哪怕&#x27;,
+  &#x27;哪天&#x27;,
+  &#x27;哪些&#x27;,
+  &#x27;哪样&#x27;,
+  &#x27;那&#x27;,
+  &#x27;那边&#x27;,
+  &#x27;那儿&#x27;,
+  &#x27;那个&#x27;,
+  &#x27;那会儿&#x27;,
+  &#x27;那里&#x27;,
+  &#x27;那么&#x27;,
+  &#x27;那么些&#x27;,
+  &#x27;那么样&#x27;,
+  &#x27;那时&#x27;,
+  &#x27;那些&#x27;,
+  &#x27;那样&#x27;,
+  &#x27;乃&#x27;,
+  &#x27;乃至&#x27;,
+  &#x27;呢&#x27;,
+  &#x27;能&#x27;,
+  &#x27;你&#x27;,
+  &#x27;你们&#x27;,
+  &#x27;您&#x27;,
+  &#x27;宁&#x27;,
+  &#x27;宁可&#x27;,
+  &#x27;宁肯&#x27;,
+  &#x27;宁愿&#x27;,
+  &#x27;哦&#x27;,
+  &#x27;呕&#x27;,
+  &#x27;啪达&#x27;,
+  &#x27;旁人&#x27;,
+  &#x27;呸&#x27;,
+  &#x27;凭&#x27;,
+  &#x27;凭借&#x27;,
+  &#x27;其&#x27;,
+  &#x27;其次&#x27;,
+  &#x27;其二&#x27;,
+  &#x27;其他&#x27;,
+  &#x27;其它&#x27;,
+  &#x27;其一&#x27;,
+  &#x27;其余&#x27;,
+  &#x27;其中&#x27;,
+  &#x27;起&#x27;,
+  &#x27;起见&#x27;,
+  &#x27;岂但&#x27;,
+  &#x27;恰恰相反&#x27;,
+  &#x27;前后&#x27;,
+  &#x27;前者&#x27;,
+  &#x27;且&#x27;,
+  &#x27;然而&#x27;,
+  &#x27;然后&#x27;,
+  &#x27;然则&#x27;,
+  &#x27;让&#x27;,
+  &#x27;人家&#x27;,
+  &#x27;任&#x27;,
+  &#x27;任何&#x27;,
+  &#x27;任凭&#x27;,
+  &#x27;如&#x27;,
+  &#x27;如此&#x27;,
+  &#x27;如果&#x27;,
+  &#x27;如何&#x27;,
+  &#x27;如其&#x27;,
+  &#x27;如若&#x27;,
+  &#x27;如上所述&#x27;,
+  &#x27;若&#x27;,
+  &#x27;若非&#x27;,
+  &#x27;若是&#x27;,
+  &#x27;啥&#x27;,
+  &#x27;上下&#x27;,
+  &#x27;尚且&#x27;,
+  &#x27;设若&#x27;,
+  &#x27;设使&#x27;,
+  &#x27;甚而&#x27;,
+  &#x27;甚么&#x27;,
+  &#x27;甚至&#x27;,
+  &#x27;省得&#x27;,
+  &#x27;时候&#x27;,
+  &#x27;什么&#x27;,
+  &#x27;什么样&#x27;,
+  &#x27;使得&#x27;,
+  &#x27;是&#x27;,
+  &#x27;是的&#x27;,
+  &#x27;首先&#x27;,
+  &#x27;谁&#x27;,
+  &#x27;谁知&#x27;,
+  &#x27;顺&#x27;,
+  &#x27;顺着&#x27;,
+  &#x27;似的&#x27;,
+  &#x27;虽&#x27;,
+  &#x27;虽然&#x27;,
+  &#x27;虽说&#x27;,
+  &#x27;虽则&#x27;,
+  &#x27;随&#x27;,
+  &#x27;随着&#x27;,
+  &#x27;所&#x27;,
+  &#x27;所以&#x27;,
+  &#x27;他&#x27;,
+  &#x27;他们&#x27;,
+  &#x27;他人&#x27;,
+  &#x27;它&#x27;,
+  &#x27;它们&#x27;,
+  &#x27;她&#x27;,
+  &#x27;她们&#x27;,
+  &#x27;倘&#x27;,
+  &#x27;倘或&#x27;,
+  &#x27;倘然&#x27;,
+  &#x27;倘若&#x27;,
+  &#x27;倘使&#x27;,
+  &#x27;腾&#x27;,
+  &#x27;替&#x27;,
+  &#x27;通过&#x27;,
+  &#x27;同&#x27;,
+  &#x27;同时&#x27;,
+  &#x27;哇&#x27;,
+  &#x27;万一&#x27;,
+  &#x27;往&#x27;,
+  &#x27;望&#x27;,
+  &#x27;为&#x27;,
+  &#x27;为何&#x27;,
+  &#x27;为了&#x27;,
+  &#x27;为什么&#x27;,
+  &#x27;为着&#x27;,
+  &#x27;喂&#x27;,
+  &#x27;嗡嗡&#x27;,
+  &#x27;我&#x27;,
+  &#x27;我们&#x27;,
+  &#x27;呜&#x27;,
+  &#x27;呜呼&#x27;,
+  &#x27;乌乎&#x27;,
+  &#x27;无论&#x27;,
+  &#x27;无宁&#x27;,
+  &#x27;毋宁&#x27;,
+  &#x27;嘻&#x27;,
+  &#x27;吓&#x27;,
+  &#x27;相对而言&#x27;,
+  &#x27;像&#x27;,
+  &#x27;向&#x27;,
+  &#x27;向着&#x27;,
+  &#x27;嘘&#x27;,
+  &#x27;呀&#x27;,
+  &#x27;焉&#x27;,
+  &#x27;沿&#x27;,
+  &#x27;沿着&#x27;,
+  &#x27;要&#x27;,
+  &#x27;要不&#x27;,
+  &#x27;要不然&#x27;,
+  &#x27;要不是&#x27;,
+  &#x27;要么&#x27;,
+  &#x27;要是&#x27;,
+  &#x27;也&#x27;,
+  &#x27;也罢&#x27;,
+  &#x27;也好&#x27;,
+  &#x27;一&#x27;,
+  &#x27;一般&#x27;,
+  &#x27;一旦&#x27;,
+  &#x27;一方面&#x27;,
+  &#x27;一来&#x27;,
+  &#x27;一切&#x27;,
+  &#x27;一样&#x27;,
+  &#x27;一则&#x27;,
+  &#x27;依&#x27;,
+  &#x27;依照&#x27;,
+  &#x27;矣&#x27;,
+  &#x27;以&#x27;,
+  &#x27;以便&#x27;,
+  &#x27;以及&#x27;,
+  &#x27;以免&#x27;,
+  &#x27;以至&#x27;,
+  &#x27;以至于&#x27;,
+  &#x27;以致&#x27;,
+  &#x27;抑或&#x27;,
+  &#x27;因&#x27;,
+  &#x27;因此&#x27;,
+  &#x27;因而&#x27;,
+  &#x27;因为&#x27;,
+  &#x27;哟&#x27;,
+  &#x27;用&#x27;,
+  &#x27;由&#x27;,
+  &#x27;由此可见&#x27;,
+  &#x27;由于&#x27;,
+  &#x27;有&#x27;,
+  &#x27;有的&#x27;,
+  &#x27;有关&#x27;,
+  &#x27;有些&#x27;,
+  &#x27;又&#x27;,
+  &#x27;于&#x27;,
+  &#x27;于是&#x27;,
+  &#x27;于是乎&#x27;,
+  &#x27;与&#x27;,
+  &#x27;与此同时&#x27;,
+  &#x27;与否&#x27;,
+  &#x27;与其&#x27;,
+  &#x27;越是&#x27;,
+  &#x27;云云&#x27;,
+  &#x27;哉&#x27;,
+  &#x27;再说&#x27;,
+  &#x27;再者&#x27;,
+  &#x27;在&#x27;,
+  &#x27;在下&#x27;,
+  &#x27;咱&#x27;,
+  &#x27;咱们&#x27;,
+  &#x27;则&#x27;,
+  &#x27;怎&#x27;,
+  &#x27;怎么&#x27;,
+  &#x27;怎么办&#x27;,
+  &#x27;怎么样&#x27;,
+  &#x27;怎样&#x27;,
+  &#x27;咋&#x27;,
+  &#x27;照&#x27;,
+  &#x27;照着&#x27;,
+  &#x27;者&#x27;,
+  &#x27;这&#x27;,
+  &#x27;这边&#x27;,
+  &#x27;这儿&#x27;,
+  &#x27;这个&#x27;,
+  &#x27;这会儿&#x27;,
+  &#x27;这就是说&#x27;,
+  &#x27;这里&#x27;,
+  &#x27;这么&#x27;,
+  &#x27;这么点儿&#x27;,
+  &#x27;这么些&#x27;,
+  &#x27;这么样&#x27;,
+  &#x27;这时&#x27;,
+  &#x27;这些&#x27;,
+  &#x27;这样&#x27;,
+  &#x27;正如&#x27;,
+  &#x27;吱&#x27;,
+  &#x27;之&#x27;,
+  &#x27;之类&#x27;,
+  &#x27;之所以&#x27;,
+  &#x27;之一&#x27;,
+  &#x27;只是&#x27;,
+  &#x27;只限&#x27;,
+  &#x27;只要&#x27;,
+  &#x27;只有&#x27;,
+  &#x27;至&#x27;,
+  &#x27;至于&#x27;,
+  &#x27;诸位&#x27;,
+  &#x27;着&#x27;,
+  &#x27;着呢&#x27;,
+  &#x27;自&#x27;,
+  &#x27;自从&#x27;,
+  &#x27;自个儿&#x27;,
+  &#x27;自各儿&#x27;,
+  &#x27;自己&#x27;,
+  &#x27;自家&#x27;,
+  &#x27;自身&#x27;,
+  &#x27;综上所述&#x27;,
+  &#x27;总的来看&#x27;,
+  &#x27;总的来说&#x27;,
+  &#x27;总的说来&#x27;,
+  &#x27;总而言之&#x27;,
+  &#x27;总之&#x27;,
+  &#x27;纵&#x27;,
+  &#x27;纵令&#x27;,
+  &#x27;纵然&#x27;,
+  &#x27;纵使&#x27;,
+  &#x27;遵照&#x27;,
+  &#x27;作为&#x27;,
+  &#x27;兮&#x27;,
+  &#x27;呃&#x27;,
+  &#x27;呗&#x27;,
+  &#x27;咚&#x27;,
+  &#x27;咦&#x27;,
+  &#x27;喏&#x27;,
+  &#x27;啐&#x27;,
+  &#x27;喔唷&#x27;,
+  &#x27;嗬&#x27;,
+  &#x27;嗯&#x27;,
+  &#x27;嗳&#x27;,
+  &#x27;~&#x27;,
+  &#x27;!&#x27;,
+  &#x27;.&#x27;,
+  &#x27;:&#x27;,
+  &#x27;&quot;&#x27;,
+  &quot;&#x27;&quot;,
+  &#x27;(&#x27;,
+  &#x27;)&#x27;,
+  &#x27;*&#x27;,
+  &#x27;A&#x27;,
+  &#x27;白&#x27;,
+  &#x27;社会主义&#x27;,
+  &#x27;--&#x27;,
+  &#x27;..&#x27;,
+  &#x27;&gt;&gt;&#x27;,
+  &#x27; [&#x27;,
+  &#x27; ]&#x27;,
+  &#x27;&#x27;,
+  &#x27;&lt;&#x27;,
+  &#x27;&gt;&#x27;,
+  &#x27;/&#x27;,
+  &#x27;\\&#x27;,
+  &#x27;|&#x27;,
+  &#x27;-&#x27;,
+  &#x27;_&#x27;,
+  &#x27;+&#x27;,
+  &#x27;&#x3D;&#x27;,
+  &#x27;&amp;&#x27;,
+  &#x27;^&#x27;,
+  &#x27;%&#x27;,
+  &#x27;#&#x27;,
+  &#x27;@&#x27;,
+  &#x27;&#x60;&#x27;,
+  &#x27;;&#x27;,
+  &#x27;$&#x27;,
+  &#x27;（&#x27;,
+  &#x27;）&#x27;,
+  &#x27;——&#x27;,
+  &#x27;—&#x27;,
+  &#x27;￥&#x27;,
+  &#x27;·&#x27;,
+  &#x27;...&#x27;,
+  &#x27;‘&#x27;,
+  &#x27;’&#x27;,
+  &#x27;〉&#x27;,
+  &#x27;〈&#x27;,
+  &#x27;…&#x27;,
+  &#x27;　&#x27;,
+  &#x27;0&#x27;,
+  &#x27;1&#x27;,
+  &#x27;2&#x27;,
+  &#x27;3&#x27;,
+  &#x27;4&#x27;,
+  &#x27;5&#x27;,
+  &#x27;6&#x27;,
+  &#x27;7&#x27;,
+  &#x27;8&#x27;,
+  &#x27;9&#x27;,
+  &#x27;０&#x27;,
+  &#x27;１&#x27;,
+  &#x27;２&#x27;,
+  &#x27;３&#x27;,
+  &#x27;４&#x27;,
+  &#x27;５&#x27;,
+  &#x27;６&#x27;,
+  &#x27;７&#x27;,
+  &#x27;８&#x27;,
+  &#x27;９&#x27;,
+  &#x27;二&#x27;,
+  &#x27;三&#x27;,
+  &#x27;四&#x27;,
+  &#x27;五&#x27;,
+  &#x27;六&#x27;,
+  &#x27;七&#x27;,
+  &#x27;八&#x27;,
+  &#x27;九&#x27;,
+  &#x27;零&#x27;,
+  &#x27;＞&#x27;,
+  &#x27;＜&#x27;,
+  &#x27;＠&#x27;,
+  &#x27;＃&#x27;,
+  &#x27;＄&#x27;,
+  &#x27;％&#x27;,
+  &#x27;︿&#x27;,
+  &#x27;＆&#x27;,
+  &#x27;＊&#x27;,
+  &#x27;＋&#x27;,
+  &#x27;～&#x27;,
+  &#x27;｜&#x27;,
+  &#x27;［&#x27;,
+  &#x27;］&#x27;,
+  &#x27;｛&#x27;,
+  &#x27;｝&#x27;,
+  &#x27;啊哈&#x27;,
+  &#x27;啊呀&#x27;,
+  &#x27;啊哟&#x27;,
+  &#x27;挨次&#x27;,
+  &#x27;挨个&#x27;,
+  &#x27;挨家挨户&#x27;,
+  &#x27;挨门挨户&#x27;,
+  &#x27;挨门逐户&#x27;,
+  &#x27;挨着&#x27;,
+  &#x27;按理&#x27;,
+  &#x27;按期&#x27;,
+  &#x27;按时&#x27;,
+  &#x27;按说&#x27;,
+  &#x27;暗地里&#x27;,
+  &#x27;暗中&#x27;,
+  &#x27;暗自&#x27;,
+  &#x27;昂然&#x27;,
+  &#x27;八成&#x27;,
+  &#x27;白白&#x27;,
+  &#x27;半&#x27;,
+  &#x27;梆&#x27;,
+  &#x27;保管&#x27;,
+  &#x27;保险&#x27;,
+  &#x27;饱&#x27;,
+  &#x27;背地里&#x27;,
+  &#x27;背靠背&#x27;,
+  &#x27;倍感&#x27;,
+  &#x27;倍加&#x27;,
+  &#x27;本人&#x27;,
+  &#x27;本身&#x27;,
+  &#x27;甭&#x27;,
+  &#x27;比起&#x27;,
+  &#x27;比如说&#x27;,
+  &#x27;比照&#x27;,
+  &#x27;毕竟&#x27;,
+  &#x27;必&#x27;,
+  &#x27;必定&#x27;,
+  &#x27;必将&#x27;,
+  &#x27;必须&#x27;,
+  &#x27;便&#x27;,
+  &#x27;别人&#x27;,
+  &#x27;并非&#x27;,
+  &#x27;并肩&#x27;,
+  &#x27;并没&#x27;,
+  &#x27;并没有&#x27;,
+  &#x27;并排&#x27;,
+  &#x27;并无&#x27;,
+  &#x27;勃然&#x27;,
+  &#x27;不&#x27;,
+  &#x27;不必&#x27;,
+  &#x27;不常&#x27;,
+  &#x27;不大&#x27;,
+  &#x27;不但...而且&#x27;,
+  &#x27;不得&#x27;,
+  &#x27;不得不&#x27;,
+  &#x27;不得了&#x27;,
+  &#x27;不得已&#x27;,
+  &#x27;不迭&#x27;,
+  &#x27;不定&#x27;,
+  &#x27;不对&#x27;,
+  &#x27;不妨&#x27;,
+  &#x27;不管怎样&#x27;,
+  &#x27;不会&#x27;,
+  &#x27;不仅...而且&#x27;,
+  &#x27;不仅仅&#x27;,
+  &#x27;不仅仅是&#x27;,
+  &#x27;不经意&#x27;,
+  &#x27;不可开交&#x27;,
+  &#x27;不可抗拒&#x27;,
+  &#x27;不力&#x27;,
+  &#x27;不了&#x27;,
+  &#x27;不料&#x27;,
+  &#x27;不满&#x27;,
+  &#x27;不免&#x27;,
+  &#x27;不能不&#x27;,
+  &#x27;不起&#x27;,
+  &#x27;不巧&#x27;,
+  &#x27;不然的话&#x27;,
+  &#x27;不日&#x27;,
+  &#x27;不少&#x27;,
+  &#x27;不胜&#x27;,
+  &#x27;不时&#x27;,
+  &#x27;不是&#x27;,
+  &#x27;不同&#x27;,
+  &#x27;不能&#x27;,
+  &#x27;不要&#x27;,
+  &#x27;不外&#x27;,
+  &#x27;不外乎&#x27;,
+  &#x27;不下&#x27;,
+  &#x27;不限&#x27;,
+  &#x27;不消&#x27;,
+  &#x27;不已&#x27;,
+  &#x27;不亦乐乎&#x27;,
+  &#x27;不由得&#x27;,
+  &#x27;不再&#x27;,
+  &#x27;不择手段&#x27;,
+  &#x27;不怎么&#x27;,
+  &#x27;不曾&#x27;,
+  &#x27;不知不觉&#x27;,
+  &#x27;不止&#x27;,
+  &#x27;不止一次&#x27;,
+  &#x27;不至于&#x27;,
+  &#x27;才&#x27;,
+  &#x27;才能&#x27;,
+  &#x27;策略地&#x27;,
+  &#x27;差不多&#x27;,
+  &#x27;差一点&#x27;,
+  &#x27;常&#x27;,
+  &#x27;常常&#x27;,
+  &#x27;常言道&#x27;,
+  &#x27;常言说&#x27;,
+  &#x27;常言说得好&#x27;,
+  &#x27;长此下去&#x27;,
+  &#x27;长话短说&#x27;,
+  &#x27;长期以来&#x27;,
+  &#x27;长线&#x27;,
+  &#x27;敞开儿&#x27;,
+  &#x27;彻夜&#x27;,
+  &#x27;陈年&#x27;,
+  &#x27;趁便&#x27;,
+  &#x27;趁机&#x27;,
+  &#x27;趁热&#x27;,
+  &#x27;趁势&#x27;,
+  &#x27;趁早&#x27;,
+  &#x27;成年&#x27;,
+  &#x27;成年累月&#x27;,
+  &#x27;成心&#x27;,
+  &#x27;乘机&#x27;,
+  &#x27;乘胜&#x27;,
+  &#x27;乘势&#x27;,
+  &#x27;乘隙&#x27;,
+  &#x27;乘虚&#x27;,
+  &#x27;诚然&#x27;,
+  &#x27;迟早&#x27;,
+  &#x27;充分&#x27;,
+  &#x27;充其极&#x27;,
+  &#x27;充其量&#x27;,
+  &#x27;抽冷子&#x27;,
+  &#x27;臭&#x27;,
+  &#x27;初&#x27;,
+  &#x27;出&#x27;,
+  &#x27;出来&#x27;,
+  &#x27;出去&#x27;,
+  &#x27;除此&#x27;,
+  &#x27;除此而外&#x27;,
+  &#x27;除此以外&#x27;,
+  &#x27;除开&#x27;,
+  &#x27;除去&#x27;,
+  &#x27;除却&#x27;,
+  &#x27;除外&#x27;,
+  &#x27;处处&#x27;,
+  &#x27;川流不息&#x27;,
+  &#x27;传&#x27;,
+  &#x27;传说&#x27;,
+  &#x27;传闻&#x27;,
+  &#x27;串行&#x27;,
+  &#x27;纯&#x27;,
+  &#x27;纯粹&#x27;,
+  &#x27;此后&#x27;,
+  &#x27;此中&#x27;,
+  &#x27;次第&#x27;,
+  &#x27;匆匆&#x27;,
+  &#x27;从不&#x27;,
+  &#x27;从此&#x27;,
+  &#x27;从此以后&#x27;,
+  &#x27;从古到今&#x27;,
+  &#x27;从古至今&#x27;,
+  &#x27;从今以后&#x27;,
+  &#x27;从宽&#x27;,
+  &#x27;从来&#x27;,
+  &#x27;从轻&#x27;,
+  &#x27;从速&#x27;,
+  &#x27;从头&#x27;,
+  &#x27;从未&#x27;,
+  &#x27;从无到有&#x27;,
+  &#x27;从小&#x27;,
+  &#x27;从新&#x27;,
+  &#x27;从严&#x27;,
+  &#x27;从优&#x27;,
+  &#x27;从早到晚&#x27;,
+  &#x27;从中&#x27;,
+  &#x27;从重&#x27;,
+  &#x27;凑巧&#x27;,
+  &#x27;粗&#x27;,
+  &#x27;存心&#x27;,
+  &#x27;达旦&#x27;,
+  &#x27;打从&#x27;,
+  &#x27;打开天窗说亮话&#x27;,
+  &#x27;大&#x27;,
+  &#x27;大不了&#x27;,
+  &#x27;大大&#x27;,
+  &#x27;大抵&#x27;,
+  &#x27;大都&#x27;,
+  &#x27;大多&#x27;,
+  &#x27;大凡&#x27;,
+  &#x27;大概&#x27;,
+  &#x27;大家&#x27;,
+  &#x27;大举&#x27;,
+  &#x27;大略&#x27;,
+  &#x27;大面儿上&#x27;,
+  &#x27;大事&#x27;,
+  &#x27;大体&#x27;,
+  &#x27;大体上&#x27;,
+  &#x27;大约&#x27;,
+  &#x27;大张旗鼓&#x27;,
+  &#x27;大致&#x27;,
+  &#x27;呆呆地&#x27;,
+  &#x27;带&#x27;,
+  &#x27;殆&#x27;,
+  &#x27;待到&#x27;,
+  &#x27;单&#x27;,
+  &#x27;单纯&#x27;,
+  &#x27;单单&#x27;,
+  &#x27;但愿&#x27;,
+  &#x27;弹指之间&#x27;,
+  &#x27;当场&#x27;,
+  &#x27;当儿&#x27;,
+  &#x27;当即&#x27;,
+  &#x27;当口儿&#x27;,
+  &#x27;当然&#x27;,
+  &#x27;当庭&#x27;,
+  &#x27;当头&#x27;,
+  &#x27;当下&#x27;,
+  &#x27;当真&#x27;,
+  &#x27;当中&#x27;,
+  &#x27;倒不如&#x27;,
+  &#x27;倒不如说&#x27;,
+  &#x27;倒是&#x27;,
+  &#x27;到处&#x27;,
+  &#x27;到底&#x27;,
+  &#x27;到了儿&#x27;,
+  &#x27;到目前为止&#x27;,
+  &#x27;到头&#x27;,
+  &#x27;到头来&#x27;,
+  &#x27;得起&#x27;,
+  &#x27;得天独厚&#x27;,
+  &#x27;的确&#x27;,
+  &#x27;等到&#x27;,
+  &#x27;叮当&#x27;,
+  &#x27;顶多&#x27;,
+  &#x27;定&#x27;,
+  &#x27;动不动&#x27;,
+  &#x27;动辄&#x27;,
+  &#x27;陡然&#x27;,
+  &#x27;都&#x27;,
+  &#x27;独&#x27;,
+  &#x27;独自&#x27;,
+  &#x27;断然&#x27;,
+  &#x27;顿时&#x27;,
+  &#x27;多次&#x27;,
+  &#x27;多多&#x27;,
+  &#x27;多多少少&#x27;,
+  &#x27;多多益善&#x27;,
+  &#x27;多亏&#x27;,
+  &#x27;多年来&#x27;,
+  &#x27;多年前&#x27;,
+  &#x27;而后&#x27;,
+  &#x27;而论&#x27;,
+  &#x27;而又&#x27;,
+  &#x27;尔等&#x27;,
+  &#x27;二话不说&#x27;,
+  &#x27;二话没说&#x27;,
+  &#x27;反倒&#x27;,
+  &#x27;反倒是&#x27;,
+  &#x27;反而&#x27;,
+  &#x27;反手&#x27;,
+  &#x27;反之亦然&#x27;,
+  &#x27;反之则&#x27;,
+  &#x27;方&#x27;,
+  &#x27;方才&#x27;,
+  &#x27;方能&#x27;,
+  &#x27;放量&#x27;,
+  &#x27;非常&#x27;,
+  &#x27;非得&#x27;,
+  &#x27;分期&#x27;,
+  &#x27;分期分批&#x27;,
+  &#x27;分头&#x27;,
+  &#x27;奋勇&#x27;,
+  &#x27;愤然&#x27;,
+  &#x27;风雨无阻&#x27;,
+  &#x27;逢&#x27;,
+  &#x27;弗&#x27;,
+  &#x27;甫&#x27;,
+  &#x27;嘎嘎&#x27;,
+  &#x27;该当&#x27;,
+  &#x27;概&#x27;,
+  &#x27;赶快&#x27;,
+  &#x27;赶早不赶晚&#x27;,
+  &#x27;敢&#x27;,
+  &#x27;敢情&#x27;,
+  &#x27;敢于&#x27;,
+  &#x27;刚&#x27;,
+  &#x27;刚才&#x27;,
+  &#x27;刚好&#x27;,
+  &#x27;刚巧&#x27;,
+  &#x27;高低&#x27;,
+  &#x27;格外&#x27;,
+  &#x27;隔日&#x27;,
+  &#x27;隔夜&#x27;,
+  &#x27;个人&#x27;,
+  &#x27;各式&#x27;,
+  &#x27;更&#x27;,
+  &#x27;更加&#x27;,
+  &#x27;更进一步&#x27;,
+  &#x27;更为&#x27;,
+  &#x27;公然&#x27;,
+  &#x27;共&#x27;,
+  &#x27;共总&#x27;,
+  &#x27;够瞧的&#x27;,
+  &#x27;姑且&#x27;,
+  &#x27;古来&#x27;,
+  &#x27;故而&#x27;,
+  &#x27;故意&#x27;,
+  &#x27;固&#x27;,
+  &#x27;怪&#x27;,
+  &#x27;怪不得&#x27;,
+  &#x27;惯常&#x27;,
+  &#x27;光&#x27;,
+  &#x27;光是&#x27;,
+  &#x27;归根到底&#x27;,
+  &#x27;归根结底&#x27;,
+  &#x27;过于&#x27;,
+  &#x27;毫不&#x27;,
+  &#x27;毫无&#x27;,
+  &#x27;毫无保留地&#x27;,
+  &#x27;毫无例外&#x27;,
+  &#x27;好在&#x27;,
+  &#x27;何必&#x27;,
+  &#x27;何尝&#x27;,
+  &#x27;何妨&#x27;,
+  &#x27;何苦&#x27;,
+  &#x27;何乐而不为&#x27;,
+  &#x27;何须&#x27;,
+  &#x27;何止&#x27;,
+  &#x27;很&#x27;,
+  &#x27;很多&#x27;,
+  &#x27;很少&#x27;,
+  &#x27;轰然&#x27;,
+  &#x27;后来&#x27;,
+  &#x27;呼啦&#x27;,
+  &#x27;忽地&#x27;,
+  &#x27;忽然&#x27;,
+  &#x27;互&#x27;,
+  &#x27;互相&#x27;,
+  &#x27;哗啦&#x27;,
+  &#x27;话说&#x27;,
+  &#x27;还&#x27;,
+  &#x27;恍然&#x27;,
+  &#x27;会&#x27;,
+  &#x27;豁然&#x27;,
+  &#x27;活&#x27;,
+  &#x27;伙同&#x27;,
+  &#x27;或多或少&#x27;,
+  &#x27;或许&#x27;,
+  &#x27;基本&#x27;,
+  &#x27;基本上&#x27;,
+  &#x27;基于&#x27;,
+  &#x27;极&#x27;,
+  &#x27;极大&#x27;,
+  &#x27;极度&#x27;,
+  &#x27;极端&#x27;,
+  &#x27;极力&#x27;,
+  &#x27;极其&#x27;,
+  &#x27;极为&#x27;,
+  &#x27;急匆匆&#x27;,
+  &#x27;即将&#x27;,
+  &#x27;即刻&#x27;,
+  &#x27;即是说&#x27;,
+  &#x27;几度&#x27;,
+  &#x27;几番&#x27;,
+  &#x27;几乎&#x27;,
+  &#x27;几经&#x27;,
+  &#x27;既...又&#x27;,
+  &#x27;继之&#x27;,
+  &#x27;加上&#x27;,
+  &#x27;加以&#x27;,
+  &#x27;间或&#x27;,
+  &#x27;简而言之&#x27;,
+  &#x27;简言之&#x27;,
+  &#x27;简直&#x27;,
+  &#x27;见&#x27;,
+  &#x27;将才&#x27;,
+  &#x27;将近&#x27;,
+  &#x27;将要&#x27;,
+  &#x27;交口&#x27;,
+  &#x27;较比&#x27;,
+  &#x27;较为&#x27;,
+  &#x27;接连不断&#x27;,
+  &#x27;接下来&#x27;,
+  &#x27;皆可&#x27;,
+  &#x27;截然&#x27;,
+  &#x27;截至&#x27;,
+  &#x27;藉以&#x27;,
+  &#x27;借此&#x27;,
+  &#x27;借以&#x27;,
+  &#x27;届时&#x27;,
+  &#x27;仅&#x27;,
+  &#x27;仅仅&#x27;,
+  &#x27;谨&#x27;,
+  &#x27;进来&#x27;,
+  &#x27;进去&#x27;,
+  &#x27;近&#x27;,
+  &#x27;近几年来&#x27;,
+  &#x27;近来&#x27;,
+  &#x27;近年来&#x27;,
+  &#x27;尽管如此&#x27;,
+  &#x27;尽可能&#x27;,
+  &#x27;尽快&#x27;,
+  &#x27;尽量&#x27;,
+  &#x27;尽然&#x27;,
+  &#x27;尽如人意&#x27;,
+  &#x27;尽心竭力&#x27;,
+  &#x27;尽心尽力&#x27;,
+  &#x27;尽早&#x27;,
+  &#x27;精光&#x27;,
+  &#x27;经常&#x27;,
+  &#x27;竟&#x27;,
+  &#x27;竟然&#x27;,
+  &#x27;究竟&#x27;,
+  &#x27;就此&#x27;,
+  &#x27;就地&#x27;,
+  &#x27;就算&#x27;,
+  &#x27;居然&#x27;,
+  &#x27;局外&#x27;,
+  &#x27;举凡&#x27;,
+  &#x27;据称&#x27;,
+  &#x27;据此&#x27;,
+  &#x27;据实&#x27;,
+  &#x27;据说&#x27;,
+  &#x27;据我所知&#x27;,
+  &#x27;据悉&#x27;,
+  &#x27;具体来说&#x27;,
+  &#x27;决不&#x27;,
+  &#x27;决非&#x27;,
+  &#x27;绝&#x27;,
+  &#x27;绝不&#x27;,
+  &#x27;绝顶&#x27;,
+  &#x27;绝对&#x27;,
+  &#x27;绝非&#x27;,
+  &#x27;均&#x27;,
+  &#x27;喀&#x27;,
+  &#x27;看&#x27;,
+  &#x27;看来&#x27;,
+  &#x27;看起来&#x27;,
+  &#x27;看上去&#x27;,
+  &#x27;看样子&#x27;,
+  &#x27;可好&#x27;,
+  &#x27;可能&#x27;,
+  &#x27;恐怕&#x27;,
+  &#x27;快&#x27;,
+  &#x27;快要&#x27;,
+  &#x27;来不及&#x27;,
+  &#x27;来得及&#x27;,
+  &#x27;来讲&#x27;,
+  &#x27;来看&#x27;,
+  &#x27;拦腰&#x27;,
+  &#x27;牢牢&#x27;,
+  &#x27;老&#x27;,
+  &#x27;老大&#x27;,
+  &#x27;老老实实&#x27;,
+  &#x27;老是&#x27;,
+  &#x27;累次&#x27;,
+  &#x27;累年&#x27;,
+  &#x27;理当&#x27;,
+  &#x27;理该&#x27;,
+  &#x27;理应&#x27;,
+  &#x27;历&#x27;,
+  &#x27;立&#x27;,
+  &#x27;立地&#x27;,
+  &#x27;立刻&#x27;,
+  &#x27;立马&#x27;,
+  &#x27;立时&#x27;,
+  &#x27;联袂&#x27;,
+  &#x27;连连&#x27;,
+  &#x27;连日&#x27;,
+  &#x27;连日来&#x27;,
+  &#x27;连声&#x27;,
+  &#x27;连袂&#x27;,
+  &#x27;临到&#x27;,
+  &#x27;另方面&#x27;,
+  &#x27;另行&#x27;,
+  &#x27;另一个&#x27;,
+  &#x27;路经&#x27;,
+  &#x27;屡&#x27;,
+  &#x27;屡次&#x27;,
+  &#x27;屡次三番&#x27;,
+  &#x27;屡屡&#x27;,
+  &#x27;缕缕&#x27;,
+  &#x27;率尔&#x27;,
+  &#x27;率然&#x27;,
+  &#x27;略&#x27;,
+  &#x27;略加&#x27;,
+  &#x27;略微&#x27;,
+  &#x27;略为&#x27;,
+  &#x27;论说&#x27;,
+  &#x27;马上&#x27;,
+  &#x27;蛮&#x27;,
+  &#x27;满&#x27;,
+  &#x27;没&#x27;,
+  &#x27;没有&#x27;,
+  &#x27;每逢&#x27;,
+  &#x27;每每&#x27;,
+  &#x27;每时每刻&#x27;,
+  &#x27;猛然&#x27;,
+  &#x27;猛然间&#x27;,
+  &#x27;莫&#x27;,
+  &#x27;莫不&#x27;,
+  &#x27;莫非&#x27;,
+  &#x27;莫如&#x27;,
+  &#x27;默默地&#x27;,
+  &#x27;默然&#x27;,
+  &#x27;呐&#x27;,
+  &#x27;那末&#x27;,
+  &#x27;奈&#x27;,
+  &#x27;难道&#x27;,
+  &#x27;难得&#x27;,
+  &#x27;难怪&#x27;,
+  &#x27;难说&#x27;,
+  &#x27;内&#x27;,
+  &#x27;年复一年&#x27;,
+  &#x27;凝神&#x27;,
+  &#x27;偶而&#x27;,
+  &#x27;偶尔&#x27;,
+  &#x27;怕&#x27;,
+  &#x27;砰&#x27;,
+  &#x27;碰巧&#x27;,
+  &#x27;譬如&#x27;,
+  &#x27;偏偏&#x27;,
+  &#x27;乒&#x27;,
+  &#x27;平素&#x27;,
+  &#x27;颇&#x27;,
+  &#x27;迫于&#x27;,
+  &#x27;扑通&#x27;,
+  &#x27;其后&#x27;,
+  &#x27;其实&#x27;,
+  &#x27;奇&#x27;,
+  &#x27;齐&#x27;,
+  &#x27;起初&#x27;,
+  &#x27;起来&#x27;,
+  &#x27;起首&#x27;,
+  &#x27;起头&#x27;,
+  &#x27;起先&#x27;,
+  &#x27;岂&#x27;,
+  &#x27;岂非&#x27;,
+  &#x27;岂止&#x27;,
+  &#x27;迄&#x27;,
+  &#x27;恰逢&#x27;,
+  &#x27;恰好&#x27;,
+  &#x27;恰恰&#x27;,
+  &#x27;恰巧&#x27;,
+  &#x27;恰如&#x27;,
+  &#x27;恰似&#x27;,
+  &#x27;千&#x27;,
+  &#x27;千万&#x27;,
+  &#x27;千万千万&#x27;,
+  &#x27;切&#x27;,
+  &#x27;切不可&#x27;,
+  &#x27;切莫&#x27;,
+  &#x27;切切&#x27;,
+  &#x27;切勿&#x27;,
+  &#x27;窃&#x27;,
+  &#x27;亲口&#x27;,
+  &#x27;亲身&#x27;,
+  &#x27;亲手&#x27;,
+  &#x27;亲眼&#x27;,
+  &#x27;亲自&#x27;,
+  &#x27;顷&#x27;,
+  &#x27;顷刻&#x27;,
+  &#x27;顷刻间&#x27;,
+  &#x27;顷刻之间&#x27;,
+  &#x27;请勿&#x27;,
+  &#x27;穷年累月&#x27;,
+  &#x27;取道&#x27;,
+  &#x27;去&#x27;,
+  &#x27;权时&#x27;,
+  &#x27;全都&#x27;,
+  &#x27;全力&#x27;,
+  &#x27;全年&#x27;,
+  &#x27;全然&#x27;,
+  &#x27;全身心&#x27;,
+  &#x27;然&#x27;,
+  &#x27;人人&#x27;,
+  &#x27;仍&#x27;,
+  &#x27;仍旧&#x27;,
+  &#x27;仍然&#x27;,
+  &#x27;日复一日&#x27;,
+  &#x27;日见&#x27;,
+  &#x27;日渐&#x27;,
+  &#x27;日益&#x27;,
+  &#x27;日臻&#x27;,
+  &#x27;如常&#x27;,
+  &#x27;如此等等&#x27;,
+  &#x27;如次&#x27;,
+  &#x27;如今&#x27;,
+  &#x27;如期&#x27;,
+  &#x27;如前所述&#x27;,
+  &#x27;如上&#x27;,
+  &#x27;如下&#x27;,
+  &#x27;汝&#x27;,
+  &#x27;三番两次&#x27;,
+  &#x27;三番五次&#x27;,
+  &#x27;三天两头&#x27;,
+  &#x27;瑟瑟&#x27;,
+  &#x27;沙沙&#x27;,
+  &#x27;上&#x27;,
+  &#x27;上来&#x27;,
+  &#x27;上去&#x27;,
+  &#x27;一个&#x27;,
+  &#x27;月&#x27;,
+  &#x27;日&#x27;,
+  &#x27;\n&#x27;,
+])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/constants/language.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="supportedLanguageCount"></a>
+                    <span class="name">
+                        <span ><b>supportedLanguageCount</b></span>
+                        <a href="#supportedLanguageCount"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>Object.values(LanguageCode).length</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/prisma/transaction.manager.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TRANSACTIONAL_TIMEOUT"></a>
+                    <span class="name">
+                        <span ><b>TRANSACTIONAL_TIMEOUT</b></span>
+                        <a href="#TRANSACTIONAL_TIMEOUT"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>1000 * 10</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

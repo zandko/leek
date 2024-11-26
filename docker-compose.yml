@@ -1,0 +1,15 @@
+version: "3"
+services:
+  postgres:
+    hostname: 127.0.0.1
+    image: pgvector/pgvector:pg17
+    ports:
+      - ${POSTGRES_PORT}:5432
+    restart: always
+    volumes:
+      - ${POSTGRES_DATA_PATH_HOST}/postgres:/var/lib/postgresql/data
+      - ${POSTGRES_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASS}
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_DB=${POSTGRES_DB}

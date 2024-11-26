@@ -1,0 +1,7 @@
+{
+  "success": "Operation successful",
+  "error": "An error occurred",
+  "not_found": "Resource not found",
+  "unauthorized": "Unauthorized access",
+  "forbidden": "Access forbidden"
+}

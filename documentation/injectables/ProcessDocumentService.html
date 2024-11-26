@@ -1,0 +1,1161 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>leek documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">leek documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >ProcessDocumentService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/datasets/services/process-document.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#cleanDocumentsByPreprocessingRules" >cleanDocumentsByPreprocessingRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#extractDocumentsFromCOS" >extractDocumentsFromCOS</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#generateQaDocumentsForBatch" >generateQaDocumentsForBatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#generateQaDocumentsForSingle" >generateQaDocumentsForSingle</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#processDocumentsWithRules" >processDocumentsWithRules</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#splitDocumentsBySegmentationRules" >splitDocumentsBySegmentationRules</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(configureService: <a href="../classes/ConfigureAdapter.html" target="_self">ConfigureAdapter</a>, LLMGeneratorService: <a href="../injectables/LLMGeneratorService.html" target="_self">LLMGeneratorService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/datasets/services/process-document.service.ts:15</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>configureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/ConfigureAdapter.html" target="_self" >ConfigureAdapter</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>LLMGeneratorService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/LLMGeneratorService.html" target="_self" >LLMGeneratorService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="cleanDocumentsByPreprocessingRules"></a>
+                    <span class="name">
+                        <span ><b>cleanDocumentsByPreprocessingRules</b></span>
+                        <a href="#cleanDocumentsByPreprocessingRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>cleanDocumentsByPreprocessingRules(documents: Document[], preProcessingRules: <a href="../classes/ProcessRuleDto.html" target="_self">ProcessRuleDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="99"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:99</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>清理文档</p>
+<p>根据预处理规则清理文档内容。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documents</td>
+                                            <td>
+                                                        <code>Document[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>需要清理的文档数组。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>preProcessingRules</td>
+                                            <td>
+                                                            <code><a href="../classes/ProcessRuleDto.html" target="_self" >ProcessRuleDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>要应用的预处理规则。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Document[]</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>清理后的文档数组。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="extractDocumentsFromCOS"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>extractDocumentsFromCOS</b></span>
+                        <a href="#extractDocumentsFromCOS"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>extractDocumentsFromCOS(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="161"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:161</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>从腾讯云 COS 提取文档</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>文档在 COS 中的 Key。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Document[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>提取的文档数组。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateQaDocumentsForBatch"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>generateQaDocumentsForBatch</b></span>
+                        <a href="#generateQaDocumentsForBatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateQaDocumentsForBatch(documents: Document[], docLanguage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="204"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:204</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>批量生成问答对 (QA)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documents</td>
+                                            <td>
+                                                        <code>Document[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>用于生成 QA 的文档数组。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docLanguage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;English&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>QA 对的语言。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Document[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>生成的 QA 文档数组。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="generateQaDocumentsForSingle"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>generateQaDocumentsForSingle</b></span>
+                        <a href="#generateQaDocumentsForSingle"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>generateQaDocumentsForSingle(document: Document, docLanguage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="179"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:179</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>生成文档的问答对 (QA)</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Default value</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>document</td>
+                                            <td>
+                                                        <code>Document</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>用于生成 QA 的文档。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docLanguage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+                                            <td>
+                                                    <code>&#x27;English&#x27;</code>
+                                            </td>
+
+                                            <td>
+                                                    <ul>
+<li>QA 对的语言。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Document[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>生成的 QA 文档数组。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processDocumentsWithRules"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>processDocumentsWithRules</b></span>
+                        <a href="#processDocumentsWithRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processDocumentsWithRules(key: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, processRule: <a href="../classes/ProcessRuleDto.html" target="_self">ProcessRuleDto</a>, docForm?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, docLanguage?: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:32</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>处理并分段文档</p>
+<p>根据提供的规则，从腾讯云 COS 提取文档，对其进行预处理、分段，必要时生成问答对 (QA)。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>key</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>文档在腾讯云 COS 中的唯一标识符 (Key)。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>processRule</td>
+                                            <td>
+                                                            <code><a href="../classes/ProcessRuleDto.html" target="_self" >ProcessRuleDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>分段和预处理规则。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docForm</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>可选，文档形式（例如 QA 索引类型）。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docLanguage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>可选，文档语言，用于生成 QA 对。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;literal type&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>包含处理后的文档数组和应用的规则。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="splitDocumentsBySegmentationRules"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>splitDocumentsBySegmentationRules</b></span>
+                        <a href="#splitDocumentsBySegmentationRules"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>splitDocumentsBySegmentationRules(documents: Document[], segmentation: <a href="../classes/ProcessRuleDto.html" target="_self">ProcessRuleDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="134"
+                                    class="link-to-prism">src/datasets/services/process-document.service.ts:134</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>根据分段规则拆分文档</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documents</td>
+                                            <td>
+                                                        <code>Document[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>需要拆分的文档数组。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>segmentation</td>
+                                            <td>
+                                                            <code><a href="../classes/ProcessRuleDto.html" target="_self" >ProcessRuleDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>分段规则。</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;Document[]&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>拆分后的文档数组。</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
+
+import { Document } from &#x27;@langchain/core/documents&#x27;;
+import pLimit from &#x27;p-limit&#x27;;
+
+import { ConfigureAdapter } from &#x27;@leek/configure&#x27;;
+import { SegmentationEnum, DEFAULT_SEGMENTATION_RULE, DEFAULT_PRE_PROCESSING_RULES, IndexEnum } from &#x27;@leek/constants&#x27;;
+import { COSLoader, recursiveChunkSplitter } from &#x27;@leek/langchain&#x27;;
+import { createHash, getExtensions, trimLeadingPunctuation } from &#x27;@leek/utils&#x27;;
+
+import { LLMGeneratorService } from &#x27;./llm-generator.service&#x27;;
+import { ProcessRuleDto } from &#x27;../dto/process-rule.dto&#x27;;
+
+@Injectable()
+export class ProcessDocumentService {
+  constructor(
+    private readonly configureService: ConfigureAdapter,
+    private readonly LLMGeneratorService: LLMGeneratorService,
+  ) {}
+
+  /**
+   * 处理并分段文档
+   *
+   * 根据提供的规则，从腾讯云 COS 提取文档，对其进行预处理、分段，必要时生成问答对 (QA)。
+   *
+   * @param {string} key - 文档在腾讯云 COS 中的唯一标识符 (Key)。
+   * @param {ProcessRuleDto} processRule - 分段和预处理规则。
+   * @param {string} [docForm] - 可选，文档形式（例如 QA 索引类型）。
+   * @param {string} [docLanguage] - 可选，文档语言，用于生成 QA 对。
+   * @returns {Promise&lt;object&gt;} 包含处理后的文档数组和应用的规则。
+   */
+  async processDocumentsWithRules(
+    key: string,
+    processRule: ProcessRuleDto,
+    docForm?: string,
+    docLanguage?: string,
+  ): Promise&lt;{
+    processedDocuments: Document[];
+    processedRule: ProcessRuleDto;
+  }&gt; {
+    // 从 COS 提取原始文档
+    const docs &#x3D; await this.extractDocumentsFromCOS(key);
+
+    let { preProcessingRules, segmentation } &#x3D; processRule;
+
+    if (processRule.mode &#x3D;&#x3D;&#x3D; SegmentationEnum.Automatic) {
+      preProcessingRules &#x3D; DEFAULT_PRE_PROCESSING_RULES;
+      segmentation &#x3D; DEFAULT_SEGMENTATION_RULE;
+    }
+
+    let splitDocs &#x3D; docs;
+
+    if (docForm &#x3D;&#x3D;&#x3D; IndexEnum.QA_INDEX &amp;&amp; getExtensions(key) &#x3D;&#x3D;&#x3D; &#x27;xlsx&#x27;) {
+      splitDocs &#x3D; docs.map((doc) &#x3D;&gt; {
+        const [pageContent, answer] &#x3D; doc.pageContent.split(&#x27;&lt;&lt;&lt;&gt;&gt;&gt;&#x27;);
+        return new Document({
+          pageContent,
+          metadata: {
+            ...doc.metadata,
+            answer,
+            hash: createHash(pageContent),
+          },
+        });
+      });
+    } else {
+      // 根据分段设置拆分文档
+      splitDocs &#x3D; await this.splitDocumentsBySegmentationRules(docs, segmentation);
+    }
+
+    splitDocs &#x3D; await this.splitDocumentsBySegmentationRules(docs, segmentation);
+
+    // 如果文档形式为 QA 索引类型，则生成 QA 对
+    if (docForm &#x3D;&#x3D;&#x3D; IndexEnum.QA_INDEX) {
+      splitDocs &#x3D; await this.generateQaDocumentsForBatch(splitDocs, docLanguage);
+    }
+
+    // 应用预处理规则清理分段文档
+    const processedDocuments &#x3D; this.cleanDocumentsByPreprocessingRules(splitDocs, preProcessingRules);
+
+    return {
+      processedDocuments,
+      processedRule: {
+        preProcessingRules,
+        segmentation,
+        mode: processRule.mode,
+      },
+    };
+  }
+
+  /**
+   * 清理文档
+   *
+   * 根据预处理规则清理文档内容。
+   *
+   * @param {Document[]} documents - 需要清理的文档数组。
+   * @param {ProcessRuleDto[&#x27;preProcessingRules&#x27;]} preProcessingRules - 要应用的预处理规则。
+   * @returns {Document[]} 清理后的文档数组。
+   */
+  cleanDocumentsByPreprocessingRules(
+    documents: Document[],
+    preProcessingRules: ProcessRuleDto[&#x27;preProcessingRules&#x27;],
+  ): Document[] {
+    const rulesHandlers: Record&lt;string, (text: string) &#x3D;&gt; string&gt; &#x3D; {
+      removeExtraSpaces: (text) &#x3D;&gt; text.replace(/\s+/g, &#x27; &#x27;).trim(),
+      removeUrlsEmails: (text) &#x3D;&gt; text.replace(/https?:\/\/[^\s]+|www\.[^\s]+|[\w.-]+@[\w.-]+\.[a-z]{2,}/gi, &#x27;&#x27;),
+    };
+
+    // Filter enabled rules and collect the corresponding handler functions
+    const handlers &#x3D; preProcessingRules
+      .filter((op) &#x3D;&gt; op.enabled &amp;&amp; rulesHandlers[op.id])
+      .map((op) &#x3D;&gt; rulesHandlers[op.id]);
+
+    // Filter enabled rules and collect the corresponding handler functions
+    return documents.map((document) &#x3D;&gt; {
+      const updatedContent &#x3D; handlers.reduce((content, handler) &#x3D;&gt; handler(content), document.pageContent);
+      const pageContent &#x3D; trimLeadingPunctuation(updatedContent);
+      return new Document({
+        pageContent,
+        metadata: {
+          ...document.metadata,
+          hash: createHash(pageContent),
+        },
+      });
+    });
+  }
+
+  /**
+   * 根据分段规则拆分文档
+   *
+   * @param {Document[]} documents - 需要拆分的文档数组。
+   * @param {ProcessRuleDto[&#x27;segmentation&#x27;]} segmentation - 分段规则。
+   * @returns {Promise&lt;Document[]&gt;} 拆分后的文档数组。
+   */
+  async splitDocumentsBySegmentationRules(
+    documents: Document[],
+    segmentation: ProcessRuleDto[&#x27;segmentation&#x27;],
+  ): Promise&lt;Document[]&gt; {
+    const splitDocs &#x3D; await recursiveChunkSplitter(documents, {
+      chunkSize: segmentation.maxTokens,
+      chunkOverlap: segmentation.chunkOverlap,
+      separators: segmentation.separator.split(&#x27;,&#x27;),
+    });
+    // Add a hash for each chunk for tracking and uniqueness
+    return splitDocs.map(
+      (doc) &#x3D;&gt;
+        new Document({
+          pageContent: doc.pageContent,
+          metadata: {
+            ...doc.metadata,
+          },
+        }),
+    );
+  }
+
+  /**
+   * 从腾讯云 COS 提取文档
+   *
+   * @param {string} key - 文档在 COS 中的 Key。
+   * @returns {Promise&lt;Document[]&gt;} 提取的文档数组。
+   */
+  async extractDocumentsFromCOS(key: string): Promise&lt;Document[]&gt; {
+    const loader &#x3D; new COSLoader({
+      SecretId: this.configureService.TENCENT.SECRET_ID,
+      SecretKey: this.configureService.TENCENT.SECRET_KEY,
+      Bucket: this.configureService.TENCENT.COS_BUCKET,
+      Region: this.configureService.TENCENT.COS_REGION,
+      Key: key,
+    });
+    return loader.load();
+  }
+
+  /**
+   * 生成文档的问答对 (QA)
+   *
+   * @param {Document} document - 用于生成 QA 的文档。
+   * @param {string} [docLanguage&#x3D;&#x27;English&#x27;] - QA 对的语言。
+   * @returns {Promise&lt;Document[]&gt;} 生成的 QA 文档数组。
+   */
+  async generateQaDocumentsForSingle(document: Document, docLanguage: string &#x3D; &#x27;English&#x27;): Promise&lt;Document[]&gt; {
+    const documents &#x3D; await this.LLMGeneratorService.generateQaDocumentFromTextAndLanguage(
+      document.pageContent,
+      docLanguage,
+    );
+    return documents.map(
+      (doc) &#x3D;&gt;
+        new Document({
+          pageContent: doc.question,
+          metadata: {
+            ...document.metadata,
+            answer: doc.answer,
+            hash: createHash(doc.question),
+          },
+        }),
+    );
+  }
+
+  /**
+   * 批量生成问答对 (QA)
+   *
+   * @param {Document[]} documents - 用于生成 QA 的文档数组。
+   * @param {string} [docLanguage&#x3D;&#x27;English&#x27;] - QA 对的语言。
+   * @returns {Promise&lt;Document[]&gt;} 生成的 QA 文档数组。
+   */
+  private async generateQaDocumentsForBatch(
+    documents: Document[],
+    docLanguage: string &#x3D; &#x27;English&#x27;,
+  ): Promise&lt;Document[]&gt; {
+    const limit &#x3D; pLimit(10); // Limit concurrency to avoid overloading resources
+
+    const tasks &#x3D; documents.map((doc) &#x3D;&gt; limit(async () &#x3D;&gt; this.generateQaDocumentsForSingle(doc, docLanguage)));
+
+    const results &#x3D; await Promise.all(tasks);
+    return results.flat();
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'ProcessDocumentService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

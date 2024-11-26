@@ -1,0 +1,4329 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>leek documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">leek documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content class">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Classes</li>
+  <li class="breadcrumb-item" >MimeTypeNames</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/utils/mime_type.util.ts</code>
+        </p>
+
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationAtomXml" >ApplicationAtomXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationEcmascript" >ApplicationEcmascript</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationEdifact" >ApplicationEdifact</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationEdiX12" >ApplicationEdiX12</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationFontWoff" >ApplicationFontWoff</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationJavascript" >ApplicationJavascript</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationJson" >ApplicationJson</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationJsonPatch" >ApplicationJsonPatch</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationMsword" >ApplicationMsword</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationOctetStream" >ApplicationOctetStream</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationOgg" >ApplicationOgg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationPdf" >ApplicationPdf</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationPostscript" >ApplicationPostscript</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationRdfXml" >ApplicationRdfXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationRssXml" >ApplicationRssXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationSoapXml" >ApplicationSoapXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndGoogleEarthKmlXml" >ApplicationVndGoogleEarthKmlXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndMozillaXulXml" >ApplicationVndMozillaXulXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndMsExcel" >ApplicationVndMsExcel</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndMsPowerpoint" >ApplicationVndMsPowerpoint</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOasisOpendocumentGraphics" >ApplicationVndOasisOpendocumentGraphics</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOasisOpendocumentPresentation" >ApplicationVndOasisOpendocumentPresentation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOasisOpendocumentSpreadsheet" >ApplicationVndOasisOpendocumentSpreadsheet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOasisOpendocumentText" >ApplicationVndOasisOpendocumentText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation" >ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet" >ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument" >ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXDeb" >ApplicationXDeb</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXDvi" >ApplicationXDvi</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXFontTtf" >ApplicationXFontTtf</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXGzip" >ApplicationXGzip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXhtmlXml" >ApplicationXhtmlXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXJavascript" >ApplicationXJavascript</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXLatex" >ApplicationXLatex</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXmlDtd" >ApplicationXmlDtd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXopXml" >ApplicationXopXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXPkcs12" >ApplicationXPkcs12</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXPkcs7Certificates" >ApplicationXPkcs7Certificates</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXPkcs7Certreqresp" >ApplicationXPkcs7Certreqresp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXPkcs7Mime" >ApplicationXPkcs7Mime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXPkcs7Signature" >ApplicationXPkcs7Signature</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXRarCompressed" >ApplicationXRarCompressed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXShockwaveFlash" >ApplicationXShockwaveFlash</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXStuffit" >ApplicationXStuffit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationXTar" >ApplicationXTar</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ApplicationZip" >ApplicationZip</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioBasic" >AudioBasic</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioL24" >AudioL24</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioMp4" >AudioMp4</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioMpeg" >AudioMpeg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioOgg" >AudioOgg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioVndRnRealaudio" >AudioVndRnRealaudio</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioVndWave" >AudioVndWave</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioVorbis" >AudioVorbis</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioWebm" >AudioWebm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioXMsWax" >AudioXMsWax</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#AudioXMsWma" >AudioXMsWma</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImageGif" >ImageGif</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImageJpeg" >ImageJpeg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImagePjpeg" >ImagePjpeg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImagePng" >ImagePng</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImageSvgXml" >ImageSvgXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImageTiff" >ImageTiff</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ImageVndMicrosoftIcon" >ImageVndMicrosoftIcon</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MessageHttp" >MessageHttp</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MessageImdnXml" >MessageImdnXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MessagePartial" >MessagePartial</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MessageRfc822" >MessageRfc822</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelExample" >ModelExample</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelIges" >ModelIges</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelMesh" >ModelMesh</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelVrml" >ModelVrml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelX3DBinary" >ModelX3DBinary</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelX3DVrml" >ModelX3DVrml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#ModelX3DXml" >ModelX3DXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartAlternative" >MultipartAlternative</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartEncrypted" >MultipartEncrypted</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartFormData" >MultipartFormData</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartMixed" >MultipartMixed</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartRelated" >MultipartRelated</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#MultipartSigned" >MultipartSigned</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextCmd" >TextCmd</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextCss" >TextCss</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextCsv" >TextCsv</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextHtml" >TextHtml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextJavascript" >TextJavascript</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextPlain" >TextPlain</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextVcard" >TextVcard</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextXGwtRpc" >TextXGwtRpc</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextXJqueryTmpl" >TextXJqueryTmpl</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#TextXml" >TextXml</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoMp4" >VideoMp4</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoMpeg" >VideoMpeg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoOgg" >VideoOgg</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoQuicktime" >VideoQuicktime</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoWebm" >VideoWebm</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoXFlv" >VideoXFlv</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoXMatroska" >VideoXMatroska</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Static</span>
+                                <a href="#VideoXMsWmv" >VideoXMsWmv</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationAtomXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationAtomXml</b></span>
+                        <a href="#ApplicationAtomXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/atom+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/utils/mime_type.util.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationEcmascript"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationEcmascript</b></span>
+                        <a href="#ApplicationEcmascript"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/ecmascript&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/utils/mime_type.util.ts:92</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationEdifact"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationEdifact</b></span>
+                        <a href="#ApplicationEdifact"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/EDIFACT&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="97" class="link-to-prism">src/utils/mime_type.util.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationEdiX12"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationEdiX12</b></span>
+                        <a href="#ApplicationEdiX12"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/EDI-X12&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="102" class="link-to-prism">src/utils/mime_type.util.ts:102</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationFontWoff"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationFontWoff</b></span>
+                        <a href="#ApplicationFontWoff"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/font-woff&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="454" class="link-to-prism">src/utils/mime_type.util.ts:454</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationJavascript"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationJavascript</b></span>
+                        <a href="#ApplicationJavascript"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/javascript&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/utils/mime_type.util.ts:87</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationJson"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationJson</b></span>
+                        <a href="#ApplicationJson"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/json&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="162" class="link-to-prism">src/utils/mime_type.util.ts:162</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationJsonPatch"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationJsonPatch</b></span>
+                        <a href="#ApplicationJsonPatch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/json-patch+json&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="167" class="link-to-prism">src/utils/mime_type.util.ts:167</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationMsword"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationMsword</b></span>
+                        <a href="#ApplicationMsword"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/msword&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="239" class="link-to-prism">src/utils/mime_type.util.ts:239</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationOctetStream"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationOctetStream</b></span>
+                        <a href="#ApplicationOctetStream"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/octet-stream&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/utils/mime_type.util.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationOgg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationOgg</b></span>
+                        <a href="#ApplicationOgg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/ogg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/utils/mime_type.util.ts:309</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationPdf"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationPdf</b></span>
+                        <a href="#ApplicationPdf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/pdf&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="364" class="link-to-prism">src/utils/mime_type.util.ts:364</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationPostscript"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationPostscript</b></span>
+                        <a href="#ApplicationPostscript"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/postscript&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="374" class="link-to-prism">src/utils/mime_type.util.ts:374</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationRdfXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationRdfXml</b></span>
+                        <a href="#ApplicationRdfXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/rdf+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="394" class="link-to-prism">src/utils/mime_type.util.ts:394</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationRssXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationRssXml</b></span>
+                        <a href="#ApplicationRssXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/rss+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="399" class="link-to-prism">src/utils/mime_type.util.ts:399</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationSoapXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationSoapXml</b></span>
+                        <a href="#ApplicationSoapXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/soap+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="404" class="link-to-prism">src/utils/mime_type.util.ts:404</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndGoogleEarthKmlXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndGoogleEarthKmlXml</b></span>
+                        <a href="#ApplicationVndGoogleEarthKmlXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.google-earth.kml+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="196" class="link-to-prism">src/utils/mime_type.util.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndMozillaXulXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndMozillaXulXml</b></span>
+                        <a href="#ApplicationVndMozillaXulXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.mozilla.xul+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="264" class="link-to-prism">src/utils/mime_type.util.ts:264</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndMsExcel"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndMsExcel</b></span>
+                        <a href="#ApplicationVndMsExcel"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.ms-excel&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="217" class="link-to-prism">src/utils/mime_type.util.ts:217</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndMsPowerpoint"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndMsPowerpoint</b></span>
+                        <a href="#ApplicationVndMsPowerpoint"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.ms-powerpoint&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="228" class="link-to-prism">src/utils/mime_type.util.ts:228</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOasisOpendocumentGraphics"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOasisOpendocumentGraphics</b></span>
+                        <a href="#ApplicationVndOasisOpendocumentGraphics"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.oasis.opendocument.graphics&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="319" class="link-to-prism">src/utils/mime_type.util.ts:319</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOasisOpendocumentPresentation"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOasisOpendocumentPresentation</b></span>
+                        <a href="#ApplicationVndOasisOpendocumentPresentation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.oasis.opendocument.presentation&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="324" class="link-to-prism">src/utils/mime_type.util.ts:324</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOasisOpendocumentSpreadsheet"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOasisOpendocumentSpreadsheet</b></span>
+                        <a href="#ApplicationVndOasisOpendocumentSpreadsheet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.oasis.opendocument.spreadsheet&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="329" class="link-to-prism">src/utils/mime_type.util.ts:329</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOasisOpendocumentText"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOasisOpendocumentText</b></span>
+                        <a href="#ApplicationVndOasisOpendocumentText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.oasis.opendocument.text&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/utils/mime_type.util.ts:334</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation</b></span>
+                        <a href="#ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.openxmlformats-officedocument.presentationml.presentation&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="222" class="link-to-prism">src/utils/mime_type.util.ts:222</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet</b></span>
+                        <a href="#ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="211" class="link-to-prism">src/utils/mime_type.util.ts:211</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument</b></span>
+                        <a href="#ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="233" class="link-to-prism">src/utils/mime_type.util.ts:233</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXDeb"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXDeb</b></span>
+                        <a href="#ApplicationXDeb"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-deb&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="49" class="link-to-prism">src/utils/mime_type.util.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXDvi"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXDvi</b></span>
+                        <a href="#ApplicationXDvi"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-dvi&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="74" class="link-to-prism">src/utils/mime_type.util.ts:74</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXFontTtf"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXFontTtf</b></span>
+                        <a href="#ApplicationXFontTtf"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-font-ttf&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="434" class="link-to-prism">src/utils/mime_type.util.ts:434</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXGzip"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXGzip</b></span>
+                        <a href="#ApplicationXGzip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-gzip&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="137" class="link-to-prism">src/utils/mime_type.util.ts:137</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXhtmlXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXhtmlXml</b></span>
+                        <a href="#ApplicationXhtmlXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/xhtml+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="504" class="link-to-prism">src/utils/mime_type.util.ts:504</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXJavascript"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXJavascript</b></span>
+                        <a href="#ApplicationXJavascript"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-javascript&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="6" class="link-to-prism">src/utils/mime_type.util.ts:6</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXLatex"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXLatex</b></span>
+                        <a href="#ApplicationXLatex"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-latex&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="201" class="link-to-prism">src/utils/mime_type.util.ts:201</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXmlDtd"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXmlDtd</b></span>
+                        <a href="#ApplicationXmlDtd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/xml-dtd&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/utils/mime_type.util.ts:79</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXopXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXopXml</b></span>
+                        <a href="#ApplicationXopXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/xop+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="314" class="link-to-prism">src/utils/mime_type.util.ts:314</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXPkcs12"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXPkcs12</b></span>
+                        <a href="#ApplicationXPkcs12"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-pkcs12&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="339" class="link-to-prism">src/utils/mime_type.util.ts:339</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXPkcs7Certificates"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXPkcs7Certificates</b></span>
+                        <a href="#ApplicationXPkcs7Certificates"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-pkcs7-certificates&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="344" class="link-to-prism">src/utils/mime_type.util.ts:344</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXPkcs7Certreqresp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXPkcs7Certreqresp</b></span>
+                        <a href="#ApplicationXPkcs7Certreqresp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-pkcs7-certreqresp&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="354" class="link-to-prism">src/utils/mime_type.util.ts:354</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXPkcs7Mime"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXPkcs7Mime</b></span>
+                        <a href="#ApplicationXPkcs7Mime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-pkcs7-mime&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="349" class="link-to-prism">src/utils/mime_type.util.ts:349</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXPkcs7Signature"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXPkcs7Signature</b></span>
+                        <a href="#ApplicationXPkcs7Signature"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-pkcs7-signature&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="359" class="link-to-prism">src/utils/mime_type.util.ts:359</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXRarCompressed"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXRarCompressed</b></span>
+                        <a href="#ApplicationXRarCompressed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-rar-compressed&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="384" class="link-to-prism">src/utils/mime_type.util.ts:384</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXShockwaveFlash"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXShockwaveFlash</b></span>
+                        <a href="#ApplicationXShockwaveFlash"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-shockwave-flash&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/utils/mime_type.util.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXStuffit"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXStuffit</b></span>
+                        <a href="#ApplicationXStuffit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-stuffit&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="409" class="link-to-prism">src/utils/mime_type.util.ts:409</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationXTar"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationXTar</b></span>
+                        <a href="#ApplicationXTar"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/x-tar&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="424" class="link-to-prism">src/utils/mime_type.util.ts:424</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ApplicationZip"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ApplicationZip</b></span>
+                        <a href="#ApplicationZip"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;application/zip&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="509" class="link-to-prism">src/utils/mime_type.util.ts:509</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioBasic"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioBasic</b></span>
+                        <a href="#AudioBasic"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/basic&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="294" class="link-to-prism">src/utils/mime_type.util.ts:294</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioL24"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioL24</b></span>
+                        <a href="#AudioL24"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/L24&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="11" class="link-to-prism">src/utils/mime_type.util.ts:11</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioMp4"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioMp4</b></span>
+                        <a href="#AudioMp4"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/mp4&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="274" class="link-to-prism">src/utils/mime_type.util.ts:274</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioMpeg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioMpeg</b></span>
+                        <a href="#AudioMpeg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/mpeg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="269" class="link-to-prism">src/utils/mime_type.util.ts:269</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioOgg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioOgg</b></span>
+                        <a href="#AudioOgg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/ogg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="304" class="link-to-prism">src/utils/mime_type.util.ts:304</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioVndRnRealaudio"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioVndRnRealaudio</b></span>
+                        <a href="#AudioVndRnRealaudio"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/vnd.rn-realaudio&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="389" class="link-to-prism">src/utils/mime_type.util.ts:389</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioVndWave"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioVndWave</b></span>
+                        <a href="#AudioVndWave"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/vnd.wave&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="449" class="link-to-prism">src/utils/mime_type.util.ts:449</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioVorbis"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioVorbis</b></span>
+                        <a href="#AudioVorbis"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/vorbis&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="444" class="link-to-prism">src/utils/mime_type.util.ts:444</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioWebm"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioWebm</b></span>
+                        <a href="#AudioWebm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/webm&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="464" class="link-to-prism">src/utils/mime_type.util.ts:464</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioXMsWax"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioXMsWax</b></span>
+                        <a href="#AudioXMsWax"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/x-ms-wax&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="469" class="link-to-prism">src/utils/mime_type.util.ts:469</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AudioXMsWma"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>AudioXMsWma</b></span>
+                        <a href="#AudioXMsWma"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;audio/x-ms-wma&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="474" class="link-to-prism">src/utils/mime_type.util.ts:474</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImageGif"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImageGif</b></span>
+                        <a href="#ImageGif"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/gif&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="127" class="link-to-prism">src/utils/mime_type.util.ts:127</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImageJpeg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImageJpeg</b></span>
+                        <a href="#ImageJpeg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/jpeg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="186" class="link-to-prism">src/utils/mime_type.util.ts:186</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImagePjpeg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImagePjpeg</b></span>
+                        <a href="#ImagePjpeg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/pjpeg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="181" class="link-to-prism">src/utils/mime_type.util.ts:181</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImagePng"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImagePng</b></span>
+                        <a href="#ImagePng"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/png&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="369" class="link-to-prism">src/utils/mime_type.util.ts:369</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImageSvgXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImageSvgXml</b></span>
+                        <a href="#ImageSvgXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/svg+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="414" class="link-to-prism">src/utils/mime_type.util.ts:414</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImageTiff"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImageTiff</b></span>
+                        <a href="#ImageTiff"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/tiff&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="419" class="link-to-prism">src/utils/mime_type.util.ts:419</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ImageVndMicrosoftIcon"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ImageVndMicrosoftIcon</b></span>
+                        <a href="#ImageVndMicrosoftIcon"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;image/vnd.microsoft.icon&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="147" class="link-to-prism">src/utils/mime_type.util.ts:147</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MessageHttp"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MessageHttp</b></span>
+                        <a href="#MessageHttp"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;message/http&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="64" class="link-to-prism">src/utils/mime_type.util.ts:64</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MessageImdnXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MessageImdnXml</b></span>
+                        <a href="#MessageImdnXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;message/imdn+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="157" class="link-to-prism">src/utils/mime_type.util.ts:157</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MessagePartial"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MessagePartial</b></span>
+                        <a href="#MessagePartial"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;message/partial&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/utils/mime_type.util.ts:107</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MessageRfc822"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MessageRfc822</b></span>
+                        <a href="#MessageRfc822"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;message/rfc822&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="112" class="link-to-prism">src/utils/mime_type.util.ts:112</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelExample"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelExample</b></span>
+                        <a href="#ModelExample"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/example&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="69" class="link-to-prism">src/utils/mime_type.util.ts:69</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelIges"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelIges</b></span>
+                        <a href="#ModelIges"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/iges&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="152" class="link-to-prism">src/utils/mime_type.util.ts:152</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelMesh"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelMesh</b></span>
+                        <a href="#ModelMesh"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/mesh&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="289" class="link-to-prism">src/utils/mime_type.util.ts:289</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelVrml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelVrml</b></span>
+                        <a href="#ModelVrml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/vrml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="484" class="link-to-prism">src/utils/mime_type.util.ts:484</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelX3DBinary"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelX3DBinary</b></span>
+                        <a href="#ModelX3DBinary"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/x3d+binary&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="494" class="link-to-prism">src/utils/mime_type.util.ts:494</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelX3DVrml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelX3DVrml</b></span>
+                        <a href="#ModelX3DVrml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/x3d+vrml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="499" class="link-to-prism">src/utils/mime_type.util.ts:499</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ModelX3DXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>ModelX3DXml</b></span>
+                        <a href="#ModelX3DXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;model/x3d+xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="489" class="link-to-prism">src/utils/mime_type.util.ts:489</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartAlternative"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartAlternative</b></span>
+                        <a href="#MultipartAlternative"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/alternative&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="244" class="link-to-prism">src/utils/mime_type.util.ts:244</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartEncrypted"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartEncrypted</b></span>
+                        <a href="#MultipartEncrypted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/encrypted&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/utils/mime_type.util.ts:54</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartFormData"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartFormData</b></span>
+                        <a href="#MultipartFormData"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/form-data&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="259" class="link-to-prism">src/utils/mime_type.util.ts:259</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartMixed"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartMixed</b></span>
+                        <a href="#MultipartMixed"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/mixed&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="249" class="link-to-prism">src/utils/mime_type.util.ts:249</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartRelated"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartRelated</b></span>
+                        <a href="#MultipartRelated"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/related&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="254" class="link-to-prism">src/utils/mime_type.util.ts:254</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MultipartSigned"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>MultipartSigned</b></span>
+                        <a href="#MultipartSigned"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;multipart/signed&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/utils/mime_type.util.ts:59</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextCmd"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextCmd</b></span>
+                        <a href="#TextCmd"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/cmd&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/utils/mime_type.util.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextCss"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextCss</b></span>
+                        <a href="#TextCss"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/css&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="34" class="link-to-prism">src/utils/mime_type.util.ts:34</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextCsv"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextCsv</b></span>
+                        <a href="#TextCsv"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/csv&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="44" class="link-to-prism">src/utils/mime_type.util.ts:44</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextHtml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextHtml</b></span>
+                        <a href="#TextHtml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/html&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="142" class="link-to-prism">src/utils/mime_type.util.ts:142</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextJavascript"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextJavascript</b></span>
+                        <a href="#TextJavascript"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/javascript&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="175" class="link-to-prism">src/utils/mime_type.util.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextPlain"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextPlain</b></span>
+                        <a href="#TextPlain"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/plain&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="429" class="link-to-prism">src/utils/mime_type.util.ts:429</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextVcard"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextVcard</b></span>
+                        <a href="#TextVcard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/vcard&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="439" class="link-to-prism">src/utils/mime_type.util.ts:439</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextXGwtRpc"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextXGwtRpc</b></span>
+                        <a href="#TextXGwtRpc"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/x-gwt-rpc&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/utils/mime_type.util.ts:132</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextXJqueryTmpl"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextXJqueryTmpl</b></span>
+                        <a href="#TextXJqueryTmpl"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/x-jquery-tmpl&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="191" class="link-to-prism">src/utils/mime_type.util.ts:191</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="TextXml"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>TextXml</b></span>
+                        <a href="#TextXml"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;text/xml&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="117" class="link-to-prism">src/utils/mime_type.util.ts:117</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoMp4"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoMp4</b></span>
+                        <a href="#VideoMp4"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/mp4&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="279" class="link-to-prism">src/utils/mime_type.util.ts:279</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoMpeg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoMpeg</b></span>
+                        <a href="#VideoMpeg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/mpeg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="284" class="link-to-prism">src/utils/mime_type.util.ts:284</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoOgg"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoOgg</b></span>
+                        <a href="#VideoOgg"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/ogg&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="299" class="link-to-prism">src/utils/mime_type.util.ts:299</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoQuicktime"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoQuicktime</b></span>
+                        <a href="#VideoQuicktime"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/quicktime&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="379" class="link-to-prism">src/utils/mime_type.util.ts:379</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoWebm"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoWebm</b></span>
+                        <a href="#VideoWebm"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/webm&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="459" class="link-to-prism">src/utils/mime_type.util.ts:459</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoXFlv"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoXFlv</b></span>
+                        <a href="#VideoXFlv"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/x-flv&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="122" class="link-to-prism">src/utils/mime_type.util.ts:122</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoXMatroska"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoXMatroska</b></span>
+                        <a href="#VideoXMatroska"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/x-matroska&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="206" class="link-to-prism">src/utils/mime_type.util.ts:206</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="VideoXMsWmv"></a>
+                    <span class="name">
+                            <span class="modifier">Static</span>
+                        <span ><b>VideoXMsWmv</b></span>
+                        <a href="#VideoXMsWmv"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;video/x-ms-wmv&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="479" class="link-to-prism">src/utils/mime_type.util.ts:479</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">export class MimeTypeNames {
+  /**
+   * @description Used to denote the encoding necessary for files containing JavaScript source code.
+   * @description The alternative MIME type for this file type is text/javascript.
+   */
+  public static ApplicationXJavascript &#x3D; &#x27;application/x-javascript&#x27;;
+
+  /**
+   * @description 24bit Linear PCM audio at 8-48kHz, 1-N channels; Defined in RFC 3190
+   */
+  public static AudioL24 &#x3D; &#x27;audio/L24&#x27;;
+
+  /**
+   * @description Adobe Flash files for example with the extension .swf
+   */
+  public static ApplicationXShockwaveFlash &#x3D; &#x27;application/x-shockwave-flash&#x27;;
+
+  /**
+   * @description Arbitrary binary data.[5] Generally speaking this type identifies files that are not associated with a specific application.
+   * @description Contrary to past assumptions by software packages such as Apache this is not a type that should be applied to unknown files.
+   * @description In such a case, a server or application should not indicate a content type, as it may be incorrect, but rather,
+   * @description should omit the type in order to allow the recipient to guess the type.[6]
+   */
+  public static ApplicationOctetStream &#x3D; &#x27;application/octet-stream&#x27;;
+
+  /**
+   * @description Atom feeds
+   */
+  public static ApplicationAtomXml &#x3D; &#x27;application/atom+xml&#x27;;
+
+  /**
+   * @description Cascading Style Sheets; Defined in RFC 2318
+   */
+  public static TextCss &#x3D; &#x27;text/css&#x27;;
+
+  /**
+   * @description commands; subtype resident in Gecko browsers like Firefox 3.5
+   */
+  public static TextCmd &#x3D; &#x27;text/cmd&#x27;;
+
+  /**
+   * @description Comma-separated values; Defined in RFC 4180
+   */
+  public static TextCsv &#x3D; &#x27;text/csv&#x27;;
+
+  /**
+   * @description deb (file format), a software package format used by the Debian project
+   */
+  public static ApplicationXDeb &#x3D; &#x27;application/x-deb&#x27;;
+
+  /**
+   * @description Defined in RFC 1847
+   */
+  public static MultipartEncrypted &#x3D; &#x27;multipart/encrypted&#x27;;
+
+  /**
+   * @description Defined in RFC 1847
+   */
+  public static MultipartSigned &#x3D; &#x27;multipart/signed&#x27;;
+
+  /**
+   * @description Defined in RFC 2616
+   */
+  public static MessageHttp &#x3D; &#x27;message/http&#x27;;
+
+  /**
+   * @description Defined in RFC 4735
+   */
+  public static ModelExample &#x3D; &#x27;model/example&#x27;;
+
+  /**
+   * @description device-independent document in DVI format
+   */
+  public static ApplicationXDvi &#x3D; &#x27;application/x-dvi&#x27;;
+
+  /**
+   * @description DTD files; Defined by RFC 3023
+   */
+  public static ApplicationXmlDtd &#x3D; &#x27;application/xml-dtd&#x27;;
+
+  /**
+   * @description ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/ecmascript but with looser processing rules)
+   * @description It is not accepted in IE 8 or earlier - text/javascript is accepted but it is defined as obsolete in RFC 4329.
+   * @description The &quot;type&quot; attribute of the &lt;script&gt; tag in HTML5 is optional and in practice omitting the media type of JavaScript
+   * @description programs is the most interoperable solution since all browsers have always assumed the correct default even before HTML5.
+   */
+  public static ApplicationJavascript &#x3D; &#x27;application/javascript&#x27;;
+
+  /**
+   * @description ECMAScript/JavaScript; Defined in RFC 4329 (equivalent to application/javascript but with stricter processing rules)
+   */
+  public static ApplicationEcmascript &#x3D; &#x27;application/ecmascript&#x27;;
+
+  /**
+   * @description EDI EDIFACT data; Defined in RFC 1767
+   */
+  public static ApplicationEdifact &#x3D; &#x27;application/EDIFACT&#x27;;
+
+  /**
+   * @description EDI X12 data; Defined in RFC 1767
+   */
+  public static ApplicationEdiX12 &#x3D; &#x27;application/EDI-X12&#x27;;
+
+  /**
+   * @description Email; Defined in RFC 2045 and RFC 2046
+   */
+  public static MessagePartial &#x3D; &#x27;message/partial&#x27;;
+
+  /**
+   * @description Email; EML files, MIME files, MHT files, MHTML files; Defined in RFC 2045 and RFC 2046
+   */
+  public static MessageRfc822 &#x3D; &#x27;message/rfc822&#x27;;
+
+  /**
+   * @description Extensible Markup Language; Defined in RFC 3023
+   */
+  public static TextXml &#x3D; &#x27;text/xml&#x27;;
+
+  /**
+   * @description Flash video (FLV files)
+   */
+  public static VideoXFlv &#x3D; &#x27;video/x-flv&#x27;;
+
+  /**
+   * @description GIF image; Defined in RFC 2045 and RFC 2046
+   */
+  public static ImageGif &#x3D; &#x27;image/gif&#x27;;
+
+  /**
+   * @description GoogleWebToolkit data
+   */
+  public static TextXGwtRpc &#x3D; &#x27;text/x-gwt-rpc&#x27;;
+
+  /**
+   * @description Gzip
+   */
+  public static ApplicationXGzip &#x3D; &#x27;application/x-gzip&#x27;;
+
+  /**
+   * @description HTML; Defined in RFC 2854
+   */
+  public static TextHtml &#x3D; &#x27;text/html&#x27;;
+
+  /**
+   * @description ICO image; Registered[9]
+   */
+  public static ImageVndMicrosoftIcon &#x3D; &#x27;image/vnd.microsoft.icon&#x27;;
+
+  /**
+   * @description IGS files, IGES files; Defined in RFC 2077
+   */
+  public static ModelIges &#x3D; &#x27;model/iges&#x27;;
+
+  /**
+   * @description IMDN Instant Message Disposition Notification; Defined in RFC 5438
+   */
+  public static MessageImdnXml &#x3D; &#x27;message/imdn+xml&#x27;;
+
+  /**
+   * @description JavaScript Object Notation JSON; Defined in RFC 4627
+   */
+  public static ApplicationJson &#x3D; &#x27;application/json&#x27;;
+
+  /**
+   * @description JavaScript Object Notation (JSON) Patch; Defined in RFC 6902
+   */
+  public static ApplicationJsonPatch &#x3D; &#x27;application/json-patch+json&#x27;;
+
+  /**
+   * @description JavaScript - Defined in and obsoleted by RFC 4329 in order to discourage its usage in favor of application/javascript.
+   * @description However,text/javascript is allowed in HTML 4 and 5 and, unlike application/javascript, has cross-browser support.
+   * @description The &quot;type&quot; attribute of the &lt;script&gt; tag in HTML5 is optional and there is no need to use it at all since all browsers
+   * @description have always assumed the correct default (even in HTML 4 where it was required by the specification).
+   */
+  public static TextJavascript &#x3D; &#x27;text/javascript&#x27;;
+
+  /**
+   * @description JPEG JFIF image; Associated with Internet Explorer; Listed in ms775147(v&#x3D;vs.85) - Progressive JPEG,
+   * @description initiated before global browser support for progressive JPEGs (Microsoft and Firefox).
+   */
+  public static ImagePjpeg &#x3D; &#x27;image/pjpeg&#x27;;
+
+  /**
+   * @description JPEG JFIF image; Defined in RFC 2045 and RFC 2046
+   */
+  public static ImageJpeg &#x3D; &#x27;image/jpeg&#x27;;
+
+  /**
+   * @description jQuery template data
+   */
+  public static TextXJqueryTmpl &#x3D; &#x27;text/x-jquery-tmpl&#x27;;
+
+  /**
+   * @description KML files (e.g. for Google Earth)
+   */
+  public static ApplicationVndGoogleEarthKmlXml &#x3D; &#x27;application/vnd.google-earth.kml+xml&#x27;;
+
+  /**
+   * @description LaTeX files
+   */
+  public static ApplicationXLatex &#x3D; &#x27;application/x-latex&#x27;;
+
+  /**
+   * @description Matroska open media format
+   */
+  public static VideoXMatroska &#x3D; &#x27;video/x-matroska&#x27;;
+
+  /**
+   * @description Microsoft Excel 2007 files
+   */
+  public static ApplicationVndOpenxmlformatsOfficedocumentSpreadsheetmlSheet &#x3D;
+    &#x27;application/vnd.openxmlformats-officedocument.spreadsheetml.sheet&#x27;;
+
+  /**
+   * @description Microsoft Excel files
+   */
+  public static ApplicationVndMsExcel &#x3D; &#x27;application/vnd.ms-excel&#x27;;
+
+  /**
+   * @description Microsoft Powerpoint 2007 files
+   */
+  public static ApplicationVndOpenxmlformatsOfficedocumentPresentationmlPresentation &#x3D;
+    &#x27;application/vnd.openxmlformats-officedocument.presentationml.presentation&#x27;;
+
+  /**
+   * @description Microsoft Powerpoint files
+   */
+  public static ApplicationVndMsPowerpoint &#x3D; &#x27;application/vnd.ms-powerpoint&#x27;;
+
+  /**
+   * @description Microsoft Word 2007 files
+   */
+  public static ApplicationVndOpenxmlformatsOfficedocumentWordprocessingmlDocument &#x3D;
+    &#x27;application/vnd.openxmlformats-officedocument.wordprocessingml.document&#x27;;
+
+  /**
+   * @description Microsoft Word files[15]
+   */
+  public static ApplicationMsword &#x3D; &#x27;application/msword&#x27;;
+
+  /**
+   * @description MIME Email; Defined in RFC 2045 and RFC 2046
+   */
+  public static MultipartAlternative &#x3D; &#x27;multipart/alternative&#x27;;
+
+  /**
+   * @description MIME Email; Defined in RFC 2045 and RFC 2046
+   */
+  public static MultipartMixed &#x3D; &#x27;multipart/mixed&#x27;;
+
+  /**
+   * @description MIME Email; Defined in RFC 2387 and used by MHTML (HTML mail)
+   */
+  public static MultipartRelated &#x3D; &#x27;multipart/related&#x27;;
+
+  /**
+   * @description MIME Webform; Defined in RFC 2388
+   */
+  public static MultipartFormData &#x3D; &#x27;multipart/form-data&#x27;;
+
+  /**
+   * @description Mozilla XUL files
+   */
+  public static ApplicationVndMozillaXulXml &#x3D; &#x27;application/vnd.mozilla.xul+xml&#x27;;
+
+  /**
+   * @description MP3 or other MPEG audio; Defined in RFC 3003
+   */
+  public static AudioMpeg &#x3D; &#x27;audio/mpeg&#x27;;
+
+  /**
+   * @description MP4 audio
+   */
+  public static AudioMp4 &#x3D; &#x27;audio/mp4&#x27;;
+
+  /**
+   * @description MP4 video; Defined in RFC 4337
+   */
+  public static VideoMp4 &#x3D; &#x27;video/mp4&#x27;;
+
+  /**
+   * @description MPEG-1 video with multiplexed audio; Defined in RFC 2045 and RFC 2046
+   */
+  public static VideoMpeg &#x3D; &#x27;video/mpeg&#x27;;
+
+  /**
+   * @description MSH files, MESH files; Defined in RFC 2077, SILO files
+   */
+  public static ModelMesh &#x3D; &#x27;model/mesh&#x27;;
+
+  /**
+   * @description mulaw audio at 8 kHz, 1 channel; Defined in RFC 2046
+   */
+  public static AudioBasic &#x3D; &#x27;audio/basic&#x27;;
+
+  /**
+   * @description Ogg Theora or other video (with audio); Defined in RFC 5334
+   */
+  public static VideoOgg &#x3D; &#x27;video/ogg&#x27;;
+
+  /**
+   * @description Ogg Vorbis, Speex, Flac and other audio; Defined in RFC 5334
+   */
+  public static AudioOgg &#x3D; &#x27;audio/ogg&#x27;;
+
+  /**
+   * @description Ogg, a multimedia bitstream container format; Defined in RFC 5334
+   */
+  public static ApplicationOgg &#x3D; &#x27;application/ogg&#x27;;
+
+  /**
+   * @description OP
+   */
+  public static ApplicationXopXml &#x3D; &#x27;application/xop+xml&#x27;;
+
+  /**
+   * @description OpenDocument Graphics; Registered[14]
+   */
+  public static ApplicationVndOasisOpendocumentGraphics &#x3D; &#x27;application/vnd.oasis.opendocument.graphics&#x27;;
+
+  /**
+   * @description OpenDocument Presentation; Registered[13]
+   */
+  public static ApplicationVndOasisOpendocumentPresentation &#x3D; &#x27;application/vnd.oasis.opendocument.presentation&#x27;;
+
+  /**
+   * @description OpenDocument Spreadsheet; Registered[12]
+   */
+  public static ApplicationVndOasisOpendocumentSpreadsheet &#x3D; &#x27;application/vnd.oasis.opendocument.spreadsheet&#x27;;
+
+  /**
+   * @description OpenDocument Text; Registered[11]
+   */
+  public static ApplicationVndOasisOpendocumentText &#x3D; &#x27;application/vnd.oasis.opendocument.text&#x27;;
+
+  /**
+   * @description p12 files
+   */
+  public static ApplicationXPkcs12 &#x3D; &#x27;application/x-pkcs12&#x27;;
+
+  /**
+   * @description p7b and spc files
+   */
+  public static ApplicationXPkcs7Certificates &#x3D; &#x27;application/x-pkcs7-certificates&#x27;;
+
+  /**
+   * @description p7c files
+   */
+  public static ApplicationXPkcs7Mime &#x3D; &#x27;application/x-pkcs7-mime&#x27;;
+
+  /**
+   * @description p7r files
+   */
+  public static ApplicationXPkcs7Certreqresp &#x3D; &#x27;application/x-pkcs7-certreqresp&#x27;;
+
+  /**
+   * @description p7s files
+   */
+  public static ApplicationXPkcs7Signature &#x3D; &#x27;application/x-pkcs7-signature&#x27;;
+
+  /**
+   * @description Portable Document Format, PDF has been in use for document exchange on the Internet since 1993; Defined in RFC 3778
+   */
+  public static ApplicationPdf &#x3D; &#x27;application/pdf&#x27;;
+
+  /**
+   * @description Portable Network Graphics; Registered,[8] Defined in RFC 2083
+   */
+  public static ImagePng &#x3D; &#x27;image/png&#x27;;
+
+  /**
+   * @description PostScript; Defined in RFC 2046
+   */
+  public static ApplicationPostscript &#x3D; &#x27;application/postscript&#x27;;
+
+  /**
+   * @description QuickTime video; Registered[10]
+   */
+  public static VideoQuicktime &#x3D; &#x27;video/quicktime&#x27;;
+
+  /**
+   * @description RAR archive files
+   */
+  public static ApplicationXRarCompressed &#x3D; &#x27;application/x-rar-compressed&#x27;;
+
+  /**
+   * @description RealAudio; Documented in RealPlayer Customer Support Answer 2559
+   */
+  public static AudioVndRnRealaudio &#x3D; &#x27;audio/vnd.rn-realaudio&#x27;;
+
+  /**
+   * @description Resource Description Framework; Defined by RFC 3870
+   */
+  public static ApplicationRdfXml &#x3D; &#x27;application/rdf+xml&#x27;;
+
+  /**
+   * @description RSS feeds
+   */
+  public static ApplicationRssXml &#x3D; &#x27;application/rss+xml&#x27;;
+
+  /**
+   * @description SOAP; Defined by RFC 3902
+   */
+  public static ApplicationSoapXml &#x3D; &#x27;application/soap+xml&#x27;;
+
+  /**
+   * @description StuffIt archive files
+   */
+  public static ApplicationXStuffit &#x3D; &#x27;application/x-stuffit&#x27;;
+
+  /**
+   * @description SVG vector image; Defined in SVG Tiny 1.2 Specification Appendix M
+   */
+  public static ImageSvgXml &#x3D; &#x27;image/svg+xml&#x27;;
+
+  /**
+   * @description Tag Image File Format (only for Baseline TIFF); Defined in RFC 3302
+   */
+  public static ImageTiff &#x3D; &#x27;image/tiff&#x27;;
+
+  /**
+   * @description Tarball files
+   */
+  public static ApplicationXTar &#x3D; &#x27;application/x-tar&#x27;;
+
+  /**
+   * @description Textual data; Defined in RFC 2046 and RFC 3676
+   */
+  public static TextPlain &#x3D; &#x27;text/plain&#x27;;
+
+  /**
+   * @description TrueType Font No registered MIME type, but this is the most commonly used
+   */
+  public static ApplicationXFontTtf &#x3D; &#x27;application/x-font-ttf&#x27;;
+
+  /**
+   * @description Card (contact information); Defined in RFC 6350
+   */
+  public static TextVcard &#x3D; &#x27;text/vcard&#x27;;
+
+  /**
+   * @description Vorbis encoded audio; Defined in RFC 5215
+   */
+  public static AudioVorbis &#x3D; &#x27;audio/vorbis&#x27;;
+
+  /**
+   * @description WAV audio; Defined in RFC 2361
+   */
+  public static AudioVndWave &#x3D; &#x27;audio/vnd.wave&#x27;;
+
+  /**
+   * @description Web Open Font Format; (candidate recommendation; use application/x-font-woff until standard is official)
+   */
+  public static ApplicationFontWoff &#x3D; &#x27;application/font-woff&#x27;;
+
+  /**
+   * @description WebM Matroska-based open media format
+   */
+  public static VideoWebm &#x3D; &#x27;video/webm&#x27;;
+
+  /**
+   * @description WebM open media format
+   */
+  public static AudioWebm &#x3D; &#x27;audio/webm&#x27;;
+
+  /**
+   * @description Windows Media Audio Redirector; Documented in Microsoft help page
+   */
+  public static AudioXMsWax &#x3D; &#x27;audio/x-ms-wax&#x27;;
+
+  /**
+   * @description Windows Media Audio; Documented in Microsoft KB 288102
+   */
+  public static AudioXMsWma &#x3D; &#x27;audio/x-ms-wma&#x27;;
+
+  /**
+   * @description Windows Media Video; Documented in Microsoft KB 288102
+   */
+  public static VideoXMsWmv &#x3D; &#x27;video/x-ms-wmv&#x27;;
+
+  /**
+   * @description WRL files, VRML files; Defined in RFC 2077
+   */
+  public static ModelVrml &#x3D; &#x27;model/vrml&#x27;;
+
+  /**
+   * @description X3D ISO standard for representing 3D computer graphics, X3D XML files
+   */
+  public static ModelX3DXml &#x3D; &#x27;model/x3d+xml&#x27;;
+
+  /**
+   * @description X3D ISO standard for representing 3D computer graphics, X3DB binary files
+   */
+  public static ModelX3DBinary &#x3D; &#x27;model/x3d+binary&#x27;;
+
+  /**
+   * @description X3D ISO standard for representing 3D computer graphics, X3DV VRML files
+   */
+  public static ModelX3DVrml &#x3D; &#x27;model/x3d+vrml&#x27;;
+
+  /**
+   * @description XHTML; Defined by RFC 3236
+   */
+  public static ApplicationXhtmlXml &#x3D; &#x27;application/xhtml+xml&#x27;;
+
+  /**
+   * @description ZIP archive files; Registered[7]
+   */
+  public static ApplicationZip &#x3D; &#x27;application/zip&#x27;;
+}
+</code></pre>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'class';
+            var COMPODOC_CURRENT_PAGE_URL = 'MimeTypeNames.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

@@ -1,0 +1,2249 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>leek documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">leek documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content injectable">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Injectables</li>
+  <li class="breadcrumb-item" >DocumentService</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" 
+                class="nav-link"
+                class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" 
+                class="nav-link"
+                
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info">
+        <p class="comment">
+            <h3>File</h3>
+        </p>
+        <p class="comment">
+            <code>src/datasets/services/document.service.ts</code>
+        </p>
+
+
+
+
+
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Readonly</span>
+                                <a href="#logger" >logger</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#archiveDocumentById" >archiveDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#createDocumentByFile" >createDocumentByFile</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#createDocumentByText" >createDocumentByText</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Async</span>
+                                <a href="#deleteDocumentById" >deleteDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#disableDocumentById" >disableDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#enableDocumentById" >enableDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findDocumentById" >findDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#findManyDocumentsPaginatedByDatasetId" >findManyDocumentsPaginatedByDatasetId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#prepareEmbeddingsByDataset" >prepareEmbeddingsByDataset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                <a href="#prepareSegmentsByDatasetAndDocument" >prepareSegmentsByDatasetAndDocument</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#processSegmentsByDataset" >processSegmentsByDataset</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#renameDocumentById" >renameDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Async</span>
+                                <a href="#unArchiveDocumentById" >unArchiveDocumentById</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#validateFileByIdAndDataset" >validateFileByIdAndDataset</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+            <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(documentRepository: <a href="../classes/DocumentRepository.html" target="_self">DocumentRepository</a>, documentSegmentRepository: <a href="../classes/DocumentSegmentRepository.html" target="_self">DocumentSegmentRepository</a>, datasetProcessRuleRepository: <a href="../classes/DatasetProcessRuleRepository.html" target="_self">DatasetProcessRuleRepository</a>, embeddingRepository: <a href="../classes/EmbeddingRepository.html" target="_self">EmbeddingRepository</a>, filesRepository: <a href="../classes/FilesRepository.html" target="_self">FilesRepository</a>, filesService: <a href="../injectables/FilesService.html" target="_self">FilesService</a>, processDocumentService: <a href="../injectables/ProcessDocumentService.html" target="_self">ProcessDocumentService</a>, jiebaKeywordService: <a href="../injectables/JiebaKeywordService.html" target="_self">JiebaKeywordService</a>, configureService: <a href="../classes/ConfigureAdapter.html" target="_self">ConfigureAdapter</a>, transactionManager: <a href="../injectables/TransactionManager.html" target="_self">TransactionManager</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/datasets/services/document.service.ts:41</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>documentRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/DocumentRepository.html" target="_self" >DocumentRepository</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>documentSegmentRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/DocumentSegmentRepository.html" target="_self" >DocumentSegmentRepository</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>datasetProcessRuleRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/DatasetProcessRuleRepository.html" target="_self" >DatasetProcessRuleRepository</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>embeddingRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/EmbeddingRepository.html" target="_self" >EmbeddingRepository</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filesRepository</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/FilesRepository.html" target="_self" >FilesRepository</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>filesService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FilesService.html" target="_self" >FilesService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>processDocumentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/ProcessDocumentService.html" target="_self" >ProcessDocumentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>jiebaKeywordService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/JiebaKeywordService.html" target="_self" >JiebaKeywordService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>configureService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../classes/ConfigureAdapter.html" target="_self" >ConfigureAdapter</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>transactionManager</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/TransactionManager.html" target="_self" >TransactionManager</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+            <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="archiveDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>archiveDocumentById</b></span>
+                        <a href="#archiveDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>archiveDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="366"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:366</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>归档文档</p>
+<p>将指定文档设置为归档状态。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createDocumentByFile"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createDocumentByFile</b></span>
+                        <a href="#createDocumentByFile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createDocumentByFile(createDocumentByFileDto: <a href="../classes/CreateDocumentByFileDto.html" target="_self">CreateDocumentByFileDto</a>, datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, source: <a href="../undefineds/CreatedFromEnum.html" target="_self">CreatedFromEnum</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Transactional({timeout: undefined})<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="98"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:98</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>基于文件创建文档</p>
+<p>验证并处理文件，生成文档对象，同时更新分段和嵌入。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createDocumentByFileDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateDocumentByFileDto.html" target="_self" >CreateDocumentByFileDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>包含文件 ID 和处理规则</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>目标数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>source</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#CreatedFromEnum" target="_self" >CreatedFromEnum</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档来源（用户上传、系统生成等）</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/LeekDocument.html" target="_self" >Promise&lt;LeekDocument&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>创建的文档对象</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createDocumentByText"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>createDocumentByText</b></span>
+                        <a href="#createDocumentByText"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createDocumentByText(createDocumentByTextDto: <a href="../classes/CreateDocumentByTextDto.html" target="_self">CreateDocumentByTextDto</a>, datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, source: <a href="../undefineds/CreatedFromEnum.html" target="_self">CreatedFromEnum</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="66"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:66</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>基于文本内容创建文档</p>
+<p>上传提供的文本文件内容，并基于文件创建文档及其关联分段与嵌入。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createDocumentByTextDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateDocumentByTextDto.html" target="_self" >CreateDocumentByTextDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档文本内容与处理规则</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>目标数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>source</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/enumerations.html#CreatedFromEnum" target="_self" >CreatedFromEnum</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档来源（用户上传、系统生成等）</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>创建的文档对象</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deleteDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Async</span>
+                        <span ><b>deleteDocumentById</b></span>
+                        <a href="#deleteDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deleteDocumentById(datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@Transactional()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="310"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:310</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>删除文档及其关联数据</p>
+<p>删除指定文档以及其关联的分段和嵌入向量。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="disableDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>disableDocumentById</b></span>
+                        <a href="#disableDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>disableDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="337"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:337</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>禁用文档</p>
+<p>设置指定文档为禁用状态。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="enableDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>enableDocumentById</b></span>
+                        <a href="#enableDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>enableDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="352"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:352</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>启用文档</p>
+<p>设置指定文档为启用状态。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findDocumentById</b></span>
+                        <a href="#findDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="296"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:296</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>根据 ID 获取文档</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/LeekDocument.html" target="_self" >Promise&lt;LEEK.Nullable&lt;LeekDocument&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>文档对象或 null</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="findManyDocumentsPaginatedByDatasetId"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>findManyDocumentsPaginatedByDatasetId</b></span>
+                        <a href="#findManyDocumentsPaginatedByDatasetId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>findManyDocumentsPaginatedByDatasetId(datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, queryDocumentDto: <a href="../classes/QueryDocumentDto.html" target="_self">QueryDocumentDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="283"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:283</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>获取所有文档</p>
+<p>检索数据库中存储的所有文档。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>queryDocumentDto</td>
+                                            <td>
+                                                            <code><a href="../classes/QueryDocumentDto.html" target="_self" >QueryDocumentDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/LeekDocument.html" target="_self" >Promise&lt;PaginatedResult&lt;LeekDocument&gt;&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>文档列表</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareEmbeddingsByDataset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>prepareEmbeddingsByDataset</b></span>
+                        <a href="#prepareEmbeddingsByDataset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prepareEmbeddingsByDataset(documents: Document[], datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="260"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:260</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>准备文档嵌入</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documents</td>
+                                            <td>
+                                                        <code>Document[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档数组</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/LeekEmbedding.html" target="_self" >Promise&lt;LeekEmbedding[]&gt;</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>嵌入对象数组</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="prepareSegmentsByDatasetAndDocument"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                        <span ><b>prepareSegmentsByDatasetAndDocument</b></span>
+                        <a href="#prepareSegmentsByDatasetAndDocument"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>prepareSegmentsByDatasetAndDocument(documents: Document[], tokensPerSegment: <a href="../s/b.html" target="_self">number[]</a>, datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="232"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:232</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>准备文档分段</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documents</td>
+                                            <td>
+                                                        <code>Document[]</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档数组</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>tokensPerSegment</td>
+                                            <td>
+                                                            <code><a href="../miscellaneous/variables.html#b" target="_self" >number[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="../classes/LeekSegment.html" target="_self" >LeekSegment[]</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>分段对象数组</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="processSegmentsByDataset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>processSegmentsByDataset</b></span>
+                        <a href="#processSegmentsByDataset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>processSegmentsByDataset(fileKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, docForm: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, docLanguage: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, processRule: <a href="../classes/ProcessRuleDto.html" target="_self">ProcessRuleDto</a>, datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="196"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:196</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>处理文档分段，并过滤重复分段</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileKey</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文件 Key</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docForm</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>docLanguage</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>processRule</td>
+                                            <td>
+                                                            <code><a href="../classes/ProcessRuleDto.html" target="_self" >ProcessRuleDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>分段处理规则</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>处理后的文档分段</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="renameDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>renameDocumentById</b></span>
+                        <a href="#renameDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>renameDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, updateDocumentNameDto: <a href="../classes/UpdateDocumentNameDto.html" target="_self">UpdateDocumentNameDto</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="325"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:325</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>重命名文档</p>
+<p>更新文档名称。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>updateDocumentNameDto</td>
+                                            <td>
+                                                            <code><a href="../classes/UpdateDocumentNameDto.html" target="_self" >UpdateDocumentNameDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>包含新名称的 DTO</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="unArchiveDocumentById"></a>
+                    <span class="name">
+                            <span class="modifier">Async</span>
+                        <span ><b>unArchiveDocumentById</b></span>
+                        <a href="#unArchiveDocumentById"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>unArchiveDocumentById(documentId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="381"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:381</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>取消归档文档</p>
+<p>将指定文档从归档状态恢复。</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>documentId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文档 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="validateFileByIdAndDataset"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>validateFileByIdAndDataset</b></span>
+                        <a href="#validateFileByIdAndDataset"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>validateFileByIdAndDataset(fileId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>, datasetId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="175"
+                                    class="link-to-prism">src/datasets/services/document.service.ts:175</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+                        <div class="io-description"><p>验证文件是否存在，并检查是否重复</p>
+</div>
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>fileId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>文件 ID</p>
+
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                                <td>datasetId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <p>数据集 ID</p>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>unknown</code>
+
+                        </div>
+                            <div class="io-description">
+                                <p>文件对象</p>
+
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="logger"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Readonly</span>
+                        <span ><b>logger</b></span>
+                        <a href="#logger"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new Logger(DocumentService.name)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="41" class="link-to-prism">src/datasets/services/document.service.ts:41</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    </div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { BadRequestException, Injectable, InternalServerErrorException, Logger } from &#x27;@nestjs/common&#x27;;
+
+import { Document } from &#x27;@langchain/core/documents&#x27;;
+
+import { Transactional } from &#x27;@leek/common&#x27;;
+import { ConfigureAdapter } from &#x27;@leek/configure&#x27;;
+import {
+  CreatedFromEnum,
+  DataSourceEnum,
+  EMBEDDING_MODEL_NAME,
+  EMBEDDING_PROVIDER_NAME,
+  SegmentationEnum,
+} from &#x27;@leek/constants&#x27;;
+import { PaginatedResult } from &#x27;@leek/interfaces&#x27;;
+import { initEmbeddings } from &#x27;@leek/langchain&#x27;;
+import { TransactionManager } from &#x27;@leek/prisma&#x27;;
+import { calculateIndexingLatency, filterUnique, uuid } from &#x27;@leek/utils&#x27;;
+
+import { JiebaKeywordService } from &#x27;./jieba-keyword.service&#x27;;
+import { ProcessDocumentService } from &#x27;./process-document.service&#x27;;
+import { FilesService } from &#x27;../../files/files.service&#x27;;
+import { FilesRepository } from &#x27;../../files/infrastructure/persistence/files.repository&#x27;;
+import { LeekDatasetProcessRule } from &#x27;../domain/dataset-process-rule&#x27;;
+import { LeekDocument } from &#x27;../domain/document&#x27;;
+import { LeekEmbedding } from &#x27;../domain/embedding&#x27;;
+import { LeekSegment } from &#x27;../domain/segment&#x27;;
+import { CreateDocumentByFileDto } from &#x27;../dto/create-document-by-file.dto&#x27;;
+import { CreateDocumentByTextDto } from &#x27;../dto/create-document-by-text.dto&#x27;;
+import { ProcessRuleDto } from &#x27;../dto/process-rule.dto&#x27;;
+import { QueryDocumentDto } from &#x27;../dto/query-document.dto&#x27;;
+import { UpdateDocumentNameDto } from &#x27;../dto/update-document-name.dto&#x27;;
+import { DatasetProcessRuleRepository } from &#x27;../infrastructure/persistence/dataset-process-rule.repository&#x27;;
+import { DocumentSegmentRepository } from &#x27;../infrastructure/persistence/document-segment.repository&#x27;;
+import { DocumentRepository } from &#x27;../infrastructure/persistence/document.repository&#x27;;
+import { EmbeddingRepository } from &#x27;../infrastructure/persistence/embedding.repository&#x27;;
+import { calculateStatisticsForDocuments } from &#x27;../shared/utils/calculate-statistics.util&#x27;;
+import { generateVectorClassPrefixByDatasetId } from &#x27;../shared/utils/generate-vector-class-prefix-by-dataset-id.util&#x27;;
+
+@Injectable()
+export class DocumentService {
+  private readonly logger &#x3D; new Logger(DocumentService.name);
+
+  constructor(
+    private readonly documentRepository: DocumentRepository,
+    private readonly documentSegmentRepository: DocumentSegmentRepository,
+    private readonly datasetProcessRuleRepository: DatasetProcessRuleRepository,
+    private readonly embeddingRepository: EmbeddingRepository,
+    private readonly filesRepository: FilesRepository,
+    private readonly filesService: FilesService,
+    private readonly processDocumentService: ProcessDocumentService,
+    private readonly jiebaKeywordService: JiebaKeywordService,
+    private readonly configureService: ConfigureAdapter,
+    private readonly transactionManager: TransactionManager,
+  ) {}
+
+  /**
+   * 基于文本内容创建文档
+   *
+   * 上传提供的文本文件内容，并基于文件创建文档及其关联分段与嵌入。
+   *
+   * @param createDocumentByTextDto 文档文本内容与处理规则
+   * @param datasetId 目标数据集 ID
+   * @param source 文档来源（用户上传、系统生成等）
+   * @returns {Promise&lt;LeekDocument&gt;} 创建的文档对象
+   */
+  async createDocumentByText(
+    createDocumentByTextDto: CreateDocumentByTextDto,
+    datasetId: string,
+    source: CreatedFromEnum,
+  ) {
+    const { name, text, processRule } &#x3D; createDocumentByTextDto;
+
+    // 上传文本文件
+    const file &#x3D; await this.filesService.uploadTextFile(name, text);
+
+    // 调用基于文件的文档创建逻辑
+    return this.createDocumentByFile(
+      {
+        originalDocumentId: file.id,
+        processRule,
+      },
+      datasetId,
+      source,
+    );
+  }
+
+  /**
+   * 基于文件创建文档
+   *
+   * 验证并处理文件，生成文档对象，同时更新分段和嵌入。
+   *
+   * @param createDocumentByFileDto 包含文件 ID 和处理规则
+   * @param datasetId 目标数据集 ID
+   * @param source 文档来源（用户上传、系统生成等）
+   * @returns {Promise&lt;LeekDocument&gt;} 创建的文档对象
+   */
+  @Transactional({ timeout: 1000 * 60 * 3 })
+  async createDocumentByFile(
+    createDocumentByFileDto: CreateDocumentByFileDto,
+    datasetId: string,
+    source: CreatedFromEnum,
+  ): Promise&lt;LeekDocument&gt; {
+    const { originalDocumentId, docForm, docLanguage, processRule } &#x3D; createDocumentByFileDto;
+
+    // 验证文件存在性及合法性
+    const file &#x3D; await this.validateFileByIdAndDataset(originalDocumentId, datasetId);
+
+    const { id: fileId, key: fileKey } &#x3D; file;
+
+    // 获取处理后的文档分段与统计信息
+    const { processedDocuments, processedRule } &#x3D; await this.processSegmentsByDataset(
+      fileKey,
+      docForm,
+      docLanguage,
+      processRule,
+      datasetId,
+    );
+
+    const { mode, preProcessingRules, segmentation } &#x3D; processedRule;
+
+    const { totalWordCount, totalTokens, tokensPerSegment } &#x3D; await calculateStatisticsForDocuments(processedDocuments);
+    const indexingLatency &#x3D; calculateIndexingLatency(processedDocuments.length);
+    const maxPosition &#x3D; await this.documentRepository.countDocumentsByDatasetId(datasetId);
+
+    try {
+      let datasetProcessRule: LeekDatasetProcessRule;
+
+      if (mode &#x3D;&#x3D;&#x3D; SegmentationEnum.Custom) {
+        const rules &#x3D; JSON.stringify({ preProcessingRules, segmentation });
+        datasetProcessRule &#x3D; await this.datasetProcessRuleRepository.createRule({ datasetId, mode, rules });
+      }
+      const document &#x3D; await this.documentRepository.createDocument({
+        datasetId,
+        position: maxPosition ? maxPosition + 1 : 1,
+        dataSourceType: DataSourceEnum.FILE,
+        dataSourceInfo: { uploadFileId: fileId },
+        datasetProcessRuleId: datasetProcessRule?.id,
+        name: file.name,
+        createdFrom: source,
+        fileId,
+        wordCount: totalWordCount,
+        tokens: totalTokens,
+        indexingLatency,
+        docType: file.extension,
+        docForm,
+        docLanguage,
+      });
+      const segments &#x3D; this.prepareSegmentsByDatasetAndDocument(
+        processedDocuments,
+        tokensPerSegment,
+        datasetId,
+        document.id,
+      );
+
+      const uniqueSegments &#x3D; filterUnique(segments, &#x27;indexNodeHash&#x27;);
+
+      await this.documentSegmentRepository.createManySegmentsAndReturn(uniqueSegments);
+      const embeddings &#x3D; await this.prepareEmbeddingsByDataset(processedDocuments, datasetId);
+      await this.embeddingRepository.registerEmbeddings(embeddings);
+      return document;
+    } catch (error) {
+      this.logger.error(&#x60;创建文档失败，回滚事务。&#x60;, error.stack);
+      throw new InternalServerErrorException(&#x27;处理文档时发生错误，请稍后重试。&#x27;);
+    }
+  }
+
+  /**
+   * 验证文件是否存在，并检查是否重复
+   *
+   * @param fileId 文件 ID
+   * @param datasetId 数据集 ID
+   * @returns 文件对象
+   * @throws {BadRequestException} 如果文件不存在或文档重复
+   */
+  private async validateFileByIdAndDataset(fileId: string, datasetId: string) {
+    const file &#x3D; await this.filesRepository.findFileById(fileId);
+    if (!file) {
+      throw new BadRequestException(&#x60;未找到 ID 为 &quot;${fileId}&quot; 的文件。&#x60;);
+    }
+
+    const existingDocument &#x3D; await this.documentRepository.findDocumentByNameAndDatasetId(file.name, datasetId);
+    if (existingDocument) {
+      throw new BadRequestException(&#x60;文档 &quot;${file.name}&quot; 已存在于数据集 &quot;${datasetId}&quot; 中。&#x60;);
+    }
+    return file;
+  }
+
+  /**
+   * 处理文档分段，并过滤重复分段
+   *
+   * @param fileKey 文件 Key
+   * @param processRule 分段处理规则
+   * @param datasetId 数据集 ID
+   * @returns 处理后的文档分段
+   */
+  private async processSegmentsByDataset(
+    fileKey: string,
+    docForm: string,
+    docLanguage: string,
+    processRule: ProcessRuleDto,
+    datasetId: string,
+  ) {
+    const { processedDocuments, processedRule } &#x3D; await this.processDocumentService.processDocumentsWithRules(
+      fileKey,
+      processRule,
+      docForm,
+      docLanguage,
+    );
+
+    const existingHashes &#x3D; await this.documentSegmentRepository.findManyHashesByDatasetIdAndHashes(
+      processedDocuments.map((doc) &#x3D;&gt; doc.metadata.hash),
+      datasetId,
+    );
+
+    const filteredDocuments &#x3D; processedDocuments.filter((doc) &#x3D;&gt; !existingHashes.includes(doc.metadata.hash));
+
+    if (!filteredDocuments.length) {
+      throw new BadRequestException(&#x60;所有文档分段已存在于数据集 &quot;${datasetId}&quot; 中。&#x60;);
+    }
+
+    return { processedDocuments: filteredDocuments, processedRule };
+  }
+
+  /**
+   * 准备文档分段
+   *
+   * @param documents 文档数组
+   * @param datasetId 数据集 ID
+   * @param documentId 文档 ID
+   * @returns 分段对象数组
+   */
+  private prepareSegmentsByDatasetAndDocument(
+    documents: Document[],
+    tokensPerSegment: number[],
+    datasetId: string,
+    documentId: string,
+  ): LeekSegment[] {
+    return documents.map(
+      (doc, index) &#x3D;&gt;
+        ({
+          documentId,
+          datasetId,
+          position: index + 1,
+          content: doc.pageContent,
+          tokens: tokensPerSegment[index],
+          keywords: this.jiebaKeywordService.extractKeywordsFromText(doc.pageContent),
+          answer: doc.metadata?.answer,
+          indexNodeHash: doc.metadata.hash,
+        }) as LeekSegment,
+    );
+  }
+
+  /**
+   * 准备文档嵌入
+   *
+   * @param documents 文档数组
+   * @param datasetId 数据集 ID
+   * @returns 嵌入对象数组
+   */
+  private async prepareEmbeddingsByDataset(documents: Document[], datasetId: string): Promise&lt;LeekEmbedding[]&gt; {
+    const embedding &#x3D; initEmbeddings();
+
+    const vectors &#x3D; await embedding.embedDocuments(documents.map((doc) &#x3D;&gt; doc.pageContent));
+
+    return documents.map((doc, idx) &#x3D;&gt; ({
+      id: uuid(),
+      classPrefix: generateVectorClassPrefixByDatasetId(datasetId),
+      hash: doc.metadata.hash,
+      embedding: vectors[idx],
+      modelName: EMBEDDING_MODEL_NAME,
+      providerName: EMBEDDING_PROVIDER_NAME,
+    }));
+  }
+
+  /**
+   * 获取所有文档
+   *
+   * 检索数据库中存储的所有文档。
+   *
+   * @param {string} datasetId 数据集 ID
+   * @returns {Promise&lt;LeekDocument[]&gt;} 文档列表
+   */
+  async findManyDocumentsPaginatedByDatasetId(
+    datasetId: string,
+    queryDocumentDto: QueryDocumentDto,
+  ): Promise&lt;PaginatedResult&lt;LeekDocument&gt;&gt; {
+    return this.documentRepository.findManyDocumentsPaginatedByDatasetId(datasetId, queryDocumentDto);
+  }
+
+  /**
+   * 根据 ID 获取文档
+   *
+   * @param {string} documentId 文档 ID
+   * @returns {Promise&lt;LEEK.Nullable&lt;LeekDocument&gt;&gt;} 文档对象或 null
+   */
+  async findDocumentById(documentId: string): Promise&lt;LEEK.Nullable&lt;LeekDocument&gt;&gt; {
+    return this.documentRepository.findDocumentById(documentId);
+  }
+
+  /**
+   * 删除文档及其关联数据
+   *
+   * 删除指定文档以及其关联的分段和嵌入向量。
+   *
+   * @param {string} datasetId 数据集 ID
+   * @param {string} documentId 文档 ID
+   * @throws {InternalServerErrorException} 删除过程中发生错误
+   */
+  @Transactional()
+  async deleteDocumentById(datasetId: string, documentId: string): Promise&lt;void&gt; {
+    await this.embeddingRepository.deleteManyEmbeddingsByClassPrefix(generateVectorClassPrefixByDatasetId(datasetId));
+    await this.documentSegmentRepository.deleteManySegmentsByDocumentId(documentId);
+    await this.documentRepository.deleteDocumentById(documentId);
+  }
+
+  /**
+   * 重命名文档
+   *
+   * 更新文档名称。
+   *
+   * @param {string} documentId 文档 ID
+   * @param {UpdateDocumentNameDto} updateDocumentNameDto 包含新名称的 DTO
+   * @throws {InternalServerErrorException} 重命名过程中发生错误
+   */
+  async renameDocumentById(documentId: string, updateDocumentNameDto: UpdateDocumentNameDto): Promise&lt;void&gt; {
+    await this.documentRepository.renameDocumentById(documentId, updateDocumentNameDto.name);
+  }
+
+  /**
+   * 禁用文档
+   *
+   * 设置指定文档为禁用状态。
+   *
+   * @param {string} documentId 文档 ID
+   * @throws {InternalServerErrorException} 禁用过程中发生错误
+   */
+  async disableDocumentById(documentId: string): Promise&lt;void&gt; {
+    await this.documentRepository.updateDocumentById(documentId, {
+      enabled: false,
+      disabledAt: new Date(),
+    });
+  }
+
+  /**
+   * 启用文档
+   *
+   * 设置指定文档为启用状态。
+   *
+   * @param {string} documentId 文档 ID
+   * @throws {InternalServerErrorException} 启用过程中发生错误
+   */
+  async enableDocumentById(documentId: string) {
+    await this.documentRepository.updateDocumentById(documentId, {
+      enabled: true,
+    });
+  }
+
+  /**
+   * 归档文档
+   *
+   * 将指定文档设置为归档状态。
+   *
+   * @param {string} documentId 文档 ID
+   * @throws {InternalServerErrorException} 归档过程中发生错误
+   */
+  async archiveDocumentById(documentId: string) {
+    await this.documentRepository.updateDocumentById(documentId, {
+      archived: true,
+      archivedAt: new Date(),
+    });
+  }
+
+  /**
+   * 取消归档文档
+   *
+   * 将指定文档从归档状态恢复。
+   *
+   * @param {string} documentId 文档 ID
+   * @throws {InternalServerErrorException} 取消归档过程中发生错误
+   */
+  async unArchiveDocumentById(documentId: string) {
+    await this.documentRepository.updateDocumentById(documentId, {
+      archived: false,
+    });
+  }
+}
+</code></pre>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'injectable';
+            var COMPODOC_CURRENT_PAGE_URL = 'DocumentService.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>
