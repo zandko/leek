@@ -41,6 +41,7 @@ export function initEmbeddings<T extends EmbeddingProvider>(
         configuration: {
           baseURL: getEnvironmentVariable('OPENAI_API_HOST'),
         },
+        timeout: 1000 * 60 * 2,
         ...(fields as ProviderConfigMap[EmbeddingProvider.OpenAI]),
       });
     // Add more cases here for additional providers
