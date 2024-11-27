@@ -3,7 +3,7 @@ import { ApiProperty } from '@nestjs/swagger';
 import { EmbeddingModels, EmbeddingProvider } from '@leek/constants';
 import { uuid } from '@leek/utils';
 
-import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate-vector-class-prefix-by-dataset-id.util';
+import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate.vector.class.prefix.by.dataset.id.util';
 
 export class LeekEmbedding {
   @ApiProperty({

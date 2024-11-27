@@ -17,8 +17,8 @@ import { SwaggerDoc } from '@leek/common';
 
 import { AssistantService } from './assistants.service';
 import { LeekAssistant } from './domain/assistants';
-import { CreateAssistantDto } from './dto/create-assistant.dto';
-import { UpdateAssistantDto } from './dto/update-assistant.dto';
+import { CreateAssistantDto } from './dto/create.assistant.dto';
+import { UpdateAssistantDto } from './dto/update.assistant.dto';
 
 @ApiTags('Assistants')
 @Controller('assistants')

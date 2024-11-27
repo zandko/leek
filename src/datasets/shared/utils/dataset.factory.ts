@@ -1,4 +1,4 @@
-import { generateVectorClassPrefixByDatasetId } from './generate-vector-class-prefix-by-dataset-id.util';
+import { generateVectorClassPrefixByDatasetId } from './generate.vector.class.prefix.by.dataset.id.util';
 
 /**
  * Factory class for creating default configurations related to datasets.

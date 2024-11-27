@@ -4,7 +4,7 @@ import { ApiTags, ApiExcludeController } from '@nestjs/swagger';
 import { ConfigureAdapter } from '@leek/configure';
 import { COSLoader } from '@leek/langchain';
 
-import { LLMGeneratorService } from '../services/llm-generator.service';
+import { LLMGeneratorService } from '../services/llm.generator.service';
 
 @ApiExcludeController()
 @ApiTags('测试')

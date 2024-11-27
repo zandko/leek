@@ -5,7 +5,7 @@ import { Prisma } from '@prisma/client';
 import { PrismaService } from '@leek/prisma';
 
 import { LeekEmbedding } from '../../../domain/embedding';
-import { EmbeddingWithMetadata } from '../../../shared/interfaces/embedding-with-metadata';
+import { EmbeddingWithMetadata } from '../../../shared/interfaces/embedding.with.metadata';
 import { EmbeddingRepository } from '../embedding.repository';
 
 @Injectable()

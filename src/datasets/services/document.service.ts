@@ -11,25 +11,25 @@ import { initEmbeddings } from '@leek/langchain';
 import { TransactionManager } from '@leek/prisma';
 import { calculateIndexingLatency, filterUnique, uuid } from '@leek/utils';
 
-import { JiebaKeywordService } from './jieba-keyword.service';
-import { ProcessDocumentService } from './process-document.service';
+import { JiebaKeywordService } from './jieba.keyword.service';
+import { ProcessDocumentService } from './process.document.service';
 import { FilesService } from '../../files/files.service';
 import { FilesRepository } from '../../files/infrastructure/persistence/files.repository';
-import { LeekDatasetProcessRule } from '../domain/dataset-process-rule';
+import { LeekDatasetProcessRule } from '../domain/dataset.process.rule';
 import { LeekDocument } from '../domain/document';
 import { LeekEmbedding } from '../domain/embedding';
 import { LeekSegment } from '../domain/segment';
-import { CreateDocumentByFileDto } from '../dto/create-document-by-file.dto';
-import { CreateDocumentByTextDto } from '../dto/create-document-by-text.dto';
-import { ProcessRuleDto } from '../dto/process-rule.dto';
-import { QueryDocumentDto } from '../dto/query-document.dto';
-import { UpdateDocumentNameDto } from '../dto/update-document-name.dto';
-import { DatasetProcessRuleRepository } from '../infrastructure/persistence/dataset-process-rule.repository';
-import { DocumentSegmentRepository } from '../infrastructure/persistence/document-segment.repository';
+import { CreateDocumentByFileDto } from '../dto/create.document.by.file.dto';
+import { CreateDocumentByTextDto } from '../dto/create.document.by.text.dto';
+import { ProcessRuleDto } from '../dto/process.rule.dto';
+import { QueryDocumentDto } from '../dto/query.document.dto';
+import { UpdateDocumentNameDto } from '../dto/update.document.name.dto';
+import { DatasetProcessRuleRepository } from '../infrastructure/persistence/dataset.process.rule.repository';
 import { DocumentRepository } from '../infrastructure/persistence/document.repository';
+import { DocumentSegmentRepository } from '../infrastructure/persistence/document.segment.repository';
 import { EmbeddingRepository } from '../infrastructure/persistence/embedding.repository';
-import { calculateStatisticsForDocuments } from '../shared/utils/calculate-statistics.util';
-import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate-vector-class-prefix-by-dataset-id.util';
+import { calculateStatisticsForDocuments } from '../shared/utils/calculate.statistics.util';
+import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate.vector.class.prefix.by.dataset.id.util';
 
 @Injectable()
 export class DocumentService {

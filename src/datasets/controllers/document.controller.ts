@@ -6,12 +6,12 @@ import { CreationType } from '@leek/constants';
 import { PaginatedResult } from '@leek/interfaces';
 
 import { LeekDocument } from '../domain/document';
-import { CreateDocumentByFileDto } from '../dto/create-document-by-file.dto';
-import { CreateDocumentByTextDto } from '../dto/create-document-by-text.dto';
-import { QueryDocumentDto } from '../dto/query-document.dto';
-import { UpdateDocumentNameDto } from '../dto/update-document-name.dto';
+import { CreateDocumentByFileDto } from '../dto/create.document.by.file.dto';
+import { CreateDocumentByTextDto } from '../dto/create.document.by.text.dto';
+import { QueryDocumentDto } from '../dto/query.document.dto';
+import { UpdateDocumentNameDto } from '../dto/update.document.name.dto';
 import { DocumentService } from '../services/document.service';
-import { ApiDatasetIdParam, ApiDocumentIdParam } from '../shared/decorators/api-params.decorators';
+import { ApiDatasetIdParam, ApiDocumentIdParam } from '../shared/decorators/api.params.decorators';
 
 @ApiTags('Dataset Documents')
 @Controller('datasets')

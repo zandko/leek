@@ -17,13 +17,13 @@ import {
 import { initEmbeddings, initModels } from '@leek/langchain';
 
 import { DocumentDto } from '../dto/document.dto';
-import { RetrievalModelDto } from '../dto/retrieval-model.dto';
-import { SimilaritySearchDto } from '../dto/similarity-search.dto';
+import { RetrievalModelDto } from '../dto/retrieval.model.dto';
+import { SimilaritySearchDto } from '../dto/similarity.search.dto';
 import { DatasetRepository } from '../infrastructure/persistence/dataset.repository';
-import { DocumentSegmentRepository } from '../infrastructure/persistence/document-segment.repository';
+import { DocumentSegmentRepository } from '../infrastructure/persistence/document.segment.repository';
 import { EmbeddingRepository } from '../infrastructure/persistence/embedding.repository';
-import { RAGChatHistoryPrompt } from '../shared/prompts/rag-chat-history.prompt';
-import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate-vector-class-prefix-by-dataset-id.util';
+import { RAGChatHistoryPrompt } from '../shared/prompts/rag.chat.history.prompt';
+import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate.vector.class.prefix.by.dataset.id.util';
 
 @Injectable()
 export class RetrievalService {

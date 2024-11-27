@@ -1,1 +1,1 @@
-export * from './same-as.validator';
+export * from './same.as.validator';

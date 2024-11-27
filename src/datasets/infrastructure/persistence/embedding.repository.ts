@@ -1,5 +1,5 @@
 import { LeekEmbedding } from '../../domain/embedding';
-import { EmbeddingWithMetadata } from '../../shared/interfaces/embedding-with-metadata';
+import { EmbeddingWithMetadata } from '../../shared/interfaces/embedding.with.metadata';
 
 /**
  * Abstract repository interface for embeddings.

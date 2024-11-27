@@ -3,8 +3,8 @@ import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import { DataSourceType, EmbeddingModels, EmbeddingProvider } from '@leek/constants';
 import { uuid } from '@leek/utils';
 
-import { RetrievalModelDto } from '../dto/retrieval-model.dto';
-import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate-vector-class-prefix-by-dataset-id.util';
+import { RetrievalModelDto } from '../dto/retrieval.model.dto';
+import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate.vector.class.prefix.by.dataset.id.util';
 
 export class LeekDataset {
   @ApiProperty({

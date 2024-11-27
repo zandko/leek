@@ -11,8 +11,8 @@ import { createTokenCompletion, createEndCompletion } from '@leek/utils';
 
 import { LeekAssistant } from './domain/assistants';
 import { ConversationDto } from './dto/conversation.dto';
-import { CreateAssistantDto } from './dto/create-assistant.dto';
-import { UpdateAssistantDto } from './dto/update-assistant.dto';
+import { CreateAssistantDto } from './dto/create.assistant.dto';
+import { UpdateAssistantDto } from './dto/update.assistant.dto';
 import { AssistantRepository } from './infrastructure/persistence/assistants.repository';
 
 @Injectable()

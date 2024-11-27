@@ -1,8 +1,8 @@
 import { Body, Controller, HttpCode, HttpStatus, Post, Version } from '@nestjs/common';
 import { ApiCreatedResponse, ApiOperation, ApiTags } from '@nestjs/swagger';
 
-import { IndexingEstimateDto } from '../dto/indexing-estimate.dto';
-import { ResponseIndexingEstimateDto } from '../dto/response-indexing-estimate.dto';
+import { IndexingEstimateDto } from '../dto/indexing.estimate.dto';
+import { ResponseIndexingEstimateDto } from '../dto/response.indexing.estimate.dto';
 import { IndexingService } from '../services/indexing.service';
 
 @ApiTags('Indexing')

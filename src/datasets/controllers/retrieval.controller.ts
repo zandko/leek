@@ -7,9 +7,9 @@ import { ConversationDto } from '@leek/assistants/dto/conversation.dto';
 import { UUIDParam } from '@leek/common';
 
 import { DocumentDto } from '../dto/document.dto';
-import { SimilaritySearchDto } from '../dto/similarity-search.dto';
+import { SimilaritySearchDto } from '../dto/similarity.search.dto';
 import { RetrievalService } from '../services/retrieval.service';
-import { ApiDatasetIdParam } from '../shared/decorators/api-params.decorators';
+import { ApiDatasetIdParam } from '../shared/decorators/api.params.decorators';
 
 @ApiTags('Knowledge Retrieval')
 @Controller('datasets')

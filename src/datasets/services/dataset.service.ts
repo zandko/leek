@@ -3,15 +3,15 @@ import { Injectable } from '@nestjs/common';
 import { Transactional } from '@leek/common';
 
 import { LeekDataset } from '../domain/dataset';
-import { CreateDatasetDto } from '../dto/create-dataset.dto';
-import { UpdateDatasetDto } from '../dto/update-dataset.dto';
-import { DatasetProcessRuleRepository } from '../infrastructure/persistence/dataset-process-rule.repository';
+import { CreateDatasetDto } from '../dto/create.dataset.dto';
+import { UpdateDatasetDto } from '../dto/update.dataset.dto';
+import { DatasetProcessRuleRepository } from '../infrastructure/persistence/dataset.process.rule.repository';
 import { DatasetRepository } from '../infrastructure/persistence/dataset.repository';
-import { DocumentSegmentRepository } from '../infrastructure/persistence/document-segment.repository';
 import { DocumentRepository } from '../infrastructure/persistence/document.repository';
+import { DocumentSegmentRepository } from '../infrastructure/persistence/document.segment.repository';
 import { EmbeddingRepository } from '../infrastructure/persistence/embedding.repository';
 import { DatasetFactory } from '../shared/utils/dataset.factory';
-import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate-vector-class-prefix-by-dataset-id.util';
+import { generateVectorClassPrefixByDatasetId } from '../shared/utils/generate.vector.class.prefix.by.dataset.id.util';
 
 @Injectable()
 export class DatasetService {

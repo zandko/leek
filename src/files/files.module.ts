@@ -4,7 +4,7 @@ import { ConfigureModule } from '@leek/configure';
 
 import { FilesController } from './files.controller';
 import { FilesService } from './files.service';
-import { RelationaLeekFilesPersistenceModule } from './infrastructure/persistence/relational-persistence.module';
+import { RelationaLeekFilesPersistenceModule } from './infrastructure/persistence/relational.persistence.module';
 
 @Module({
   imports: [ConfigureModule, RelationaLeekFilesPersistenceModule],

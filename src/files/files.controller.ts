@@ -17,8 +17,8 @@ import { FILE_UPLOAD_MAX_SIZE } from '@leek/constants';
 import { fileFilter } from '@leek/utils';
 
 import { LeekFile } from './domain/files';
-import { UploadFileDto } from './dto/upload-file.dto';
-import { UploadTextFileDto } from './dto/upload-text-file.dto';
+import { UploadFileDto } from './dto/upload.file.dto';
+import { UploadTextFileDto } from './dto/upload.text.file.dto';
 import { FilesService } from './files.service';
 
 @ApiTags('Files')

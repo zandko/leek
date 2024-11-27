@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 
 import { FilesService } from '@leek/files/files.service';
 
-import { ProcessDocumentService } from './process-document.service';
-import { IndexingEstimateDto } from '../dto/indexing-estimate.dto';
-import { ProcessRuleDto } from '../dto/process-rule.dto';
-import { ResponseIndexingEstimateDto } from '../dto/response-indexing-estimate.dto';
+import { ProcessDocumentService } from './process.document.service';
+import { IndexingEstimateDto } from '../dto/indexing.estimate.dto';
+import { ProcessRuleDto } from '../dto/process.rule.dto';
+import { ResponseIndexingEstimateDto } from '../dto/response.indexing.estimate.dto';
 
 @Injectable()
 export class IndexingService {

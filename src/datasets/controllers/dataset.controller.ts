@@ -4,10 +4,10 @@ import { ApiTags } from '@nestjs/swagger';
 import { SwaggerDoc, UUIDParam } from '@leek/common';
 
 import { LeekDataset } from '../domain/dataset';
-import { CreateDatasetDto } from '../dto/create-dataset.dto';
-import { UpdateDatasetDto } from '../dto/update-dataset.dto';
+import { CreateDatasetDto } from '../dto/create.dataset.dto';
+import { UpdateDatasetDto } from '../dto/update.dataset.dto';
 import { DatasetService } from '../services/dataset.service';
-import { ApiDatasetIdParam } from '../shared/decorators/api-params.decorators';
+import { ApiDatasetIdParam } from '../shared/decorators/api.params.decorators';
 
 @ApiTags('Datasets')
 @Controller('datasets')

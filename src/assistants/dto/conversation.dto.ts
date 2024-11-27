@@ -5,7 +5,7 @@ import { IsArray, IsEnum, ValidateNested } from 'class-validator';
 
 import { ConversationActionType } from '@leek/constants';
 
-import { ConversationMessageDto } from './conversation-message.dto';
+import { ConversationMessageDto } from './conversation.message.dto';
 
 export class ConversationDto {
   @ApiProperty({
