@@ -7,7 +7,13 @@ import { Observable } from 'rxjs';
 
 import { ConversationDto } from '@leek/assistants/dto/conversation.dto';
 import { ConfigureAdapter } from '@leek/configure';
-import { STREAMING_RESPONSE_END_MARKER, IndexType, LanguageModels, LLMProvider } from '@leek/constants';
+import {
+  STREAMING_RESPONSE_END_MARKER,
+  IndexType,
+  LanguageModels,
+  LLMProvider,
+  DOCUMENT_SECTION_DELIMITER,
+} from '@leek/constants';
 import { initEmbeddings, initModels } from '@leek/langchain';
 
 import { DocumentDto } from '../dto/document.dto';
@@ -74,7 +80,7 @@ export class RetrievalService {
       const { content, answer, docForm, _distance, ...metadata } = embeddingMetadata;
 
       const document = new Document({
-        pageContent: docForm === IndexType.Paragraph ? content : answer,
+        pageContent: (docForm === IndexType.Paragraph ? content : answer).replace(DOCUMENT_SECTION_DELIMITER, ''),
         metadata,
       });
 
