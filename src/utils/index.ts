@@ -24,3 +24,6 @@ export * from './remove.extra.spaces.util';
 export * from './remove.urls.emails.util';
 
 export * from './to.pascal.case.util';
+
+export * from './is.dev.util';
+export * from './is.prod.util';

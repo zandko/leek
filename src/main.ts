@@ -18,6 +18,7 @@ import { I18nValidationExceptionFilter, I18nValidationPipe } from 'nestjs-i18n';
 
 import { GlobalExceptionFilter, LoggerMiddleware } from '@leek/common';
 import { ConfigureAdapter } from '@leek/configure';
+import { isProd } from '@leek/utils';
 
 import { AppModule } from './app.module';
 import { setupSwagger } from './setup.swagger';
@@ -85,9 +86,7 @@ async function bootstrap() {
   );
 
   // Enable Swagger API documentation in development and test environments
-  if (Object.is(process.env.NODE_ENV, 'development') || Object.is(process.env.NODE_ENV, 'test')) {
-    setupSwagger(app, configure);
-  }
+  if (!isProd()) setupSwagger(app, configure);
 
   // Start the application and listen on the configured port
 
