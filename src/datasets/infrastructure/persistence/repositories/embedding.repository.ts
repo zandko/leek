@@ -13,9 +13,9 @@ export class EmbeddingRelationalRepository implements EmbeddingRepository {
   constructor(private readonly prismaService: PrismaService) {}
 
   async registerEmbeddings(embeddings: LeekEmbedding[]): Promise<void> {
-    const queries = embeddings.map((embedding) => {
+    for (const embedding of embeddings) {
       const vectorString = `[${embedding.embedding.join(',')}]`;
-      return this.prismaService.prisma.$executeRaw(
+      await this.prismaService.prisma.$executeRaw(
         Prisma.sql`
           INSERT INTO "Embeddings" ("id", "classPrefix", "hash", "embedding", "modelName", "providerName")
           VALUES (${embedding.id}, ${embedding.classPrefix}, ${embedding.hash}, ${vectorString}::vector, ${embedding.modelName}, ${embedding.providerName})
@@ -23,14 +23,13 @@ export class EmbeddingRelationalRepository implements EmbeddingRepository {
           DO UPDATE SET "embedding" = EXCLUDED."embedding";
         `,
       );
-    });
-    await this.prismaService.prisma.$transaction(queries);
+    }
   }
 
   async updateEmbeddingsByHashAndClassPrefix(embeddings: LeekEmbedding[]): Promise<void> {
-    const queries = embeddings.map((embedding) => {
+    for (const embedding of embeddings) {
       const vectorString = `[${embedding.embedding.join(',')}]`;
-      return this.prismaService.prisma.$executeRaw(
+      await this.prismaService.prisma.$executeRaw(
         Prisma.sql`
           UPDATE "Embeddings"
           SET "embedding" = ${vectorString}::vector
@@ -38,8 +37,7 @@ export class EmbeddingRelationalRepository implements EmbeddingRepository {
             AND "hash" = ${embedding.hash};
         `,
       );
-    });
-    await this.prismaService.prisma.$transaction(queries);
+    }
   }
 
   async similaritySearchVectorWithScore(

@@ -3,7 +3,7 @@ import { Module } from '@nestjs/common';
 import { ConfigureModule } from '@leek/configure';
 import { FilesService } from '@leek/files/files.service';
 import { RelationaLeekFilesPersistenceModule } from '@leek/files/infrastructure/persistence/relational.persistence.module';
-import { PrismaModule, TransactionManager } from '@leek/prisma';
+import { PrismaModule } from '@leek/prisma';
 
 import { DatasetController } from './controllers/dataset.controller';
 import { DocumentController } from './controllers/document.controller';
@@ -41,7 +41,6 @@ import { RetrievalService } from './services/retrieval.service';
     JiebaKeywordService,
     LLMGeneratorService,
     RetrievalService,
-    TransactionManager,
   ],
 })
 export class DatasetsModule {}
