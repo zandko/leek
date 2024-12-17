@@ -8,7 +8,7 @@ import COS from 'cos-nodejs-sdk-v5';
 import * as XLSX from 'xlsx';
 
 import { ConfigureAdapter } from '@leek/configure';
-import { createHash, extractFileExtension, MimeTypeNames, uuid } from '@leek/utils';
+import { createHash, extractFileExtensionUtil, MimeTypeNames, uuid } from '@leek/utils';
 
 import { LeekFile } from './domain/files';
 import { FilesRepository } from './infrastructure/persistence/files.repository';
@@ -37,7 +37,7 @@ export class FilesService {
     }
 
     const { buffer, originalname, mimetype } = file;
-    const extension = extractFileExtension(originalname);
+    const extension = extractFileExtensionUtil(originalname);
     return this.uploadFileToCos(buffer, originalname, extension, mimetype, description);
   }
 

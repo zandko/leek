@@ -6,7 +6,7 @@ export * from './mime.type.util';
 export * from './date.time.util';
 export * from './is.util';
 
-export * from './extract.file.extension';
+export * from './extract.file.extension.util';
 
 export * from './file.upload.util';
 
@@ -27,3 +27,5 @@ export * from './to.pascal.case.util';
 
 export * from './is.dev.util';
 export * from './is.prod.util';
+
+export * from './extract.intersecting.keys.util';

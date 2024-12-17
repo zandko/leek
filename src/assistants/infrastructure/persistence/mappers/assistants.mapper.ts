@@ -20,6 +20,8 @@ export class AssistantMapper {
 
     domainEntity.createdAt = raw.createdAt;
     domainEntity.updatedAt = raw.updatedAt;
+    domainEntity.messages = raw.messages;
+    domainEntity.variables = raw.variables;
 
     return domainEntity;
   }
@@ -37,6 +39,8 @@ export class AssistantMapper {
     persistenceEntity.description = domainEntity.description;
     persistenceEntity.datasetId = domainEntity.datasetId;
     persistenceEntity.systemPrompt = domainEntity.systemPrompt;
+    persistenceEntity.messages = domainEntity.messages;
+    persistenceEntity.variables = domainEntity.variables;
 
     return persistenceEntity;
   }

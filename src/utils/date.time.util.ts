@@ -26,7 +26,10 @@ dayjs.extend(timezone);
  * Uses Day.js formatting rules.
  * @returns {string} - The formatted current time in the specified timezone and format.
  */
-export function getCurrentFormattedTime(tz = 'Asia/Shanghai', format: string = 'hh:mmA dddd, MMMM D, YYYY'): string {
+export function getCurrentFormattedTime(
+  tz: string = 'Asia/Shanghai',
+  format: string = 'hh:mmA dddd, MMMM D, YYYY',
+): string {
   const now = dayjs().tz(tz);
   return now.format(format);
 }

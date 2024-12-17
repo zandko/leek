@@ -9,11 +9,13 @@ import {
   ParseUUIDPipe,
   Patch,
   Post,
+  Sse,
   Version,
 } from '@nestjs/common';
-import { ApiParam, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiParam, ApiTags } from '@nestjs/swagger';
 
-import { SwaggerDoc } from '@leek/common';
+import { ConversationDto } from '@leek/assistants/dto/conversation.dto';
+import { SwaggerDoc, UUIDParam } from '@leek/common';
 
 import { AssistantService } from './assistants.service';
 import { LeekAssistant } from './domain/assistants';
@@ -28,7 +30,7 @@ export class AssistantController {
   @Post()
   @Version('1')
   @HttpCode(HttpStatus.CREATED)
-  @SwaggerDoc('ASSISTANT', 'CREATE', LeekAssistant)
+  @SwaggerDoc('ASSISTANTS', 'CREATE', LeekAssistant)
   async createAssistant(@Body() createAssistantDto: CreateAssistantDto): Promise<LeekAssistant> {
     return this.assistantService.createAssistant(createAssistantDto);
   }
@@ -36,22 +38,30 @@ export class AssistantController {
   @Get(':id')
   @Version('1')
   @HttpCode(HttpStatus.OK)
-  @SwaggerDoc('ASSISTANT', 'RETRIEVE', LeekAssistant)
+  @SwaggerDoc('ASSISTANTS', 'RETRIEVE', LeekAssistant)
   @ApiParam({
     name: 'id',
-    description: '要检索的助手的UUID。',
+    description: 'Assistant ID',
   })
   async findAssistantById(@Param('id', new ParseUUIDPipe()) id: string): Promise<LeekAssistant> {
     return this.assistantService.findAssistantById(id);
   }
 
+  @Get()
+  @Version('1')
+  @HttpCode(HttpStatus.OK)
+  @SwaggerDoc('ASSISTANTS', 'LIST', [LeekAssistant])
+  async findManyAssistants(): Promise<LeekAssistant[]> {
+    return this.assistantService.findManyAssistants();
+  }
+
   @Version('1')
   @Patch(':id')
   @HttpCode(HttpStatus.NO_CONTENT)
-  @SwaggerDoc('ASSISTANT', 'UPDATE')
+  @SwaggerDoc('ASSISTANTS', 'UPDATE')
   @ApiParam({
     name: 'id',
-    description: '要更新的助手的UUID。',
+    description: 'Assistant ID',
   })
   async updateAssistantById(
     @Param('id', new ParseUUIDPipe()) id: string,
@@ -63,12 +73,30 @@ export class AssistantController {
   @Delete(':id')
   @Version('1')
   @HttpCode(HttpStatus.NO_CONTENT)
-  @SwaggerDoc('ASSISTANT', 'UPDATE')
+  @SwaggerDoc('ASSISTANTS', 'UPDATE')
   @ApiParam({
     name: 'id',
-    description: '要删除的助手的UUID。',
+    description: 'Assistant ID',
   })
   async deleteAssistantById(@Param('id', new ParseUUIDPipe()) id: string): Promise<void> {
     return this.assistantService.deleteAssistantById(id);
+  }
+
+  @Post(':id/conversation')
+  @Sse()
+  @Version('1')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({
+    summary: 'Assistant Chat Interaction',
+    description: `
+Facilitates conversation with the assistant by processing user messages and generating context-aware responses. 
+Supports dynamic and interactive chat functionality tailored to the assistant's configuration.`,
+  })
+  @ApiParam({
+    name: 'id',
+    description: 'Assistant ID',
+  })
+  async conversation(@UUIDParam('id') assistantId: string, @Body() conversationDto: ConversationDto) {
+    return this.assistantService.conversation(assistantId, conversationDto);
   }
 }

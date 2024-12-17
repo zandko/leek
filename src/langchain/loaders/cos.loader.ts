@@ -5,7 +5,7 @@ import * as path from 'node:path';
 import COS from 'cos-nodejs-sdk-v5';
 import { BaseDocumentLoader } from 'langchain/document_loaders/base';
 
-import { extractFileExtension } from '@leek/utils';
+import { extractFileExtensionUtil } from '@leek/utils';
 
 import { createDocumentLoader } from './document.loader';
 
@@ -60,7 +60,7 @@ export class COSLoader extends BaseDocumentLoader {
 
     try {
       await this.downloadFile(filePath);
-      const loader = createDocumentLoader(extractFileExtension(this.Key), filePath);
+      const loader = createDocumentLoader(extractFileExtensionUtil(this.Key), filePath);
       return loader.load();
     } catch (error) {
       throw new Error(`Failed to process file ${this.Key} from COS bucket ${this.Bucket}: ${error.message}`);
@@ -77,7 +77,7 @@ export class COSLoader extends BaseDocumentLoader {
    */
   private createTempFilePath(): string {
     const tempDir = this._fs.mkdtempSync(path.join(os.tmpdir(), 's3fileloader-'));
-    const extension = extractFileExtension(this.Key);
+    const extension = extractFileExtensionUtil(this.Key);
     return path.join(tempDir, `${Date.now()}.${extension}`);
   }
 

@@ -15,23 +15,23 @@ datasource db {
 
 /// 知识库
 model Dataset {
-  id                       String @id @default(uuid())
-  name                     String @unique
-  description              String?
-  provider                 String @default("vendor")
-  dataSourceType           String?
-  indexStruct              Json?
-  embeddingModel           String @default("text-embedding-ada-002")
-  embeddingModelProvider   String @default("openai")
-  retrievalModel           Json?
-  createdAt                DateTime @default(now())
-  updatedAt                DateTime @updatedAt
+  id                     String   @id @default(uuid())
+  name                   String   @unique
+  description            String?
+  provider               String   @default("vendor")
+  dataSourceType         String?
+  indexStruct            Json?
+  embeddingModel         String   @default("text-embedding-ada-002")
+  embeddingModelProvider String   @default("openai")
+  retrievalModel         Json?
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
 
-  processRule              DatasetProcessRule?
+  processRule DatasetProcessRule?
 
-  documents                Document[]
-  segments                 DocumentSegment[]
-  Assistant                Assistant[]
+  documents Document[]
+  segments  DocumentSegment[]
+  Assistant Assistant[]
 
   @@index([provider])
   @@index([dataSourceType])
@@ -39,13 +39,13 @@ model Dataset {
 
 /// 知识库处理规则
 model DatasetProcessRule {
-  id         String @id @default(uuid())
-  datasetId  String @unique
-  mode       String
-  rules      Json?
-  createdAt  DateTime @default(now())
-  
-  dataset    Dataset @relation(fields: [datasetId], references: [id])
+  id        String   @id @default(uuid())
+  datasetId String   @unique
+  mode      String
+  rules     Json?
+  createdAt DateTime @default(now())
+
+  dataset Dataset @relation(fields: [datasetId], references: [id])
 
   @@index([datasetId])
   @@index([mode])
@@ -53,27 +53,27 @@ model DatasetProcessRule {
 
 /// 文档段落
 model DocumentSegment {
-  id              String @id @default(uuid())
-  datasetId       String
-  documentId      String
-  position        Int
-  content         String
-  wordCount       Int
-  tokens          Int
-  keywords        Json?
-  indexNodeId     String?
-  indexNodeHash   String?
-  hitCount        Int @default(0)
-  enabled         Boolean @default(true)
-  disabledAt      DateTime?
-  status          String
-  error           String?
-  answer          String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+  id            String    @id @default(uuid())
+  datasetId     String
+  documentId    String
+  position      Int
+  content       String
+  wordCount     Int
+  tokens        Int
+  keywords      Json?
+  indexNodeId   String?
+  indexNodeHash String?
+  hitCount      Int       @default(0)
+  enabled       Boolean   @default(true)
+  disabledAt    DateTime?
+  status        String
+  error         String?
+  answer        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 
-  dataset         Dataset @relation(fields: [datasetId], references: [id])
-  document        Document @relation(fields: [documentId], references: [id])
+  dataset  Dataset  @relation(fields: [datasetId], references: [id])
+  document Document @relation(fields: [documentId], references: [id])
 
   @@unique([datasetId, indexNodeHash])
   @@index([datasetId])
@@ -84,33 +84,33 @@ model DocumentSegment {
 
 /// 文档
 model Document {
-  id                       String @id @default(uuid())
-  datasetId                String
-  position                 Int
-  dataSourceType           String
-  dataSourceInfo           Json?
-  datasetProcessRuleId     String?
-  name                     String
-  createdFrom              String
-  createdApiRequestId      String?
-  fileId                   String?
-  wordCount                Int?
-  tokens                   Int?
-  indexingLatency          Float?
-  enabled                  Boolean @default(true)
-  disabledAt               DateTime?
-  archived                 Boolean @default(false)
-  archivedReason           String?
-  archivedAt               DateTime?
-  docType                  String?
-  docMetadata              Json?
-  docForm                  String?
-  docLanguage              String?
-  createdAt                DateTime @default(now())
-  updatedAt                DateTime @updatedAt
+  id                   String    @id @default(uuid())
+  datasetId            String
+  position             Int
+  dataSourceType       String
+  dataSourceInfo       Json?
+  datasetProcessRuleId String?
+  name                 String
+  createdFrom          String
+  createdApiRequestId  String?
+  fileId               String?
+  wordCount            Int?
+  tokens               Int?
+  indexingLatency      Float?
+  enabled              Boolean   @default(true)
+  disabledAt           DateTime?
+  archived             Boolean   @default(false)
+  archivedReason       String?
+  archivedAt           DateTime?
+  docType              String?
+  docMetadata          Json?
+  docForm              String?
+  docLanguage          String?
+  createdAt            DateTime  @default(now())
+  updatedAt            DateTime  @updatedAt
 
-  dataset                  Dataset @relation(fields: [datasetId], references: [id])
-  segments                 DocumentSegment[]
+  dataset  Dataset           @relation(fields: [datasetId], references: [id])
+  segments DocumentSegment[]
 
   @@index([datasetId])
   @@index([enabled])
@@ -120,47 +120,49 @@ model Document {
 
 /// 上传文件
 model UploadFile {
-  id             String @id @default(uuid())
-  storageType    String
-  key            String @unique
-  name           String
-  description    String?
-  size           Int
-  extension      String
-  mimeType       String?
-  used           Boolean @default(false)
-  usedAt         DateTime?
-  hash           String?
-  createdAt      DateTime @default(now())
+  id          String    @id @default(uuid())
+  storageType String
+  key         String    @unique
+  name        String
+  description String?
+  size        Int
+  extension   String
+  mimeType    String?
+  used        Boolean   @default(false)
+  usedAt      DateTime?
+  hash        String?
+  createdAt   DateTime  @default(now())
 
   @@index([storageType])
   @@index([used])
 }
 
 model Embeddings {
-  id                    String @id @default(uuid())
-  hash                  String
-  embedding             Unsupported("vector")?
-  modelName             String @default("text-embedding-3-small")
-  providerName          String @default("openai")
-  classPrefix           String?
-  createdAt             DateTime @default(now())
-  
+  id           String                 @id @default(uuid())
+  hash         String
+  embedding    Unsupported("vector")?
+  modelName    String                 @default("text-embedding-3-small")
+  providerName String                 @default("openai")
+  classPrefix  String?
+  createdAt    DateTime               @default(now())
+
   @@unique([classPrefix, hash])
   @@index([classPrefix])
 }
 
 /// 助手
 model Assistant {
-  id              String      @id @default(uuid())
-  name            String      @unique
-  description     String?
-  systemPrompt    String?
-  datasetId       String?
-  createdAt       DateTime    @default(now())
-  updatedAt       DateTime    @updatedAt
+  id           String   @id @default(uuid())
+  name         String   @unique
+  description  String?
+  systemPrompt String?
+  messages     Json?
+  variables    Json?
+  datasetId    String?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
-  dataset         Dataset?     @relation(fields: [datasetId], references: [id])
-  
+  dataset Dataset? @relation(fields: [datasetId], references: [id])
+
   @@index([datasetId])
 }

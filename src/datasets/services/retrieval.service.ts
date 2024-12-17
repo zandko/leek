@@ -65,8 +65,6 @@ export class RetrievalService {
     // Generate a vector for the input query using the embedding instance
     const vector = await embeddingInstance.embedQuery(similaritySearchDto.query);
 
-    console.log(generateVectorClassPrefixByDatasetId(datasetId));
-
     // Perform similarity search in the embedding repository
     const embeddings = await this.embeddingRepository.similaritySearchVectorWithScore(
       vector,

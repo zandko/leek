@@ -1,6 +1,8 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
-import { IsString, IsOptional, IsUUID } from 'class-validator';
+import { IsString, IsOptional, IsUUID, IsObject, IsArray, ValidateNested } from 'class-validator';
+import { ConversationMessageDto } from '@leek/assistants/dto/conversation.message.dto';
+import { Type } from 'class-transformer';
 
 export class CreateAssistantDto {
   @ApiProperty({
@@ -33,4 +35,23 @@ export class CreateAssistantDto {
   @IsOptional()
   @IsString()
   systemPrompt?: string;
+
+  @ApiProperty({
+    type: [ConversationMessageDto],
+    description:
+      'A list of messages included in the conversation request, where each message contains an author and content.',
+  })
+  @IsOptional()
+  @IsArray()
+  @ValidateNested({ each: true })
+  @Type(() => ConversationMessageDto)
+  messages?: LEEK.JsonValue;
+
+  @ApiPropertyOptional({
+    description: '助手的变量设置，用于存储动态数据或特定的用户信息，供助手在对话过程中使用。',
+    example: '{"userName": "string", "preferredLanguage": "string"}',
+  })
+  @IsOptional()
+  @IsObject()
+  variables?: LEEK.JsonValue;
 }

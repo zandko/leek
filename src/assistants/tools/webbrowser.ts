@@ -7,3 +7,7 @@ const embeddings = new OpenAIEmbeddings(
 );
 
 export const browser = new WebBrowser({ model, embeddings });
+
+export const createWebBrowser = async () => {
+  return browser;
+};

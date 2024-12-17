@@ -23,9 +23,9 @@ export class ConfigureService implements ConfigureAdapter {
     BASE_URL: this.config.get<string>('OPENAI_API_HOST'),
   };
   TENCENT = {
-    SECRET_ID: this.config.get<string>('TENCENT_SECRET_ID'),
-    SECRET_KEY: this.config.get<string>('TENCENT_SECRET_KEY'),
-    COS_BUCKET: this.config.get<string>('TENCENT_COS_BUCKET'),
-    COS_REGION: this.config.get<string>('TENCENT_COS_REGION'),
+    SECRET_ID: this.config.get<string>('TENCENT_CLOUND_SECRET_ID'),
+    SECRET_KEY: this.config.get<string>('TENCENT_CLOUND_SECRET_KEY'),
+    COS_BUCKET: this.config.get<string>('TENCENT_CLOUND_COS_BUCKET'),
+    COS_REGION: this.config.get<string>('TENCENT_CLOUND_COS_REGION') ?? 'ap-shanghai',
   };
 }

@@ -1,13 +1,22 @@
 import { Injectable } from '@nestjs/common';
 
+import { BaseMessagePromptTemplateLike } from '@langchain/core/prompts';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
-import { ChatOpenAI } from '@langchain/openai';
 import { Observable } from 'rxjs';
 
+import { ConversationMessageDto } from '@leek/assistants/dto/conversation.message.dto';
 import { ConfigureAdapter } from '@leek/configure';
+import { LanguageModels, LLMProvider, Role } from '@leek/constants';
+import { DocumentDto } from '@leek/datasets/dto/document.dto';
 import { DatasetRepository } from '@leek/datasets/infrastructure/persistence/dataset.repository';
 import { RetrievalService } from '@leek/datasets/services/retrieval.service';
-import { createTokenCompletion, createEndCompletion } from '@leek/utils';
+import { initModels } from '@leek/langchain';
+import {
+  createTokenCompletion,
+  createEndCompletion,
+  getCurrentFormattedTime,
+  extractIntersectingKeys,
+} from '@leek/utils';
 
 import { LeekAssistant } from './domain/assistants';
 import { ConversationDto } from './dto/conversation.dto';
@@ -24,103 +33,95 @@ export class AssistantService {
     private readonly retrievalService: RetrievalService,
   ) {}
 
-  /**
-   * 创建新的助手
-   *
-   * 根据提供的 DTO 创建新的助手记录。
-   *
-   * @param {CreateAssistantDto} createAssistantDto - 助手创建所需的信息
-   * @returns {Promise<Assistant>} - 创建成功的助手对象
-   */
   async createAssistant(createAssistantDto: CreateAssistantDto): Promise<LeekAssistant> {
     return this.assistantRepository.createAssistant(createAssistantDto);
   }
 
-  /**
-   * 获取所有助手
-   *
-   * 检索数据库中存储的所有助手。
-   *
-   * @returns {Promise<Assistant[]>} - 助手对象的数组
-   */
-  // async findManyAssistants(): Promise<LeekAssistant[]> {
-  //   return this.assistantRepository.findManyAssistants();
-  // }
+  async findManyAssistants(): Promise<LeekAssistant[]> {
+    return this.assistantRepository.findManyAssistants();
+  }
 
-  /**
-   * 根据 ID 获取助手
-   *
-   * 通过 ID 查询单个助手，如果不存在则返回 `null`。
-   *
-   * @param {Assistant['id']} id - 助手的唯一标识符
-   * @returns {Promise<Assistant | null>} - 返回匹配的助手或 `null`
-   */
   async findAssistantById(id: string): Promise<LeekAssistant | null> {
     return this.assistantRepository.findAssistantById(id);
   }
 
-  /**
-   * 更新助手
-   *
-   * 根据提供的更新信息更新指定 ID 的助手记录。
-   *
-   * @param {Assistant['id']} id - 助手的唯一标识符
-   * @param {UpdateAssistantDto} updateAssistantDto - 包含更新数据的 DTO
-   * @returns {Promise<void>} - 操作完成时返回
-   */
   async updateAssistantById(id: string, updateAssistantDto: UpdateAssistantDto): Promise<void> {
     await this.assistantRepository.updateAssistantById(id, updateAssistantDto);
   }
 
-  /**
-   * 删除助手及其相关数据
-   *
-   * 删除助手及其可能关联的数据，操作在事务中完成。
-   *
-   * @param {Assistant['id']} id - 助手的唯一标识符
-   * @returns {Promise<void>} - 操作完成时返回
-   */
   async deleteAssistantById(id: string): Promise<void> {
     await this.assistantRepository.deleteAssistantById(id);
   }
 
   async conversation(id: string, conversationDto: ConversationDto) {
     const { messages } = conversationDto;
+
     const assistant = await this.assistantRepository.findAssistantById(id);
-    const datasets = await this.datasetRepository.findDatasetById(assistant.datasetId);
-    const query = messages[0].content.parts[0];
-    const documents = await this.retrievalService.similaritySearchVectorWithScore(datasets.id, {
-      query,
+
+    const presetMessages: BaseMessagePromptTemplateLike[] = (
+      (assistant?.messages || []) as unknown as ConversationMessageDto[]
+    ).map((message) => {
+      return [message.author.role === Role.ASSISTANT ? 'ai' : 'human', message.content.parts[0]];
     });
 
-    const context = documents.map((document) => document.pageContent).join('\n-----------\n');
+    const lastMessage = presetMessages[presetMessages.length - 1];
+
+    const query: string = messages?.[0]?.content?.parts?.[0];
+
+    let context: string = '';
+
+    if (assistant.datasetId) {
+      const datasets = await this.datasetRepository.findDatasetById(assistant.datasetId);
+      const documents = (await this.retrievalService.similaritySearchVectorWithScore(datasets.id, {
+        query: query || lastMessage?.[1],
+      })) as DocumentDto[];
+      context = documents.map((document) => document.pageContent).join('\n-----------\n');
+    }
 
     const assistantPrompt = ChatPromptTemplate.fromMessages([
-      ['system', assistant.systemPrompt],
-      ['human', '{input}'],
+      [
+        'system',
+        `${assistant.systemPrompt || ''}
+${
+  context
+    ? `# Here is the context that you should use to answer the question:
+
+{__context__}`
+    : ''
+}
+
+Current date: ${getCurrentFormattedTime()}`,
+      ],
+      ...presetMessages,
+      ...(query ? ['human', '{__input__}'] : []),
     ]);
 
     const chain = assistantPrompt.pipe(
-      new ChatOpenAI({
-        model: 'gpt-4o',
+      initModels({
+        model: LanguageModels[LLMProvider.OpenAI].GPT_4_O,
         temperature: 0.01,
-        streaming: true,
-        apiKey: this.configureService.OPENAI.API_KEY,
-        configuration: {
-          baseURL: this.configureService.OPENAI.BASE_URL,
-        },
+        streaming: !!conversationDto.streaming,
       }),
     );
-    const stream = await chain.stream({
-      context,
-      input: query,
-    });
+
+    const chatParams = {
+      __context__: context,
+      __input__: query,
+      ...(assistant.variables ? extractIntersectingKeys(conversationDto.variables, assistant.variables as object) : {}),
+    };
+
+    if (!conversationDto.streaming) {
+      const response = await chain.invoke(chatParams);
+      return { content: response.content };
+    }
+
+    const stream = await chain.stream(chatParams);
 
     return new Observable((subscriber) => {
       (async () => {
         // Stream chunks of data as they are generated
         for await (const chunk of stream) {
-          subscriber.next(createTokenCompletion({ parts: [chunk.content] }));
+          subscriber.next(createTokenCompletion({ parts: [chunk.content as string] }));
         }
         // Send a final completion marker
         subscriber.next(createEndCompletion());

@@ -1,4 +1,5 @@
 import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { ConversationMessageDto } from '@leek/assistants/dto/conversation.message.dto';
 
 export class LeekAssistant {
   @ApiProperty({
@@ -30,6 +31,18 @@ export class LeekAssistant {
     example: '你是一个智能客服助手，可以回答用户的各种问题。',
   })
   systemPrompt?: string;
+
+  @ApiPropertyOptional({
+    description: '助手的初始消息内容，用于指导助手与用户的互动方式或提供初步对话内容。',
+    type: [ConversationMessageDto],
+  })
+  messages?: LEEK.JsonValue;
+
+  @ApiPropertyOptional({
+    description: '助手的变量设置，用于存储动态数据或特定的用户信息，供助手在对话过程中使用。',
+    example: '{"userName": "张三", "preferredLanguage": "中文"}',
+  })
+  variables?: LEEK.JsonValue;
 
   @ApiProperty({
     description: '助手创建时间',

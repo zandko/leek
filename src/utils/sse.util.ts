@@ -18,7 +18,7 @@ import { ConversationContentType, STREAMING_RESPONSE_END_MARKER, Role } from '@l
  * //   data: '{"message":{"author":{"role":"assistant"},"content":{"content_type":"Text","parts":["Hello","World"]}}}'
  * // }
  */
-export function createTokenCompletion({ parts }): Record<string, string> {
+export function createTokenCompletion({ parts }: { parts: string[] }): Record<string, string> {
   return {
     data: JSON.stringify({
       message: {

@@ -8,7 +8,7 @@ import { SegmentationType, IndexType, DOCUMENT_SECTION_DELIMITER } from '@leek/c
 import { COSLoader, recursiveChunkSplitter } from '@leek/langchain';
 import {
   createHash,
-  extractFileExtension,
+  extractFileExtensionUtil,
   removeExtraSpaces,
   removeUrlsEmails,
   trimLeadingPunctuation,
@@ -59,14 +59,14 @@ export class ProcessDocumentService {
 
     // Step 3: Split documents based on rules or QA requirements
     let processedDocuments = rawDocuments;
-    if (docForm === IndexType.QA && extractFileExtension(key) === 'xlsx') {
+    if (docForm === IndexType.QA && extractFileExtensionUtil(key) === 'xlsx') {
       processedDocuments = this.splitExcelForQA(rawDocuments);
     } else {
       processedDocuments = await this.splitDocumentsBySegmentationRules(rawDocuments, segmentation);
     }
 
     // Step 4: Generate QA pairs if document form is QA
-    if (docForm === IndexType.QA && extractFileExtension(key) !== 'xlsx') {
+    if (docForm === IndexType.QA && extractFileExtensionUtil(key) !== 'xlsx') {
       processedDocuments = await this.generateQaDocumentsForBatch(processedDocuments, docLanguage);
     }
 
