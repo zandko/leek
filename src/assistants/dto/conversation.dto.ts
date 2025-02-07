@@ -26,13 +26,13 @@ export class ConversationDto {
   @Type(() => ConversationMessageDto)
   messages: ConversationMessageDto[];
 
-  @ApiProperty({
-    description:
-      'Indicates whether the response should be streamed incrementally, improving responsiveness for real-time applications.',
-    example: true,
-  })
-  @IsOptional()
-  @IsBoolean()
+  // @ApiProperty({
+  //   description:
+  //     'Indicates whether the response should be streamed incrementally, improving responsiveness for real-time applications.',
+  //   example: true,
+  // })
+  // @IsOptional()
+  // @IsBoolean()
   streaming?: boolean;
 
   @ApiPropertyOptional({

@@ -83,7 +83,6 @@ export class AssistantController {
   }
 
   @Post(':id/conversation')
-  @Sse()
   @Version('1')
   @HttpCode(HttpStatus.OK)
   @ApiOperation({
@@ -97,6 +96,24 @@ Supports dynamic and interactive chat functionality tailored to the assistant's 
     description: 'Assistant ID',
   })
   async conversation(@UUIDParam('id') assistantId: string, @Body() conversationDto: ConversationDto) {
-    return this.assistantService.conversation(assistantId, conversationDto);
+    return this.assistantService.conversation(assistantId, { ...conversationDto, streaming: false });
+  }
+
+  @Post(':id/streaming/conversation')
+  @Sse()
+  @Version('1')
+  @HttpCode(HttpStatus.OK)
+  @ApiOperation({
+    summary: 'Assistant Chat Interaction',
+    description: `
+Facilitates conversation with the assistant by processing user messages and generating context-aware responses. 
+Supports dynamic and interactive chat functionality tailored to the assistant's configuration.`,
+  })
+  @ApiParam({
+    name: 'id',
+    description: 'Assistant ID',
+  })
+  async streamingConversation(@UUIDParam('id') assistantId: string, @Body() conversationDto: ConversationDto) {
+    return this.assistantService.conversation(assistantId, { ...conversationDto, streaming: true });
   }
 }

@@ -61,7 +61,7 @@ export class COSLoader extends BaseDocumentLoader {
     try {
       await this.downloadFile(filePath);
       const loader = createDocumentLoader(extractFileExtensionUtil(this.Key), filePath);
-      return loader.load();
+      return await loader.load();
     } catch (error) {
       throw new Error(`Failed to process file ${this.Key} from COS bucket ${this.Bucket}: ${error.message}`);
     } finally {

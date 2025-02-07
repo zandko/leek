@@ -3,6 +3,7 @@ import { Injectable, Logger } from '@nestjs/common';
 import { StringOutputParser } from '@langchain/core/output_parsers';
 
 import { ConfigureAdapter } from '@leek/configure';
+import { LanguageModels, LLMProvider } from '@leek/constants';
 import { initModels } from '@leek/langchain';
 
 import { GeneratorQaPrompt } from '../shared/prompts/generator.qa.prompt';
@@ -31,7 +32,9 @@ export class LLMGeneratorService {
    */
   async generateQaDocumentFromTextAndLanguage(text: string, docLanguage: string): Promise<QAPair[]> {
     try {
-      const chain = GeneratorQaPrompt.pipe(initModels({ maxTokens: 2000 })).pipe(new StringOutputParser());
+      const chain = GeneratorQaPrompt.pipe(
+        initModels({ maxTokens: 2000, model: LanguageModels[LLMProvider.OpenAI].GPT_4_O }),
+      ).pipe(new StringOutputParser());
 
       const rawQaOutput = await chain.invoke({ text, language: docLanguage });
 

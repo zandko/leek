@@ -3,6 +3,7 @@ import { BadRequestException, Injectable, InternalServerErrorException, Logger }
 import { Transactional } from '@leek/common';
 import { PaginatedResult } from '@leek/interfaces';
 import { encodeAsync, initEmbeddings } from '@leek/langchain';
+import { TransactionManager } from '@leek/prisma';
 import { uuid, createHash } from '@leek/utils';
 
 import { JiebaKeywordService } from './jieba.keyword.service';
@@ -25,6 +26,7 @@ export class DocumentSegmentService {
     private readonly documentSegmentRepository: DocumentSegmentRepository,
     private readonly embeddingRepository: EmbeddingRepository,
     private readonly jiebaKeywordService: JiebaKeywordService,
+    private readonly transactionManager: TransactionManager,
   ) {}
 
   /**
